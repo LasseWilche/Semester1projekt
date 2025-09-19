@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 95221972}
   - component: {fileID: 95221971}
   - component: {fileID: 95221970}
+  - component: {fileID: 95221976}
   - component: {fileID: 95221975}
   m_Layer: 0
   m_Name: Player
@@ -312,6 +313,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &95221976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95221969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d780ff3c8d5cdf946b6cee5deb5c00e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Meleescript
+  anim: {fileID: 95221975}
+  meleeSpeed: 1
+  damage: 1
 --- !u!1 &426797795
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,14 +352,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426797795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.037529092, y: 0.0075058187, z: 0}
+  m_LocalRotation: {x: -0.0024293454, y: 0.0010062677, z: 0.3826821, w: 0.92387635}
+  m_LocalPosition: {x: 0.037529085, y: 0.0075058187, z: 2.7938873e-10}
   m_LocalScale: {x: 0.7505817, y: 0.7505817, z: 0.75058174}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 845573023}
   m_Father: {fileID: 95221974}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: -0.301, y: 0, z: 45}
 --- !u!1 &749209779
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +618,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
