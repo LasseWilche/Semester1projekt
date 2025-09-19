@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;       //Allows script to manage UI related stuff in Unity
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
+    public Slider slider;   //Accesses a slider component for the health bar
  
     public void SetMaxHealth(int health)
     {
