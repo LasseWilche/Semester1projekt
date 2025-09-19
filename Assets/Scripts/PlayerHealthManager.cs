@@ -3,32 +3,34 @@ using UnityEngine.InputSystem;
 
 public class PlayerHealthManager : MonoBehaviour
 {
-    public int playerMaxHealth;
-    int playerCurrenthHealth;
+    public int playerMaxHealth;         //Max health var for player
+    public int playerCurrenthHealth;    //Current health var for platyer
 
-    public HealthBar healthBar;
+    public HealthBar healthBar;         //Need to have access to HelathBar UI object
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerCurrenthHealth = playerMaxHealth;
-        healthBar.SetMaxHealth(playerMaxHealth);
+        playerCurrenthHealth = playerMaxHealth;     //Sets current health to max on start
+        healthBar.SetMaxHealth(playerMaxHealth);    //Sets UI healthbar to max on start
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        //Test tool to see if healthbar works
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             TakeDamage(1);
         }
     }
 
+    //Damage function that damages the player and manipulates health var and healthbar UI
     void TakeDamage(int damage)
     {
-        playerCurrenthHealth -= damage;
-        healthBar.SetHealth(playerCurrenthHealth);
-        
+        playerCurrenthHealth -= damage;             //Modifies current health var
+
+        healthBar.SetHealth(playerCurrenthHealth);  //Modifies health bar UI
     }
 }
