@@ -18,7 +18,7 @@ public class P1MoveScript : MonoBehaviour
     {
         Vector3 move = Vector3.zero;
 
-        if (Keyboard.current.wKey.isPressed)
+        if (Keyboard.current.wKey.isPressed) // Assigns a key press to any one cardinal direction of movement
             move += Vector3.up;
         if (Keyboard.current.aKey.isPressed)
             move += Vector3.left;
@@ -27,10 +27,10 @@ public class P1MoveScript : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
             move += Vector3.right;
 
-        if (move != Vector3.zero)
+        if (move != Vector3.zero) // Checks if the vector does not have a value of (0, 0, 0), so if a button is pressed.
         {
-            move.Normalize();
-            transform.position += move * moveSpeed * Time.deltaTime;
+            move.Normalize(); // Normalize makes the character move at the same speed both horizontally, vertically and diagonally
+            transform.position += move * moveSpeed * Time.deltaTime; // the math
         }
     }
 }

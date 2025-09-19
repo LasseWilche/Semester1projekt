@@ -32,5 +32,6 @@ public class P2MoveScript : MonoBehaviour
             move.Normalize();
             transform.position += move * moveSpeed * Time.deltaTime;
         }
+        // Comments can be found in P1MoveScript
     }
 }
