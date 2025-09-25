@@ -14,4 +14,13 @@ public class ScenePlayer : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(currentScene.buildIndex+1);
     }
+
+    public void FirstLevel()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
 }

@@ -21,7 +21,8 @@ public class MainMenuScript : MonoBehaviour
         OptionsPanel.SetActive(false);
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Application.Quit();
     }
 }
