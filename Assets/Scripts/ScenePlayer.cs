@@ -12,15 +12,19 @@ public class ScenePlayer : MonoBehaviour
     
     public void NextScene()
     {
-        SceneManager.LoadSceneAsync(currentScene.buildIndex+1);
+        SceneManager.LoadScene(currentScene.buildIndex+1);
     }
 
     public void FirstLevel()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
     public void MainMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 }
