@@ -1,69 +1,61 @@
+using System;
 using Unity.Hierarchy;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Rigidbody myrigidbody;
-    public float startSpeed;
-    public float movementSpeed;
-    Transform finalTarget;
-    Transform player1;
-    Transform player2;
-    Vector3 angle;
-    GameObject p1;
-    GameObject p2;
+    public Rigidbody myrigidbody;   //makes a public rigidbody variable
+    public float startSpeed;        //makes a public startSpeed variable
+    public float movementSpeed;     //makes a public movementSpeed variable
+    Transform finalTarget;          //makes a transform variable which gives us our target
+    Vector3 angle;                  //makes a vector3 variable to describe an angle
+    GameObject p1;                  //gets player1 as a variable
+    GameObject p2;                  //gest player2 as a variable
+    public double distance = 0;
+    public bool still = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        movementSpeed = startSpeed;
-        myrigidbody = GetComponent<Rigidbody>();
-        myrigidbody.useGravity = false;
-        p1 = GameObject.Find("Player1");
-        if (p1 != null)
-        {
-            player1 = p1.transform;
-            Debug.Log("Player1 found!");
-        }
-        p2 = GameObject.Find("Player2");
-        if (p2 != null)
-        {
-            player2 = p2.transform;
-            Debug.Log("Player2 found!");
-        }
+        movementSpeed = startSpeed;                 //sets our current movement speed as our start movement speed
+        myrigidbody = GetComponent<Rigidbody>();    //sets our rigidbody
+        myrigidbody.useGravity = false;             //turns off gravity for our rigidbody
+        p1 = GameObject.Find("Player1");            //sets player1 as p1
+        p2 = GameObject.Find("Player2");            //setes player2 as p2
+        myrigidbody.freezeRotation = true;
     }
 
     void Update()
     {
-
-        if (Vector2.Distance(player1.position, myrigidbody.transform.position) <
-            Vector2.Distance(player2.position, myrigidbody.transform.position))
+        if (!still)
         {
-            finalTarget = player1;
+            if (Vector2.Distance(p1.transform.position, myrigidbody.transform.position) <
+                Vector2.Distance(p2.transform.position, myrigidbody.transform.position)) //finds the closest player
+            {
+                finalTarget = p1.transform;     //if p1 is closest, our target is p1
+            }
+            else
+            {
+                finalTarget = p2.transform;     //if p2 is closest, our target is p2
+            }
+            
+            angle = finalTarget.position - myrigidbody.transform.position;  //finds the difference between our position, and the target position
+            angle.Normalize();      //normalizes the angle (makes it into a 1vector)
+            
+            if (Vector2.Distance(finalTarget.position, myrigidbody.transform.position) > distance)
+            {
+                myrigidbody.transform.position += (angle * movementSpeed*Time.deltaTime); //moves enemy towards the target
+            }
+            else
+            {
+                still = true;
+            }
         }
-        else
-        {
-            finalTarget = player2;
-        }
-        angle = finalTarget.position - myrigidbody.transform.position;
-        angle.Normalize();
-        transform.position += movementSpeed * angle * Time.deltaTime;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == p1 || p2){
-            // Damage chosen player if enemy unable to attack
-            //if enemy attacked, disable attack for x amount of time
-            //temporarily we just add force in opposite direction
-            Debug.Log("Owch!");
-            movementSpeed = 0;
-        }
+        //If enemy comes into contact with a player, they know
+        if (collision.gameObject.CompareTag("Player")) Debug.Log("They hit the second tower");
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject == p1 || p2) {
-            Debug.Log("No Longer Colliding");
-            movementSpeed = startSpeed;
-        }
-    }
+
 }
