@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleEnemy
   enemyAI: {fileID: 0}
+  hpManager: {fileID: 0}
   cooldown: 3
 --- !u!1001 &1659655626
 PrefabInstance:
