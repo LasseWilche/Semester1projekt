@@ -27,7 +27,7 @@ public class PlayerHealthManager : MonoBehaviour
     }
 
     //Damage function that damages the player and manipulates health var and healthbar UI
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         playerCurrenthHealth -= damage;             //Modifies current health var
 
