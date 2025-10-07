@@ -1,19 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class BulletSpawnScript : MonoBehaviour
 {
-    public float life = 3; // Assigns a life value to the bullet
+    public float life = 3;  
 
     void Awake()
     {
-        Destroy(gameObject, life); // Defines a way to destroy it i think maybe
+        Destroy(gameObject, life);
+    }
+
+    void Start()
+    {
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject); // Ting der virker
+        if (collision.gameObject.tag == "Player")
+            Destroy(gameObject);
+        else if (collision.gameObject.tag == "OOBwalls")
+            Destroy(gameObject);
     }
 }
 
