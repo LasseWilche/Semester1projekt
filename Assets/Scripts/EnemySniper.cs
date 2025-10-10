@@ -7,4 +7,8 @@ public class EnemySniper : EnemyBaseRanged
         cooldown = 5;
         movementSpeed = 2.5f;
     }
+    private void Awake()
+    {
+        shootingAngle = this.transform.Find("ShootingAngle").gameObject;
+    }
 }
