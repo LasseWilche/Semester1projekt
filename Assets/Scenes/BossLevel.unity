@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 744323875}
   - component: {fileID: 744323874}
   - component: {fileID: 744323877}
+  - component: {fileID: 744323879}
+  - component: {fileID: 744323878}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -325,6 +327,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
   maxHealth: 50
+--- !u!114 &744323878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744323873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e4f8e00131b43e091866713e57c97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossBulletScript
+--- !u!114 &744323879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744323873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d88b19a1abef046a3093f66ef62641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossScript
+  bossMaxHealth: 0
+  bossCurrentHealth: 0
+  bullet: {fileID: 9085224203691333158, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
 --- !u!1 &984240383
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +466,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   slider: {fileID: 0}
+--- !u!1001 &1060508068
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.792
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242070049314248758, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085224203691333158, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+      propertyPath: m_Name
+      value: BossBullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
 --- !u!1 &1084139024
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,3 +897,4 @@ SceneRoots:
   - {fileID: 744323875}
   - {fileID: 1237851344}
   - {fileID: 631462882}
+  - {fileID: 1060508068}
