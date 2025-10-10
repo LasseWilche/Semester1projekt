@@ -1,10 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
-using static GameManager;
-using static UnityEngine.GraphicsBuffer;
-public class FollowType : Enemy
+public class FollowType : EnemyBaseClass
 {
-    public Rigidbody myrb;
     readonly int damage;
 
     public FollowType() : base()
@@ -14,7 +11,7 @@ public class FollowType : Enemy
 
     public override void AttackScript(Collision collision)
     {
-        Debug.Log("OW");
+        Debug.Log("I dealt "+ damage + " damage");
         //collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(damage);
     }
     public override void MovementScript()
@@ -30,6 +27,6 @@ public class FollowType : Enemy
         }
         angle = target.position - myrb.transform.position;  //finds the difference between our position, and the target position
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
-        myrb.transform.position += (movementSpeed * Time.deltaTime * angle);
+        myrb.transform.position += (movementSpeed * Time.deltaTime *angle);
     }
 }
