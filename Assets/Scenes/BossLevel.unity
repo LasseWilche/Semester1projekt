@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 744323877}
   - component: {fileID: 744323879}
   - component: {fileID: 744323878}
+  - component: {fileID: 744323880}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -353,7 +354,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossScript
   bossMaxHealth: 0
   bossCurrentHealth: 0
-  bullet: {fileID: 9085224203691333158, guid: 3928452895aa64c74ad232a69847ab68, type: 3}
+--- !u!114 &744323880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744323873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291f1b5f095b983478c11c1d0524ebfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &984240383
 GameObject:
   m_ObjectHideFlags: 0

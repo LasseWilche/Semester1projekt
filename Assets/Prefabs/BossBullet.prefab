@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6656211441178790913}
   - component: {fileID: 5896062089774424479}
   - component: {fileID: 7931578737207078169}
+  - component: {fileID: 3467441028825539720}
   m_Layer: 0
   m_Name: BossBullet
   m_TagString: Untagged
@@ -155,3 +156,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3467441028825539720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085224203691333158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54baa771636df3747b10eaae646de89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossBullet

@@ -7,7 +7,7 @@ public class BossScript : MonoBehaviour
     public int bossCurrentHealth;
 
     //BOSS ATTACK VARIABLES
-     //Makes sure bullet gets destroyed after time
+    //Makes sure bullet gets destroyed after time
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,17 +21,5 @@ public class BossScript : MonoBehaviour
     void Update()
     {
 
-    }
-
-    void CircleAttack()
-    {
-        while (bossCurrentHealth > 0)
-        {
-            for (int i = 0; i < 13; i++)
-            {
-                
-            }
-            Instantiate(bullet, Vector3(0, 0, 0), Quaternion.identity);
-        }
     }
 }
