@@ -35,6 +35,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override void AttackScript(Collision collision)
     {
+        animator.Play("Shooting");
         cooldown = 2;
         if (bullets % 2 == 0) //if even number of bullets, every bullet has a spread
         {
@@ -62,12 +63,12 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override void MovementScript()
     {
-
+        base.MovementScript();
         angle = target.position - myrb.transform.position;  //finds the difference between our position, and the target position
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
         if ((Vector2.Distance(target.position, myrb.transform.position) < rangeOffset + range) &&   //If enemy is within range+offset
             Vector2.Distance(target.position, myrb.transform.position) > range)                     //And is further than range from target
-            AttackScript(null);                                         //Then enemy attacks
+            if (cooldown <= 0) AttackScript(null);                                         //Then enemy attacks
         if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
         {
             myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
@@ -87,6 +88,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Vector3 angle;                                  //makes a angle for movement
     public float cooldown;
     public Rigidbody myrb;
+    public Animator animator;
 
     public EnemyBaseClass()
     {
@@ -97,9 +99,9 @@ public abstract class EnemyBaseClass : MonoBehaviour
         life = 3;
         target = null;
         angle = new Vector3(0, 0, 0);
-        cooldown = 0;
+        cooldown = 3;
         myrb = null;
-    }
+}
     void Start()
     {
         p1 = GameObject.Find("Player1");
@@ -108,8 +110,9 @@ public abstract class EnemyBaseClass : MonoBehaviour
         myrb.useGravity = false;
         myrb.freezeRotation= true;
         Debug.Log("Constructed");
+        animator = GetComponent<Animator>();
     }
-    private void Update()
+    public void Update()
     {
         if (cooldown <= 0)
         {
@@ -128,14 +131,15 @@ public abstract class EnemyBaseClass : MonoBehaviour
     }
     public virtual void MovementScript()
     {
-        Debug.Log("On The Move");
+        animator.Play("Moving");
     }
     public abstract void AttackScript(Collision collision);
 
-    //Damage function under EnemyHealthManager
-    /*public void Death()
+    /*public virtual void Death()
     {
-        GameObject.Find("Crystal").GetComponent<>("Crystal Script").CurrentCharge();
+        insert death animation here
+        insert reward for player here
+        destroy(this.gameObject);
     }*/
-    
+
 }

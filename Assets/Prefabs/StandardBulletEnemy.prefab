@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 973515930265791412}
   - component: {fileID: 6847546820206661234}
   - component: {fileID: 9390865715705802}
+  - component: {fileID: 7605991021561486396}
   m_Layer: 0
   m_Name: StandardBulletEnemy
   m_TagString: Enemy
@@ -115,7 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 164300358336075236, guid: 975ca40c224b04b4c8b14c750cc743ab, type: 3}
+  m_Sprite: {fileID: -7777118415639431814, guid: 30a500e9cf20c0b4ca362c49b62be75a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,6 +147,7 @@ MonoBehaviour:
   angle: {x: 0, y: 0, z: 0}
   cooldown: 0
   myrb: {fileID: 0}
+  animator: {fileID: 0}
   damage: 1
   bullets: 1
   range: 8
@@ -213,3 +215,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &7605991021561486396
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686045922777418728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b414a0203de4d304a8c601484286c68d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
