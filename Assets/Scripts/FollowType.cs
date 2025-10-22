@@ -20,4 +20,12 @@ public class FollowType : EnemyBaseClass
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
         myrb.transform.position += (movementSpeed * Time.deltaTime *angle);
     }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AttackScript(collision);
+            cooldown = 3;
+        }
+    }
 }

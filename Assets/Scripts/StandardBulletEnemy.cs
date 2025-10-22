@@ -7,8 +7,4 @@ public class StandardBulletEnemy : EnemyBaseRanged
         movementSpeed = 4;
         cooldown = 4;
     }
-    private void Awake()
-    {
-        shootingAngle = this.transform.Find("ShootingAngle").gameObject;
-    }
 }

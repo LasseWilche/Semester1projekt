@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 using System.Transactions;
 using UnityEngine;
 using System;
-public class EnemyBaseRanged : EnemyBaseClass
+public abstract class EnemyBaseRanged : EnemyBaseClass
 {
     public int damage;
     public int bullets;
@@ -19,14 +19,17 @@ public class EnemyBaseRanged : EnemyBaseClass
         this.range = range;
         this.spread = spread;
     }
+    private void Awake()
+    {
+        shootingAngle = this.transform.Find("ShootingAngle").gameObject; 
+        //we have manually inserted a empty game object to help us aim
+    }
     public virtual void Shoot(int damage, double spread)
     {
-        Debug.Log("pew im shooting at a degree of " + spread);
         //sets the shooting angle towards target angle
         shootingAngle.transform.right = angle;
         //changes the shooting angle by spread amount
         shootingAngle.transform.rotation *= Quaternion.Euler(0,0,(float)spread);
-        Debug.Log(shootingAngle.transform.rotation);
         //Instantiates bullet at this position, with the rotation of the shooting angle
         Instantiate(bulletType, this.transform.position, shootingAngle.transform.rotation);
     }
@@ -75,7 +78,7 @@ public class EnemyBaseRanged : EnemyBaseClass
         }
     }
 }
-public class EnemyBaseClass : MonoBehaviour
+public abstract class EnemyBaseClass : MonoBehaviour
 {
     public GameObject p1, p2;                  //gets player1 as a variable      //gets player2 as a variable      
     public float movementSpeed;         //makes a public startSpeed variable //makes a public movementSpeed variable
@@ -127,18 +130,8 @@ public class EnemyBaseClass : MonoBehaviour
     {
         Debug.Log("On The Move");
     }
-    public virtual void AttackScript(Collision collision)
-    {
-        
-    }
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            AttackScript(collision);
-            cooldown = 3;
-        }
-    }
+    public abstract void AttackScript(Collision collision);
+
     //Damage function under EnemyHealthManager
     /*public void Death()
     {

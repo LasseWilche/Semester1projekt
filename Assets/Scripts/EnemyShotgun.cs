@@ -7,8 +7,4 @@ public class EnemyShotgun : EnemyBaseRanged
         cooldown = 5;
         movementSpeed = 3;
     }
-    private void Awake()
-    {
-        shootingAngle = this.transform.Find("ShootingAngle").gameObject;
-    }
 }
