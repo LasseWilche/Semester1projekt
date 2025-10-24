@@ -14,7 +14,6 @@ public class BossScript : MonoBehaviour
     void Start()
     {
         bossCurrentHealth = bossMaxHealth;
-
     }
 
     // Update is called once per frame
