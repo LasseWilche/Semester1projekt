@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 public abstract class EnemyBaseRanged : EnemyBaseClass
 {
-    public int damage;
     public int bullets;
     public double range;
     public double spread;
@@ -12,9 +11,8 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
 
-    public EnemyBaseRanged(int damage = 1, int bullets = 1, double range = 10.0, double spread = 5.0)
+    public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
-        this.damage = damage;
         this.bullets = bullets;
         this.range = range;
         this.spread = spread;
@@ -24,7 +22,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         shootingAngle = this.transform.Find("ShootingAngle").gameObject; 
         //we have manually inserted a empty game object to help us aim
     }
-    public virtual void Shoot(int damage, double spread)
+    public virtual void Shoot(double spread)
     {
         //sets the shooting angle towards target angle
         shootingAngle.transform.right = angle;
@@ -42,8 +40,8 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
             double bulletAngle = spread / bullets * 2;
             for (int i = 1; i < bullets + 1; i++) //every second bullet increments angle
             {
-                if (i % 2 == 0) Shoot(damage, -Math.Ceiling((double)i / 2) * bulletAngle); //every second is negative
-                if (i % 2 == 1) Shoot(damage, Math.Ceiling((double)i / 2) * bulletAngle);  //every second is positive
+                if (i % 2 == 0) Shoot(-Math.Ceiling((double)i / 2) * bulletAngle); //every second is negative
+                if (i % 2 == 1) Shoot(Math.Ceiling((double)i / 2) * bulletAngle);  //every second is positive
             }
         }
         else //if odd number of bullets, first bullet goes at no spread
@@ -51,11 +49,11 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
             double bulletAngle = spread / (bullets - 1) * 2;
             for (int i = 0; i < bullets; i++) //every second bullet increments angle
             {
-                if (i == 0) Shoot(damage, 0);
+                if (i == 0) Shoot(0);
                 else
                 {
-                    if (i % 2 == 0) Shoot(damage, -Math.Ceiling((double)i / 2) * bulletAngle); //every second is negative
-                    if (i % 2 == 1) Shoot(damage, Math.Ceiling((double)i / 2) * bulletAngle);  //every second is positive
+                    if (i % 2 == 0) Shoot(-Math.Ceiling((double)i / 2) * bulletAngle); //every second is negative
+                    if (i % 2 == 1) Shoot(Math.Ceiling((double)i / 2) * bulletAngle);  //every second is positive
                 }
             }
 

@@ -2,11 +2,8 @@ using UnityEditor.Rendering;
 using UnityEngine;
 public class FollowType : EnemyBaseClass
 {
-    readonly int damage;
-
     public FollowType() : base()
     {
-        damage = 1;
     }
 
     public override void AttackScript(Collision collision)
