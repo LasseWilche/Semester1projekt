@@ -15,10 +15,12 @@ public class P2Controller : MonoBehaviour
 
     private float dashCounter;
     private float dashCoolCounter;
+    private Quaternion rotationvl;
 
     void Start()
     {
         activeMoveSpeed = moveSpeed;
+        rotationvl = transform.rotation;
     }
 
     void Update()
@@ -54,5 +56,57 @@ public class P2Controller : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
+
+
+        /* Guys, please don't make fun of the genius code below */
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (Input.GetKey(KeyCode.D))
+                rb2d.MoveRotation(45);
+
+            else if (Input.GetKey(KeyCode.A))
+                rb2d.MoveRotation(135);
+
+            else
+                rb2d.MoveRotation(90);
+        }
+
+        else if (Input.GetKey(KeyCode.A))
+        {
+            if (Input.GetKey(KeyCode.S))
+                rb2d.MoveRotation(-135);
+
+            else if (Input.GetKey(KeyCode.W))
+                rb2d.MoveRotation(135);
+
+            else
+                rb2d.MoveRotation(180);
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (Input.GetKey(KeyCode.A))
+                rb2d.MoveRotation(-135);
+
+            else if (Input.GetKey(KeyCode.D))
+                rb2d.MoveRotation(-45);
+
+            else
+                rb2d.MoveRotation(-90);
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+        {
+            if (Input.GetKey(KeyCode.W))
+                rb2d.MoveRotation(45);
+
+            else if (Input.GetKey(KeyCode.S))
+                rb2d.MoveRotation(-45);
+
+            else
+                rb2d.MoveRotation(0);
+        }
+
     }
 }
