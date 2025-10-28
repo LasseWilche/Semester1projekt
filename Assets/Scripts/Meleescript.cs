@@ -77,7 +77,6 @@ using UnityEngine.InputSystem;
 public class Meleescript : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-
     [SerializeField] private float meleeSpeed = 0.35f;
     [SerializeField] private float damage = 1f;
 
@@ -142,6 +141,5 @@ public class Meleescript : MonoBehaviour
             timeUntilMelee = meleeSpeed;
         }
     }
-
 }
 
