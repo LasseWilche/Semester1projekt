@@ -7,10 +7,4 @@ public class EnemySniper : EnemyBaseRanged
         cooldown = 5;
         movementSpeed = 2.5f;
     }
-    /*public override void Update()
-    {
-        base.Update();
-        animator.Play("Moving");
-        //else animator.Play("Idle");
-    }*/
 }

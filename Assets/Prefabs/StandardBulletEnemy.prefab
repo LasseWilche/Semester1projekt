@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.53, y: -0.83596, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 707168947498027262}
@@ -148,7 +148,6 @@ MonoBehaviour:
   cooldown: 0
   myrb: {fileID: 0}
   animator: {fileID: 0}
-  damage: 1
   bullets: 1
   range: 8
   spread: 5
@@ -212,7 +211,7 @@ Animator:
   m_GameObject: {fileID: 4686045922777418728}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b414a0203de4d304a8c601484286c68d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f4ee8376a34c3d4e831fc5dcbb5e679, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

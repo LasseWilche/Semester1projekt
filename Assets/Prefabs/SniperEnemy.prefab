@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.53, y: -0.02, z: 0}
-  m_LocalScale: {x: 2.76304, y: 2.76304, z: 2.76304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3956805975732253311}
@@ -117,7 +117,6 @@ MonoBehaviour:
   cooldown: 0
   myrb: {fileID: 0}
   animator: {fileID: 0}
-  damage: 1
   bullets: 1
   range: 10
   spread: 0
