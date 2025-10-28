@@ -82,16 +82,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3929944570785454977}
-    m_Position: {x: -510, y: 660, z: 0}
+    m_Position: {x: -500, y: 680, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9078626339775358855}
-    m_Position: {x: -490, y: 380, z: 0}
+    m_Position: {x: -490, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3858882920022626603}
-    m_Position: {x: -820, y: 490, z: 0}
+    m_Position: {x: -790, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8451703094923880070}
-    m_Position: {x: -140, y: 520, z: 0}
+    m_Position: {x: -210, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -64047497458415945}
     m_Position: {x: -490, y: 530, z: 0}
@@ -392,7 +392,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackUp
+  m_Name: AttackTop
   m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
