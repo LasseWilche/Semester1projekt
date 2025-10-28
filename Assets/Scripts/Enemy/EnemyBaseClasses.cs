@@ -81,7 +81,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
 {
     public GameObject p1, p2;                  //gets player1 as a variable      //gets player2 as a variable      
     public float movementSpeed;         //makes a public startSpeed variable //makes a public movementSpeed variable
-    public int life;                                //makes a public int with life
     public Transform target;                               //gest a target transform as a variable
     public Vector3 angle;                                  //makes a angle for movement
     public float cooldown;
@@ -94,7 +93,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
         p1 = null;            //sets player1 as p1
         p2 = null;            //sets player2 as p2
         movementSpeed = 5;
-        life = 3;
         target = null;
         angle = new Vector3(0, 0, 0);
         cooldown = 3;
