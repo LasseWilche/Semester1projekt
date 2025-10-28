@@ -972,7 +972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 1257700819}
   meleeSpeed: 1
-  damage: 1
+  damage: 10
 --- !u!95 &1257700819
 Animator:
   serializedVersion: 7
@@ -1069,7 +1069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1752746624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: cfc66d6a46924dc42b6d95cc4880c490, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1259,6 +1259,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 57088461762678540, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1822789708912111259, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.78787
@@ -1314,6 +1318,10 @@ PrefabInstance:
     - target: {fileID: 3985148918430652570, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893489085539771161, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

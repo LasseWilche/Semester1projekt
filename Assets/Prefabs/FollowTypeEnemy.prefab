@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1321834700796384186}
   - component: {fileID: 6407161925651851054}
-  - component: {fileID: 8549291435676823342}
   - component: {fileID: 2502899697496668773}
   - component: {fileID: 8800726148931271080}
   - component: {fileID: 2469142151741299211}
@@ -96,24 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8549291435676823342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125355921842499511}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4654a1d1400e6e549a07d2c1a3765089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  myrigidbody: {fileID: 0}
-  startSpeed: 10
-  movementSpeed: 4
-  distance: 5
-  distanceOffset: 0.2
-  still: 0
 --- !u!114 &2502899697496668773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +110,6 @@ MonoBehaviour:
   p1: {fileID: 0}
   p2: {fileID: 0}
   movementSpeed: 5
-  life: 3
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 0
@@ -150,12 +130,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.04
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.40321386
+  m_Center: {x: 0.009353161, y: -0.060795605, z: 0}
 --- !u!54 &2469142151741299211
 Rigidbody:
   m_ObjectHideFlags: 0

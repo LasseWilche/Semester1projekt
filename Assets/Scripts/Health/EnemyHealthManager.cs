@@ -18,4 +18,9 @@ public class EnemyHealthManager : HealthManager
     {
         Destroy(gameObject);
     }
+    public void Die()
+    {
+        OnCollisionEnter2D(null);
+        Destroy(gameObject);
+    }
 }
