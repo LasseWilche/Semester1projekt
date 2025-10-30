@@ -84,7 +84,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Transform target;                               //gest a target transform as a variable
     public Vector3 angle;                                  //makes a angle for movement
     public float cooldown;
-    public Rigidbody myrb;
+    public Rigidbody2D myrb;
     public Animator animator;
 
     public EnemyBaseClass()
@@ -102,8 +102,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     {
         p1 = GameObject.Find("Player1");
         p2 = GameObject.Find("Player2");
-        myrb = GetComponent<Rigidbody>();
-        myrb.useGravity = false;
+        myrb = GetComponent<Rigidbody2D>();
         myrb.freezeRotation= true;
         Debug.Log("Constructed");
         animator = GetComponent<Animator>();

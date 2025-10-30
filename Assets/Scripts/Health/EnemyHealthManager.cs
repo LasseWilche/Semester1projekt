@@ -16,11 +16,8 @@ public class EnemyHealthManager : HealthManager
     }
     public override void Dying()
     {
+        Debug.Log("Monster die");
         Destroy(gameObject);
     }
-    public void Die()
-    {
-        OnCollisionEnter2D(null);
-        Destroy(gameObject);
-    }
+   
 }
