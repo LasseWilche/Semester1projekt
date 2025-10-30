@@ -2,38 +2,32 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EnemyHealthManager : MonoBehaviour
+public abstract class HealthManager : MonoBehaviour
 {
     public int maxHealth;                           //Max health var that can be set in inspector
-    private int currentHealth;                      //Current health var that's set to maxHealth at start
-    private SpriteRenderer spriteRenderer;          //Var that pulls the sprite renderer from enemy to manipulate it
-    private Color ogcolor;                          //Var that pulls original color to manipulate it later
+    public int currentHealth;                      //Current health var that's set to maxHealth at start
+    public SpriteRenderer spriteRenderer;          //Var that pulls the sprite renderer from enemy to manipulate it
+    public Color ogcolor;                          //Var that pulls original color to manipulate it later
+    public GameManager gameManager;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         ogcolor = spriteRenderer.color;
+        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+        animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Keyboard.current.spaceKey.isPressed)    //Temp solution to test if damage function works and if gameobject dies when helath hits 0 and is destrotyed
-        {
-            TakeDamage(1);
-        }
-    }
-
     //Function that manages health when gameobject takes dmg
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;                    //Applies dmg value to currentHealth
         StartCoroutine(flashWhite());               //Refrences flashWhite function
         if (currentHealth <= 0)                     //Refrences Die function if currentHealth reaches 0 or less
         {
-            Die();
+            DieAnimation();
         }
     }
 
@@ -46,8 +40,9 @@ public class EnemyHealthManager : MonoBehaviour
     }
 
     //Function that manages what to do when gameobject dies
-    void Die()
-    {
-        Destroy(gameObject);                        //Destorys gameobject when function runs
-    }
+    public abstract void DieAnimation();
+    //Method that is called after animation has played
+    public abstract void Dying();
+    //Method that detects when we get hit
+    public abstract void OnCollisionEnter2D(Collision2D collision);
 }

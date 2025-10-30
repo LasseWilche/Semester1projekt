@@ -22,12 +22,4 @@ public abstract class BasicBulletScript : MonoBehaviour
     {
         myrb.linearVelocity = transform.right * bulletSpeed;
     }
-    public virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) 
-            Debug.Log("Player hit"); //if a player is hit we destroy the bullet
-        else if (collision.gameObject.CompareTag("Enemy")|| 
-            collision.gameObject.CompareTag("Bullet")) return; //if trigger collides with enemy or bullet, we dont destroy
-        Destroy(this.gameObject); //we hit something that is not an enemy or a bullet, so we get destroyed
-    }
 }

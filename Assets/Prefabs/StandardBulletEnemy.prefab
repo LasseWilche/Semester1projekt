@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 2949646409189783443}
   - component: {fileID: 46370626797648289}
   - component: {fileID: 3713582239824338258}
-  - component: {fileID: 973515930265791412}
   - component: {fileID: 6847546820206661234}
   - component: {fileID: 9390865715705802}
   - component: {fileID: 7605991021561486396}
+  - component: {fileID: 9195422366622130650}
   m_Layer: 0
   m_Name: StandardBulletEnemy
   m_TagString: Enemy
@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.53, y: -0.83596, z: 0}
-  m_LocalScale: {x: 14.739, y: 14.739, z: 14.739}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 707168947498027262}
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: -524072053
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7777118415639431814, guid: 30a500e9cf20c0b4ca362c49b62be75a, type: 3}
+  m_Sprite: {fileID: 1891881127062733100, guid: a54ae68fad73dbc45a1a39f0d413e3d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,25 +148,11 @@ MonoBehaviour:
   cooldown: 0
   myrb: {fileID: 0}
   animator: {fileID: 0}
-  damage: 1
   bullets: 1
   range: 8
   spread: 5
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 3026685662827662399}
---- !u!114 &973515930265791412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4686045922777418728}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c46f00881d0f240828997884f70a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 5
 --- !u!135 &6847546820206661234
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -225,7 +211,7 @@ Animator:
   m_GameObject: {fileID: 4686045922777418728}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b414a0203de4d304a8c601484286c68d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f4ee8376a34c3d4e831fc5dcbb5e679, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -237,3 +223,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9195422366622130650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686045922777418728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5a5a5ffe6905944a1f06f2291d97d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
+  maxHealth: 0
+  currentHealth: 0
+  spriteRenderer: {fileID: 0}
+  ogcolor: {r: 0, g: 0, b: 0, a: 0}
+  gameManager: {fileID: 0}
+  animator: {fileID: 0}
