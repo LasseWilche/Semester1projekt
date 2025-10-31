@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 1379204269}
   - component: {fileID: 1379204266}
   - component: {fileID: 1379204270}
-  - component: {fileID: 1379204271}
+  - component: {fileID: 1379204274}
   - component: {fileID: 1379204273}
   m_Layer: 0
   m_Name: Player2
@@ -982,24 +982,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1379204271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379204265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b49c191e0a0a574cb5106c21e5ed9f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::P2Controller
-  moveSpeed: 5
-  rb2d: {fileID: 1379204270}
-  dashSpeed: 20
-  dashDuration: 0.25
-  dashCooldown: 1
-  rotationSpeed: 0
 --- !u!114 &1379204273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,6 +997,24 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1729279205}
   bulletPrefab: {fileID: 143301364909106385, guid: b7dd22792e469b14d80d04c158be6301, type: 3}
   bulletSpeed: 11
+--- !u!114 &1379204274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379204265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dcbef36266f1947a4dcd913ca25169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::P2ControllerWithRotationThatDidntWorkLol
+  moveSpeed: 5
+  rb2d: {fileID: 1379204270}
+  dashSpeed: 20
+  dashDuration: 0.25
+  dashCooldown: 1
+  rotationSpeed: 500
 --- !u!1 &1568982356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ Transform:
   m_GameObject: {fileID: 1729279204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

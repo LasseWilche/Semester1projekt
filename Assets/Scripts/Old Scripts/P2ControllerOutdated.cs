@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
+public class P2Controller : MonoBehaviour
 {
     /*  GENERAL  */
     public float moveSpeed;
@@ -33,12 +33,65 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     void Update()
     {
         MovementMethod();
+        FuckingRotationMethod();
+    }
+
+    private void FuckingRotationMethod()
+    {
+        /* Guys, please don't make fun of the genius code below */
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (Input.GetKey(KeyCode.D))
+                rb2d.MoveRotation(45);
+
+            else if (Input.GetKey(KeyCode.A))
+                rb2d.MoveRotation(135);
+
+            else
+                rb2d.MoveRotation(90);
+        }
+
+        else if (Input.GetKey(KeyCode.A))
+        {
+            if (Input.GetKey(KeyCode.S))
+                rb2d.MoveRotation(-135);
+
+            else if (Input.GetKey(KeyCode.W))
+                rb2d.MoveRotation(135);
+
+            else
+                rb2d.MoveRotation(180);
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (Input.GetKey(KeyCode.A))
+                rb2d.MoveRotation(-135);
+
+            else if (Input.GetKey(KeyCode.D))
+                rb2d.MoveRotation(-45);
+
+            else
+                rb2d.MoveRotation(-90);
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+        {
+            if (Input.GetKey(KeyCode.W))
+                rb2d.MoveRotation(45);
+
+            else if (Input.GetKey(KeyCode.S))
+                rb2d.MoveRotation(-45);
+
+            else
+                rb2d.MoveRotation(0);
+        }
     }
 
     private void FixedUpdate()
     {
-        RotationMethod();
-        DoTheThingBruh();
+
     }
 
     private void MovementMethod()
@@ -77,27 +130,6 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
 
     }
     
-    private void DoTheThingBruh()
-    {
-        smoothedMovementInput = Vector2.SmoothDamp(
-            smoothedMovementInput,
-            movementInput,
-            ref movementInputSmoothVelocity,
-            0.1f
-            );
-    }
 
-    private void RotationMethod()
-    {
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, smoothedMovementInput);
-        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        rb2d.MoveRotation(rotation);
-    }
-
-    private void OnMove(InputValue InputValue)
-    {
-        movementInput = InputValue.Get<Vector2>();
-    }
 
 }
