@@ -9,7 +9,6 @@ public class Meleescript : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float meleeSpeed = 0.35f;
-    [SerializeField] private float damage = 1f;
 
     private float timeUntilMelee;
     private Vector2 lastMoveDir = Vector2.down;
