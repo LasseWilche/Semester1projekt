@@ -74,6 +74,15 @@ public class Meleescript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        var enemy = other.GetComponentInParent<EnemyHealthManager>();
+        if (enemy != null) enemy.TakeDamage(1);
+    }
+
+
+
+    /*
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         // Tjek om det, du rammer, er et monster
         if (other.CompareTag("Enemy"))
         {
@@ -85,7 +94,7 @@ public class Meleescript : MonoBehaviour
             }
         }
     }
-
+    */
 
 }
 

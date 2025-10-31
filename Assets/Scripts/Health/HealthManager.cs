@@ -44,5 +44,5 @@ public abstract class HealthManager : MonoBehaviour
     //Method that is called after animation has played
     public abstract void Dying();
     //Method that detects when we get hit
-    public abstract void OnCollisionEnter2D(Collision2D collision);
+    
 }
