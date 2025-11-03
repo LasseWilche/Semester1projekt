@@ -16,10 +16,6 @@ public abstract class PlayerHealthManager : HealthManager
         base.TakeDamage(damage);
         healthBar.SetHealth(currentHealth);  //Modifies health bar UI
     }
-    public override void OnCollisionEnter2D(Collision2D collision)
-    { //Take damage if hit by enemy or enemy bullet
-        if (collision.gameObject.CompareTag("EnemyBullet") || collision.gameObject.CompareTag("Enemy")) TakeDamage(1);
-    }
     public override void DieAnimation()
     {
         animator.Play("Dying");
@@ -31,4 +27,10 @@ public abstract class PlayerHealthManager : HealthManager
         else gameManager.GameOver();
         Destroy(gameObject);
     }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerMelee") || other.CompareTag("PlayerBullet"))
+            TakeDamage(1);
+    }
+
 }

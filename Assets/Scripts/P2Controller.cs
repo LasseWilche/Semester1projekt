@@ -1,29 +1,45 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class P2Controller : MonoBehaviour
+public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
 {
+    /*  GENERAL  */
     public float moveSpeed;
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
 
+    /*  STUFF FOR DASHING  */
     private float activeMoveSpeed;
     public float dashSpeed;
-
     public float dashDuration = 0.15f;
     public float dashCooldown = 1f;
-
     private float dashCounter;
     private float dashCoolCounter;
-    private Quaternion rotationvl;
+
+    /*  STUFF FOR ROTATION  */
+    [SerializeField]
+    private float rotationSpeed;
+
+
 
     void Start()
     {
         activeMoveSpeed = moveSpeed;
-        rotationvl = transform.rotation;
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
+    {
+        MovementMethod();
+    }
+
+    private void FixedUpdate()
+    {
+        RotationMethod();
+    }
+
+    private void MovementMethod()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
@@ -57,56 +73,17 @@ public class P2Controller : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
 
-
-        /* Guys, please don't make fun of the genius code below */
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Input.GetKey(KeyCode.D))
-                rb2d.MoveRotation(45);
-
-            else if (Input.GetKey(KeyCode.A))
-                rb2d.MoveRotation(135);
-
-            else
-                rb2d.MoveRotation(90);
-        }
-
-        else if (Input.GetKey(KeyCode.A))
-        {
-            if (Input.GetKey(KeyCode.S))
-                rb2d.MoveRotation(-135);
-
-            else if (Input.GetKey(KeyCode.W))
-                rb2d.MoveRotation(135);
-
-            else
-                rb2d.MoveRotation(180);
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            if (Input.GetKey(KeyCode.A))
-                rb2d.MoveRotation(-135);
-
-            else if (Input.GetKey(KeyCode.D))
-                rb2d.MoveRotation(-45);
-
-            else
-                rb2d.MoveRotation(-90);
-        }
-
-        else if (Input.GetKey(KeyCode.D))
-        {
-            if (Input.GetKey(KeyCode.W))
-                rb2d.MoveRotation(45);
-
-            else if (Input.GetKey(KeyCode.S))
-                rb2d.MoveRotation(-45);
-
-            else
-                rb2d.MoveRotation(0);
-        }
-
     }
+
+    private void RotationMethod()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(transform.forward, moveInput);
+            Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            rb2d.MoveRotation(rotation);
+        }
+    }
+
 }

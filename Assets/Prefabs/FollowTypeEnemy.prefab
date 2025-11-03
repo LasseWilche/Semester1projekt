@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
   maxHealth: 1
-  currentHealth: 0
+  currentHealth: 1
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
@@ -167,10 +167,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

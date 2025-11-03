@@ -4,20 +4,31 @@ using UnityEngine.InputSystem;
 
 public class EnemyHealthManager : HealthManager
 {
-    public override void OnCollisionEnter2D(Collision2D collision)
-    { //Take damage if hit by player melee or bullet
-        if (collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("PlayerMelee")) TakeDamage(1);
+    private void Awake()
+    {
+        currentHealth = Mathf.Max(1, maxHealth);
     }
+
+    // KALDES fra Meleescript.OnTriggerEnter2D: enemy.TakeDamage(1);
+    public override void TakeDamage(int amount)
+    {
+        if (currentHealth <= 0) return;
+
+        currentHealth -= Mathf.Max(0, amount);
+        if (currentHealth <= 0)
+        {
+            DieAnimation();
+        }
+    }
+
     public override void DieAnimation()
     {
-        animator.Play("Dying");
-        //insert charge function
-        Invoke("Dying", 3f); //insert length of dying animation
+        if (animator) animator.Play("Dying");
+        Invoke(nameof(Dying), 3f); // længden af din døds-animation
     }
+
     public override void Dying()
     {
-        Debug.Log("Monster die");
         Destroy(gameObject);
     }
-   
 }

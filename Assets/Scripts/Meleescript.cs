@@ -9,7 +9,6 @@ public class Meleescript : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float meleeSpeed = 0.35f;
-    [SerializeField] private float damage = 1f;
 
     private float timeUntilMelee;
     private Vector2 lastMoveDir = Vector2.down;
@@ -75,18 +74,8 @@ public class Meleescript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Tjek om det, du rammer, er et monster
-        if (other.CompareTag("Enemy"))
-        {
-            // Hent enemy-scriptet og kald dens "Die" metode
-            EnemyHealthManager enemy = other.GetComponent<EnemyHealthManager>();
-            if (enemy != null)
-            {
-                enemy.Dying();
-            }
-        }
+        var enemy = other.GetComponentInParent<EnemyHealthManager>();
+        if (enemy != null) enemy.TakeDamage(1);
     }
-
-
 }
 
