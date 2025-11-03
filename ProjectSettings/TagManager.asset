@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Wall
   - PlayerMelee
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
