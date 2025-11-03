@@ -24,7 +24,7 @@ public class EnemyHealthManager : HealthManager
     public override void DieAnimation()
     {
         if (animator) animator.Play("Dying");
-        Invoke(nameof(Dying), 3f); // længden af din døds-animation
+        Invoke(nameof(Dying), 0.5f); // længden af din døds-animation
     }
 
     public override void Dying()
