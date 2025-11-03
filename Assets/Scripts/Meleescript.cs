@@ -77,24 +77,5 @@ public class Meleescript : MonoBehaviour
         var enemy = other.GetComponentInParent<EnemyHealthManager>();
         if (enemy != null) enemy.TakeDamage(1);
     }
-
-
-
-    /*
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Tjek om det, du rammer, er et monster
-        if (other.CompareTag("Enemy"))
-        {
-            // Hent enemy-scriptet og kald dens "Die" metode
-            EnemyHealthManager enemy = other.GetComponent<EnemyHealthManager>();
-            if (enemy != null)
-            {
-                enemy.Dying();
-            }
-        }
-    }
-    */
-
 }
 

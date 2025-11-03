@@ -2590,6 +2590,47 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &783039872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7224323927297663697, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+  m_PrefabInstance: {fileID: 1955807170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &783039877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d780ff3c8d5cdf946b6cee5deb5c00e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Meleescript
+  anim: {fileID: 0}
+  meleeSpeed: 0.35
+--- !u!95 &783039878
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039872}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &841389792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
@@ -3070,6 +3111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851231556896383526, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1822789708912111259, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.003
@@ -3110,6 +3155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2690251992570819957, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3985148918430652570, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -3117,7 +3166,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7224323927297663697, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 783039878}
+    - targetCorrespondingSourceObject: {fileID: 7224323927297663697, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 783039877}
   m_SourcePrefab: {fileID: 100100000, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
 --- !u!1001 &2079856805
 PrefabInstance:
