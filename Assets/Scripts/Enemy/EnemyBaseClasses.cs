@@ -103,8 +103,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
         p1 = GameObject.Find("Player1");
         p2 = GameObject.Find("Player2");
         myrb = GetComponent<Rigidbody2D>();
-        myrb.freezeRotation= true;
-        Debug.Log("Constructed");
+        myrb.freezeRotation = true;
+        Physics2D.gravity = Vector2.zero;
         animator = GetComponent<Animator>();
     }
     public void Update()
