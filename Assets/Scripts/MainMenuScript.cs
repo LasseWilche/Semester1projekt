@@ -3,7 +3,8 @@ using UnityEngine;
 public class MainMenuScript : MonoBehaviour
 {
     public ScenePlayer ScenePlayer;
-    public GameObject OptionsPanel;
+    public GameObject CreditsCanvas;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,14 +12,14 @@ public class MainMenuScript : MonoBehaviour
         ScenePlayer = GetComponent<ScenePlayer>();
     }
 
-    public void OptionsPressed()
+    public void CreditsPressed()
     {
-        OptionsPanel.SetActive(true);
+        CreditsCanvas.SetActive(true);
     }
 
-    public void OptionsClose()
+    public void CreditsClose()
     {
-        OptionsPanel.SetActive(false);
+        CreditsCanvas.SetActive(false);
     }
 
     public void QuitGame()
