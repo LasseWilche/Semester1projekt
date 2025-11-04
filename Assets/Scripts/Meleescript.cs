@@ -49,8 +49,8 @@ public class Meleescript : MonoBehaviour
         // Opdater facing (låst til cardinal retning)
         if (Keyboard.current != null)
         {
-            int x = (Keyboard.current.aKey.isPressed ? -1 : 0) + (Keyboard.current.dKey.isPressed ? 1 : 0);
-            int y = (Keyboard.current.sKey.isPressed ? -1 : 0) + (Keyboard.current.wKey.isPressed ? 1 : 0);
+            int x = (Input.GetKey(KeyCode.LeftArrow) ? -1 : 0) + (Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
+            int y = (Input.GetKey(KeyCode.DownArrow) ? -1 : 0) + (Input.GetKey(KeyCode.UpArrow) ? 1 : 0);
             Vector2 raw = new Vector2(x, y);
             if (raw != Vector2.zero) lastMoveDir = (Mathf.Abs(raw.x) >= Mathf.Abs(raw.y))
                                                 ? new Vector2(Mathf.Sign(raw.x), 0f)

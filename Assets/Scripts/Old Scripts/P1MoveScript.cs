@@ -18,13 +18,13 @@ public class P1MoveScript : MonoBehaviour
     {
         Vector3 move = Vector3.zero;
 
-        if (Keyboard.current.wKey.isPressed) // Assigns a key press to any one cardinal direction of movement
+        if (Input.GetKey(KeyCode.UpArrow)) // Assigns a key press to any one cardinal direction of movement
             move += Vector3.up;
-        if (Keyboard.current.aKey.isPressed)
+        if (Input.GetKey(KeyCode.LeftArrow))
             move += Vector3.left;
-        if (Keyboard.current.sKey.isPressed)
+        if (Input.GetKey(KeyCode.DownArrow))
             move += Vector3.down;
-        if (Keyboard.current.dKey.isPressed)
+        if (Input.GetKey(KeyCode.RightArrow))
             move += Vector3.right;
 
         if (move != Vector3.zero) // Checks if the vector does not have a value of (0, 0, 0), so if a button is pressed.
