@@ -48,7 +48,7 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
 
         rb2d.linearVelocity = moveInput * activeMoveSpeed;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
