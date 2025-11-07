@@ -8,8 +8,7 @@ public class FollowType : EnemyBaseClass
 
     public override void AttackScript(Collision collision)
     {
-        animator.Play("Melee");
-        
+        animator.Play("Melee");   
     }
     public override void MovementScript()
     {
@@ -20,7 +19,7 @@ public class FollowType : EnemyBaseClass
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")||alive)
         {
             AttackScript(collision);
             cooldown = 3;
