@@ -25,6 +25,11 @@ public class BulletSpawnScript : MonoBehaviour
         else if (collision.gameObject.tag == "OOBwalls")
             Destroy(gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var enemy = other.GetComponentInParent<EnemyHealthManager>();
+        if (enemy != null) enemy.TakeDamage(1);
+    }
 }
 
 // Ærligt talt idk hvordan det her shit virker

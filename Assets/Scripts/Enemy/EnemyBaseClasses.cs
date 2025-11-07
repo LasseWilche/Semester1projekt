@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Transactions;
 using UnityEngine;
 using System;
+using System.Collections;
 public abstract class EnemyBaseRanged : EnemyBaseClass
 {
     public int bullets;
@@ -86,6 +87,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public float cooldown;
     public Rigidbody2D myrb;
     public Animator animator;
+    public bool alive;
 
     public EnemyBaseClass()
     {
@@ -95,8 +97,9 @@ public abstract class EnemyBaseClass : MonoBehaviour
         movementSpeed = 5;
         target = null;
         angle = new Vector3(0, 0, 0);
-        cooldown = 3;
+        cooldown = 2;
         myrb = null;
+        alive = true;
 }
     void Start()
     {
@@ -106,10 +109,11 @@ public abstract class EnemyBaseClass : MonoBehaviour
         myrb.freezeRotation = true;
         Physics2D.gravity = Vector2.zero;
         animator = GetComponent<Animator>();
+        animator.Play("Spawn");
     }
     public void Update()
     {
-        if (cooldown <= 0)
+        if (cooldown <= 0 && alive)
         {
             if (Vector2.Distance(p1.transform.position, myrb.transform.position) <
                 Vector2.Distance(p2.transform.position, myrb.transform.position)) //finds the closest player
@@ -130,11 +134,13 @@ public abstract class EnemyBaseClass : MonoBehaviour
     }
     public abstract void AttackScript(Collision collision);
 
-    /*public virtual void Death()
+    public IEnumerator Death()
     {
-        insert death animation here
-        insert reward for player here
-        destroy(this.gameObject);
-    }*/
+        alive = false;
+        animator.Play("Death");
+        yield return new WaitForSeconds(2);
+        //insert reward here
+        Destroy(gameObject);
+    }
 
 }

@@ -4,20 +4,16 @@ using UnityEngine.InputSystem;
 
 public class EnemyHealthManager : HealthManager
 {
-    private void Awake()
-    {
-        currentHealth = Mathf.Max(1, maxHealth);
-    }
-
     // KALDES fra Meleescript.OnTriggerEnter2D: enemy.TakeDamage(1);
+    // Kalder fra bullet script
     public override void TakeDamage(int amount)
     {
-        if (currentHealth <= 0) return;
+        if (currentHealth > 0) return;
 
         currentHealth -= Mathf.Max(0, amount);
         if (currentHealth <= 0)
         {
-            DieAnimation();
+            StartCoroutine(GetComponentInChildren<EnemyBaseClass>().Death());
         }
     }
 
