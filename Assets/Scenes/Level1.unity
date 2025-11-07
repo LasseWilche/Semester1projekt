@@ -2631,6 +2631,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< Updated upstream
 --- !u!114 &841389792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
@@ -2664,6 +2665,65 @@ Transform:
   m_PrefabInstance: {fileID: 2079856805}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1234672453
+=======
+--- !u!1 &1566434837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6306585228892648690, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+  m_PrefabInstance: {fileID: 5458289050629140117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1566434838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566434837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f70782e6a17b7a42a566782b5e29606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSpawner
+  spawners:
+  - {fileID: 841389792}
+  - {fileID: 473202773}
+  - {fileID: 141184836}
+  - {fileID: 862733500}
+  maxEnemies: 6
+  spawnInterval: 10
+  enemiesPerWave: 3
+  levelWeight: 20
+  enemyTypes:
+  - prefab: {fileID: 8125355921842499511, guid: 7271f75f61b371f4ebec564c3fe4f001, type: 3}
+    weight: 1
+    chanceWeight: 1
+  - prefab: {fileID: 4686045922777418728, guid: be32da6c9f8fcd44193c2666a878b95f, type: 3}
+    weight: 2
+    chanceWeight: 1
+  - prefab: {fileID: 3208052346228933100, guid: aa168503881a0ce4f8fb3ee80f99f4cc, type: 3}
+    weight: 3
+    chanceWeight: 1
+  - prefab: {fileID: 934043536933208654, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
+    weight: 3
+    chanceWeight: 1
+--- !u!114 &1566434841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566434837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928e1bede297a894299b4f1c27dbc391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShieldManager
+  shieldChance: 1
+  shieldGuarantee: 3
+  player1ShieldPrefab: {fileID: 7978687596043229535, guid: 48bded19be982ab438a09e3e156162f3, type: 3}
+  player2ShieldPrefab: {fileID: 8830271468033487556, guid: b3718f2aa3af2804a919c09b78bfb55d, type: 3}
+  shieldSprite: {fileID: 0}
+--- !u!1001 &1743680670
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3393,6 +3453,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: spawners.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -3466,6 +3530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< Updated upstream
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3400520417166857208, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       insertIndex: -1
@@ -3483,6 +3548,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6306585228892648690, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1284740296}
+=======
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6306585228892648690, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1566434838}
+    - targetCorrespondingSourceObject: {fileID: 6306585228892648690, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1566434841}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
