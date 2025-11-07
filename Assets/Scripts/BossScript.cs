@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BossScript : HealthManager
+public class BossScript : MonoBehaviour
 {
     //Boss Patrol variables
     public float moveSpeed;
@@ -11,14 +11,17 @@ public class BossScript : HealthManager
     int currentPointIndex;
     bool once;
 
+    //Boss Animation variables
+    [SerializeField] private Animator bossAnimator;
+
     //BOSS ATTACK VARIABLES
     //Makes sure bullet gets destroyed after time
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override void Start()
+    public void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
@@ -52,13 +55,12 @@ public class BossScript : HealthManager
         once = false;
     }
 
-    public override void DieAnimation()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-
-    }
-
-    public override void Dying()
-    {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Knockback player
+            
+        }
     }
 }
