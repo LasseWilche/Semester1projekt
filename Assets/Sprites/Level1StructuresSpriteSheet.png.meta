@@ -1052,6 +1052,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Level1StructuresSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 808
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073f0d4b18232334495c449c174be6e1
+      internalID: 792840868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1StructuresSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 824
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621aa0490b1bf4b468e269eae646b628
+      internalID: -1456090066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1StructuresSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 824
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe1f1e9d124cff4d9eddae6b56e2979
+      internalID: 1478225853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1StructuresSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 808
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b548e54f41d60f43b07fc5b8a38f4a9
+      internalID: -426065675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1104,6 +1192,10 @@ TextureImporter:
       Level1StructuresSpriteSheet_39: -768308092
       Level1StructuresSpriteSheet_4: 6001300100380131595
       Level1StructuresSpriteSheet_40: 1400971878
+      Level1StructuresSpriteSheet_41: 792840868
+      Level1StructuresSpriteSheet_42: -1456090066
+      Level1StructuresSpriteSheet_43: 1478225853
+      Level1StructuresSpriteSheet_44: -426065675
       Level1StructuresSpriteSheet_5: 9011296489731048553
       Level1StructuresSpriteSheet_6: -3275044978173647037
       Level1StructuresSpriteSheet_7: -2882856316915058611
