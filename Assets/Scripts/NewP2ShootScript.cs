@@ -13,12 +13,21 @@ public class NewP2ShootScript : MonoBehaviour
     public float bulletSpeed = 10; // Public value for the speed of the bullets
     private int direction;
 
+    public AudioClip ShotSound1;
+    public AudioClip ShotSound2;
+    public AudioSource audioSource;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletSpawnPoint.up * bulletSpeed;
+            
+            AudioClip randomClip = (Random.Range(0,2) == 0) ? ShotSound1 : ShotSound2;
+
+            audioSource.PlayOneShot(randomClip);
+
         }
     }
 

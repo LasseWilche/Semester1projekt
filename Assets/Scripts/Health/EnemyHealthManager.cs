@@ -8,7 +8,11 @@ public class EnemyHealthManager : HealthManager
     // Kalder fra bullet script
     public override void TakeDamage(int amount)
     {
-        if (currentHealth > 0) return;
+        if (amount <= 0) return;
+        {
+
+        }
+        if (currentHealth <= 0) return;
 
         currentHealth -= Mathf.Max(0, amount);
         if (currentHealth <= 0)
@@ -20,7 +24,7 @@ public class EnemyHealthManager : HealthManager
     public override void DieAnimation()
     {
         if (animator) animator.Play("Dying");
-        Invoke(nameof(Dying), 0.5f); // længden af din døds-animation
+        Invoke(nameof(Dying), 0.5f); // lÃ¦ngden af din dÃ¸ds-animation
     }
 
     public override void Dying()
