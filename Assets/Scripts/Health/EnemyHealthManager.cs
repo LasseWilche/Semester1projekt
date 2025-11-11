@@ -12,6 +12,10 @@ public class EnemyHealthManager : HealthManager
     // KALDES fra Meleescript.OnTriggerEnter2D: enemy.TakeDamage(1);
     public override void TakeDamage(int amount)
     {
+        if (amount <= 0) return;
+        {
+
+        }
         if (currentHealth <= 0) return;
 
         currentHealth -= Mathf.Max(0, amount);
