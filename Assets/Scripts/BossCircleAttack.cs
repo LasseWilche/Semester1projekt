@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class BossCircleAttack : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class BossCircleAttack : MonoBehaviour
 
     private float angleStep;
     private List<GameObject> bulletPool = new List<GameObject>();
+
+    [SerializeField] private Animator bossAnimator;
+    public float animWaitTime = 4f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,7 +38,7 @@ public class BossCircleAttack : MonoBehaviour
         }
     }
 
-    void FireCircleAttack()
+    public void FireCircleAttack()
     {
         for (int i = 0; i < bulletCount; i++)
         {
@@ -67,7 +72,7 @@ public class BossCircleAttack : MonoBehaviour
         }
         return null;
     }
-    
+
     public void TriggerAttack()
     {
         InvokeRepeating("FireCircleAttack", 5f, spawnInterval);
