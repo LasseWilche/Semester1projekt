@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public abstract class PlayerHealthManager : HealthManager
+public class PlayerHealthManager : HealthManager
 {
     public HealthBar healthBar;         //Need to have access to HelathBar UI object
 
@@ -27,10 +27,4 @@ public abstract class PlayerHealthManager : HealthManager
         else gameManager.GameOver();
         Destroy(gameObject);
     }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerMelee") || other.CompareTag("PlayerBullet"))
-            TakeDamage(1);
-    }
-
 }
