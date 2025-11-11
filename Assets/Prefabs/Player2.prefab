@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6985425156901826852}
-  - component: {fileID: 3745580554066342138}
   - component: {fileID: 5005510929860656573}
   - component: {fileID: 5544424904748720012}
   - component: {fileID: 5765387076058965734}
+  - component: {fileID: 7847854470649255126}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -35,19 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3745580554066342138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137956091104259114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d242b24459f0804e9802707ef9ae4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::P2MoveScript
-  moveSpeed: 10
 --- !u!61 &5005510929860656573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,3 +166,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7847854470649255126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956091104259114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dcbef36266f1947a4dcd913ca25169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::P2ControllerWithRotationThatDidntWorkLol
+  moveSpeed: 5
+  rb2d: {fileID: 5544424904748720012}
+  dashSpeed: 20
+  dashDuration: 0.25
+  dashCooldown: 1
+  rotationSpeed: 500

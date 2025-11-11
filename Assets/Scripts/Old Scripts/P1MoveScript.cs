@@ -7,6 +7,7 @@ public class P1MoveScript : MonoBehaviour
 {
     public float moveSpeed = 10f; // Adds a public value of 10 forces to the variable moveSpeed
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

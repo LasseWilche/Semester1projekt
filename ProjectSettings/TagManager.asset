@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - PlayerMelee
   - PlayerBullet
+  - Boss
   layers:
   - Default
   - TransparentFX
