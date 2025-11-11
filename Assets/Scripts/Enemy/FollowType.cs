@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 public class FollowType : EnemyBaseClass
@@ -6,9 +7,11 @@ public class FollowType : EnemyBaseClass
     {
     }
 
-    public override void AttackScript(Collision collision)
+    public override IEnumerator AttackScript(Collision collision)
     {
-        animator.Play("Melee");   
+        animator.Play("Melee");
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
     }
     public override void MovementScript()
     {

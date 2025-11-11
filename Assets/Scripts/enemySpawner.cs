@@ -1,11 +1,14 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
  
 public class enemySpawner : MonoBehaviour
 {
     [Header("Tracking")]
-    public int activeEnemies = 0; 
- 
-//chosen enemy spawned
+    public int activeEnemies = 0;
+    GameObject wallSpawnerTeal = null;
+    GameObject wallSpawnerGreen = null;
+
+    //chosen enemy spawned
     public void SpawnEnemy(GameObject enemyPrefab)
     {
         if (enemyPrefab == null)
@@ -14,6 +17,14 @@ public class enemySpawner : MonoBehaviour
             return;
         }
  
+        //Active wall spawn tile
+        if (wallSpawnerGreen != null)   //if we havent set any spawners, we are not near the wall
+        {
+            //if enemy has the followtype script, we use teal tiles, otherwise we use green
+            if (enemyPrefab.GetComponent<FollowType>() != null) wallSpawnerTeal.SetActive(true);
+            else wallSpawnerGreen.SetActive(true);
+        }
+
         GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
  
         activeEnemies++;
@@ -28,8 +39,22 @@ public class enemySpawner : MonoBehaviour
     {
         activeEnemies = Mathf.Max(0, activeEnemies - 1);
     }
+    private void Start()
+    {
+        //wallspawners get a reference, nonwallspawners dont
+        if (gameObject.CompareTag("WallSpawnerL"))
+        {
+            wallSpawnerTeal = GameObject.Find("Grid-Spawners/TealL"); 
+            wallSpawnerGreen = GameObject.Find("Grid-Spawners/GreenL");
+        }
+        else if (gameObject.CompareTag("WallSpawnerR"))
+        {
+            wallSpawnerTeal = GameObject.Find("Grid-Spawners/TealR");
+            wallSpawnerGreen = GameObject.Find("Grid-Spawners/GreenR");
+        }
+    }
 }
- 
+
 //can be used to setup new spawn if enemy is destroyed
 public class EnemyTracker : MonoBehaviour
 {
