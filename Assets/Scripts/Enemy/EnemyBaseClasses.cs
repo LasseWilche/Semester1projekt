@@ -32,7 +32,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         //Instantiates bullet at this position, with the rotation of the shooting angle
         Instantiate(bulletType, this.transform.position, shootingAngle.transform.rotation);
     }
-    public override IEnumerator AttackScript(Collision collision)
+    public override IEnumerator AttackScript(Collision2D collision)
     {
         animator.Play("Shooting");
         cooldown = 2;
@@ -69,8 +69,10 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
         if ((Vector2.Distance(target.position, myrb.transform.position) < rangeOffset + range) &&   //If enemy is within range+offset
             Vector2.Distance(target.position, myrb.transform.position) > range)                     //And is further than range from target
+        {
             if (cooldown <= 0) StartCoroutine(AttackScript(null));                                         //Then enemy attacks
-        if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
+        }
+        else if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
         {
             myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
         }
@@ -134,7 +136,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     {
         animator.Play("Moving");
     }
-    public abstract IEnumerator AttackScript(Collision collision);
+    public abstract IEnumerator AttackScript(Collision2D collision);
 
     public IEnumerator Death()
     {
