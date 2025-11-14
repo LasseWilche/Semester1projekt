@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5732960575038993476}
   - component: {fileID: 6609887582916127949}
   - component: {fileID: 6969770132444654211}
-  - component: {fileID: 5484173513888295144}
+  - component: {fileID: 2886223514755865560}
   m_Layer: 0
   m_Name: ShotgunEnemy
   m_TagString: Enemy
@@ -117,6 +117,7 @@ MonoBehaviour:
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
+  vulnurable: 0
   bullets: 5
   range: 5
   spread: 15
@@ -189,8 +190,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &5484173513888295144
-BoxCollider2D:
+--- !u!60 &2886223514755865560
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -233,8 +234,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 0.18}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.07}
+      - {x: -0.07, y: 0.01}
+      - {x: -0.07, y: -0.07}
+      - {x: 0.07, y: -0.07}
+      - {x: 0.07, y: 0.01}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8113627332956629649
 GameObject:
   m_ObjectHideFlags: 0
