@@ -11,6 +11,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     static double rangeOffset = 0.25;
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
+    
 
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
@@ -34,6 +35,8 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override IEnumerator AttackScript(Collision2D collision)
     {
+
+
         animator.Play("Shooting");
         cooldown = 2;
         yield return new WaitForSeconds(0.5f);
@@ -94,6 +97,8 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Animator animator;
     public bool alive;
     public bool vulnurable;
+    public AudioClip shootSound1;
+    public AudioClip shootSound2;
 
     public EnemyBaseClass()
     {
@@ -152,7 +157,11 @@ public abstract class EnemyBaseClass : MonoBehaviour
         alive = false;
         animator.Play("Death");
         yield return new WaitForSeconds(2);
-        //insert reward here
+        CrystalCharger charger = GameObject.FindFirstObjectByType<CrystalCharger>();
+        if (charger != null)
+        {
+            charger.currentSoulCharge += 1;
+        }
         Destroy(gameObject);
     }
 

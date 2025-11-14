@@ -13,6 +13,13 @@ public class PlayerHealthManager : HealthManager
     }
     public override void TakeDamage(int damage)
     {
+        if (damage <= 0) return;
+        {
+
+
+        }
+        if (currentHealth <= 0) return;
+
         base.TakeDamage(damage);
         healthBar.SetHealth(currentHealth);  //Modifies health bar UI
     }

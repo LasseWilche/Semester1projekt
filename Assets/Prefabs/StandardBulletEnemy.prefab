@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5a5a5ffe6905944a1f06f2291d97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 3
-  currentHealth: 3
+  maxHealth: 1
+  currentHealth: 0
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
