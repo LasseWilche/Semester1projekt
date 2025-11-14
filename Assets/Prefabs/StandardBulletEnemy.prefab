@@ -147,6 +147,7 @@ MonoBehaviour:
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
+  alive: 1
   bullets: 1
   range: 8
   spread: 5
@@ -263,5 +264,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.875}
+  m_Size: {x: 0.2, y: 0.18}
   m_EdgeRadius: 0
