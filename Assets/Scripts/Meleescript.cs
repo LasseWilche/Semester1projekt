@@ -13,6 +13,13 @@ public class Meleescript : MonoBehaviour
     private float timeUntilMelee;
     private Vector2 lastMoveDir = Vector2.down;
 
+    //Sounds
+    public AudioClip MeleeSound1;
+    public AudioClip MeleeSound2;
+    public AudioClip MeleeSound3;
+    public AudioSource audioSource;
+
+
     // Brug hashes for at undgå stavefejl
     private static readonly int HashAttack = Animator.StringToHash("Attack");
     private static readonly int HashAttackX = Animator.StringToHash("AttackX");
@@ -37,11 +44,13 @@ public class Meleescript : MonoBehaviour
             if (p.nameHash == HashAttackX && p.type == AnimatorControllerParameterType.Float) hasX = true;
             if (p.nameHash == HashAttackY && p.type == AnimatorControllerParameterType.Float) hasY = true;
         }
-        if (!hasAttack || !hasX || !hasY)
+
+        /*if (!hasAttack || !hasX || !hasY)
             Debug.LogError($"[Meleescript] Mangler Animator-parametre: " +
                            $"{(hasAttack ? "" : "Attack(trigger) ")}" +
                            $"{(hasX ? "" : "AttackX(float) ")}" +
                            $"{(hasY ? "" : "AttackY(float) ")}");
+        */
     }
 
     void Update()
@@ -59,7 +68,7 @@ public class Meleescript : MonoBehaviour
 
         if (timeUntilMelee > 0f) { timeUntilMelee -= Time.deltaTime; return; }
 
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
         {
             if (!anim) return;
 
@@ -69,13 +78,25 @@ public class Meleescript : MonoBehaviour
 
             Debug.Log($"[Meleescript] Attack -> dir=({lastMoveDir.x},{lastMoveDir.y}), controller={anim.runtimeAnimatorController?.name}");
             timeUntilMelee = meleeSpeed;
+
+            int i = Random.Range(0, 3);
+            AudioClip randomClip = (i == 0) ? MeleeSound1 : (i == 1) ? MeleeSound2 : MeleeSound3;
+            audioSource.PlayOneShot(randomClip);
         }
     }
 
+    //der er lige pt en issue med at melee hitboxen rammer players
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var enemy = other.GetComponentInParent<EnemyHealthManager>();
-        if (enemy != null) enemy.TakeDamage(1);
+        if (other.CompareTag("Enemy"))
+        {
+            var enemy = other.GetComponent<EnemyHealthManager>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+        }
     }
 }
+
 

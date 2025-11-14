@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - PlayerMelee
   - PlayerBullet
+  - Boss
   - WallSpawnerR
   - WallSpawnerL
   layers:

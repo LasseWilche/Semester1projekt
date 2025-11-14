@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,18 +11,17 @@ public class BossScript : MonoBehaviour
     public float waitTime;
     int currentPointIndex;
     bool once;
+    private Rigidbody2D rb;
 
     //Boss Animation variables
     [SerializeField] private Animator bossAnimator;
 
     //BOSS ATTACK VARIABLES
-    //Makes sure bullet gets destroyed after time
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();   //For knockback
     }
 
     // Update is called once per frame
@@ -55,12 +55,18 @@ public class BossScript : MonoBehaviour
         once = false;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+       void OnTriggerEnter2D(Collider2D collision)   //For knockback
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
         {
-            //Knockback player
-            
+            KnockbackPlayer(collision.transform, 10f);
+
         }
+    }
+
+    public void KnockbackPlayer(Transform playerTransform, float knockbackForce)    //For knockback
+    {
+        Vector2 direction = (transform.position - playerTransform.position).normalized;
+        rb.linearVelocity= direction * knockbackForce;
     }
 }
