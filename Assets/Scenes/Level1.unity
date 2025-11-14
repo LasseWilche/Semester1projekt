@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 292813358}
   m_Layer: 0
   m_Name: Tilemap_Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2911,8 +2911,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1912283616}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &473202773 stripped
@@ -5953,3 +5952,5 @@ SceneRoots:
   - {fileID: 1752746626}
   - {fileID: 1272017760}
   - {fileID: 174858292}
+  - {fileID: 333858375}
+  - {fileID: 1756560995}
