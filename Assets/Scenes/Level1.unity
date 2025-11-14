@@ -4431,6 +4431,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WallSpawnerL
       objectReference: {fileID: 0}
+    - target: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
+      propertyPath: wallSpawnerTeal
+      value: 
+      objectReference: {fileID: 1951290526}
+    - target: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
+      propertyPath: wallSpawnerGreen
+      value: 
+      objectReference: {fileID: 1522638733}
     - target: {fileID: 4937324217856687239, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.22755
@@ -5624,6 +5632,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WallSpawnerR
       objectReference: {fileID: 0}
+    - target: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
+      propertyPath: wallSpawnerTeal
+      value: 
+      objectReference: {fileID: 117703691}
+    - target: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
+      propertyPath: wallSpawnerGreen
+      value: 
+      objectReference: {fileID: 1190568537}
     - target: {fileID: 4937324217856687239, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.7724495

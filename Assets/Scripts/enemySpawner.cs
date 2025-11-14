@@ -5,8 +5,8 @@ public class enemySpawner : MonoBehaviour
 {
     [Header("Tracking")]
     public int activeEnemies = 0;
-    GameObject wallSpawnerTeal = null;
-    GameObject wallSpawnerGreen = null;
+    public GameObject wallSpawnerTeal = null;
+    public GameObject wallSpawnerGreen = null;
 
     //chosen enemy spawned
     public void SpawnEnemy(GameObject enemyPrefab)
@@ -38,20 +38,6 @@ public class enemySpawner : MonoBehaviour
     public void OnEnemyDestroyed()
     {
         activeEnemies = Mathf.Max(0, activeEnemies - 1);
-    }
-    private void Start()
-    {
-        //wallspawners get a reference, nonwallspawners dont
-        if (gameObject.CompareTag("WallSpawnerL"))
-        {
-            wallSpawnerTeal = GameObject.Find("Grid-Spawners/TealL"); 
-            wallSpawnerGreen = GameObject.Find("Grid-Spawners/GreenL");
-        }
-        else if (gameObject.CompareTag("WallSpawnerR"))
-        {
-            wallSpawnerTeal = GameObject.Find("Grid-Spawners/TealR");
-            wallSpawnerGreen = GameObject.Find("Grid-Spawners/GreenR");
-        }
     }
 }
 
