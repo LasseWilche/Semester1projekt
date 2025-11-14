@@ -8,11 +8,9 @@ public class EnemyHealthManager : HealthManager
     // Kalder fra bullet script
     public override void TakeDamage(int amount)
     {
-        if (amount <= 0) return;
-        {
+        if (amount <= 0 || currentHealth <= 0) return;
 
-        }
-        if (currentHealth <= 0) return;
+        if (GetComponentInChildren<EnemyBaseClass>().vulnurable == false) return;
 
         currentHealth -= Mathf.Max(0, amount);
         if (currentHealth <= 0)
@@ -20,7 +18,6 @@ public class EnemyHealthManager : HealthManager
             StartCoroutine(GetComponentInChildren<EnemyBaseClass>().Death());
         }
     }
-
     public override void DieAnimation()
     {
         if (animator) animator.Play("Dying");

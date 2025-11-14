@@ -93,6 +93,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Rigidbody2D myrb;
     public Animator animator;
     public bool alive;
+    public bool vulnurable;
 
     public EnemyBaseClass()
     {
@@ -102,9 +103,10 @@ public abstract class EnemyBaseClass : MonoBehaviour
         movementSpeed = 5;
         target = null;
         angle = new Vector3(0, 0, 0);
-        cooldown = 2;
+        cooldown = 2;       //how long it takes to spawn
         myrb = null;
         alive = true;
+        vulnurable = false; //enemy should not be able to take damage while spawning
 }
     void Start()
     {
@@ -139,12 +141,14 @@ public abstract class EnemyBaseClass : MonoBehaviour
     }
     public virtual void MovementScript()
     {
+        vulnurable = true;      //if enemies move they can also take damage
         animator.Play("Moving");
     }
     public abstract IEnumerator AttackScript(Collision2D collision);
 
     public IEnumerator Death()
     {
+        vulnurable = false;
         alive = false;
         animator.Play("Death");
         yield return new WaitForSeconds(2);
