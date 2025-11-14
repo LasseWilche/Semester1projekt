@@ -1,41 +1,49 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class CrystalCharger : MonoBehaviour, IInteractable
+public class CrystalCharger : MonoBehaviour
 {
     //Crystal Charge Variables
     public int maxSoulCharge;
-    public int currentSoulCharge;
+    public int currentSoulCharge { get; set; }
 
     //Crystal interaction
-    public bool isCharged { get; private set; }
-    public string crystalID { get; private set; }
+    public GameObject teleportCircle1;
+    public GameObject teleportCircle2;
+    public Slider souldCharge;
+    Scene currentScene;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Creates private ID for SoulCrystalCharger
-        crystalID ??= GlobalCrystalHelper.GenerateUniqueID(gameObject);
         currentSoulCharge = 0;
+        teleportCircle2.SetActive(false);
+        teleportCircle1.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Checks if current soul charge is equal or higher to max and sets isCharged bool to true.
+
+    }
+
+    public void CrystalCharged()
+    {
         if (currentSoulCharge >= maxSoulCharge)
         {
-            isCharged = true;
+            teleportCircle1.SetActive(true);
+            teleportCircle2.SetActive(true);
         }
     }
 
-    public bool CanInteract()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        return !isCharged;
-    }
-
-    public void Interact()
-    {
-        if (!CanInteract()) return;
+        if (teleportCircle1.activeSelf && teleportCircle2.activeSelf)
+        {
+            SceneManager.LoadScene(currentScene.buildIndex + 1);
+        }
     }
 }
