@@ -22,7 +22,7 @@ public class FollowType : EnemyBaseClass
         base.MovementScript();
         angle = target.position - myrb.transform.position;  //finds the difference between our position, and the target position
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
-        myrb.transform.position += (movementSpeed * Time.deltaTime * angle);
+        myrb.linearVelocity = movementSpeed * angle;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

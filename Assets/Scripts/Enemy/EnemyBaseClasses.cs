@@ -74,11 +74,12 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         }
         else if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
         {
-            myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
+            myrb.linearVelocity = movementSpeed * angle;
+            //myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
         }
         else if (Vector2.Distance(target.position, myrb.transform.position) <= range) //moves towards range if too close to player
         {
-            myrb.transform.position -= (movementSpeed * Time.deltaTime * angle);
+            myrb.linearVelocity = movementSpeed * (-angle);
         }
     }
 }
@@ -130,7 +131,11 @@ public abstract class EnemyBaseClass : MonoBehaviour
             }
             MovementScript();
         }
-        else cooldown -= Time.deltaTime;
+        else
+        {
+            cooldown -= Time.deltaTime;
+            myrb.linearVelocity = Vector2.zero;
+        }
     }
     public virtual void MovementScript()
     {
