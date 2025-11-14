@@ -116,6 +116,7 @@ MonoBehaviour:
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
+  vulnurable: 0
 --- !u!95 &197575851584315130
 Animator:
   serializedVersion: 7

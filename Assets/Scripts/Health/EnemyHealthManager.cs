@@ -10,6 +10,7 @@ public class EnemyHealthManager : HealthManager
     {
         if (amount <= 0 || currentHealth <= 0) return;
 
+
         if (GetComponentInChildren<EnemyBaseClass>().vulnurable == false) return;
 
         currentHealth -= Mathf.Max(0, amount);
