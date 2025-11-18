@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 5005510929860656573}
   - component: {fileID: 5544424904748720012}
   - component: {fileID: 5765387076058965734}
-  - component: {fileID: 7847854470649255126}
+  - component: {fileID: 7261198629908267853}
+  - component: {fileID: 5117839468810098139}
+  - component: {fileID: 6975140742678953203}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -32,7 +34,8 @@ Transform:
   m_LocalPosition: {x: -7.8, y: -2.02, z: 0}
   m_LocalScale: {x: 5.508857, y: 5.508857, z: 5.508857}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5983197264694797440}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5005510929860656573
@@ -106,7 +109,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &5765387076058965734
 SpriteRenderer:
@@ -166,7 +169,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7847854470649255126
+--- !u!114 &7261198629908267853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,3 +187,77 @@ MonoBehaviour:
   dashDuration: 0.25
   dashCooldown: 1
   rotationSpeed: 500
+--- !u!114 &5117839468810098139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956091104259114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f990bd80204e12845a5468e51bb6d220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewP2ShootScript
+  bulletSpawnPoint: {fileID: 5983197264694797440}
+  bulletPrefab: {fileID: 143301364909106385, guid: b7dd22792e469b14d80d04c158be6301, type: 3}
+  bulletSpeed: 5
+  heat: 0
+  ShotSound1: {fileID: 8300000, guid: a566e9dd1ec0fc942b558bee34655686, type: 3}
+  ShotSound2: {fileID: 8300000, guid: bc89231f470a05f47b2592153ae0df20, type: 3}
+  OverheatShotSound1: {fileID: 0}
+  OverheatShotSound2: {fileID: 0}
+  VeryOverheatShotSound1: {fileID: 0}
+  VeryOverheatShotSound2: {fileID: 0}
+  OverheatingSound: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!114 &6975140742678953203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956091104259114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d7c0afc406aeb4291b9a3093538144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
+  maxHealth: 2
+  currentHealth: 2
+  spriteRenderer: {fileID: 0}
+  ogcolor: {r: 0, g: 0, b: 0, a: 0}
+  gameManager: {fileID: 0}
+  animator: {fileID: 0}
+  healthBar: {fileID: 0}
+--- !u!1 &5184817564784386482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5983197264694797440}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5983197264694797440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184817564784386482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6985425156901826852}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
