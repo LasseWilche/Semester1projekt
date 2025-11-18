@@ -205,11 +205,11 @@ MonoBehaviour:
   heat: 0
   ShotSound1: {fileID: 8300000, guid: a566e9dd1ec0fc942b558bee34655686, type: 3}
   ShotSound2: {fileID: 8300000, guid: bc89231f470a05f47b2592153ae0df20, type: 3}
-  OverheatShotSound1: {fileID: 0}
-  OverheatShotSound2: {fileID: 0}
-  VeryOverheatShotSound1: {fileID: 0}
-  VeryOverheatShotSound2: {fileID: 0}
-  OverheatingSound: {fileID: 0}
+  OverheatShotSound1: {fileID: 8300000, guid: 7273e88b3a71e5f46880544a30b4e176, type: 3}
+  OverheatShotSound2: {fileID: 8300000, guid: 99a358b2bca086f439934051ce47e9e4, type: 3}
+  VeryOverheatShotSound1: {fileID: 8300000, guid: 3dd8542860f1c164e83c20abd0457ba2, type: 3}
+  VeryOverheatShotSound2: {fileID: 8300000, guid: 3b322dbcc54d9ff4bbf6cb40062e744e, type: 3}
+  OverheatingSound: {fileID: 8300000, guid: 3f5e85469757eb541a5ef04401a7a0cb, type: 3}
   audioSource: {fileID: 0}
 --- !u!114 &6975140742678953203
 MonoBehaviour:

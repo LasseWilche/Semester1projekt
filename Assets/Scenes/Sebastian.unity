@@ -604,6 +604,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 5117839468810098139, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
+      propertyPath: OverheatingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f5e85469757eb541a5ef04401a7a0cb, type: 3}
+    - target: {fileID: 5117839468810098139, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
+      propertyPath: OverheatShotSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 7273e88b3a71e5f46880544a30b4e176, type: 3}
+    - target: {fileID: 5117839468810098139, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
+      propertyPath: OverheatShotSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 99a358b2bca086f439934051ce47e9e4, type: 3}
+    - target: {fileID: 5117839468810098139, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
+      propertyPath: VeryOverheatShotSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dd8542860f1c164e83c20abd0457ba2, type: 3}
+    - target: {fileID: 5117839468810098139, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
+      propertyPath: VeryOverheatShotSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b322dbcc54d9ff4bbf6cb40062e744e, type: 3}
     - target: {fileID: 6985425156901826852, guid: ebcbcb29e386d304fb8e295391ae5ffb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5024781
