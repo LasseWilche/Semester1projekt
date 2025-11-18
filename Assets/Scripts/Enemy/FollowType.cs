@@ -7,13 +7,13 @@ public class FollowType : EnemyBaseClass
     {
     }
 
-    public override IEnumerator AttackScript(Collision2D collision)
+    public override IEnumerator AttackScript()
     {
         animator.Play("Melee");
         yield return new WaitForSeconds(0.5f);
-        if (collision.gameObject.GetComponent<PlayerHealthManager>() != null)
+        if (target.gameObject.GetComponent<PlayerHealthManager>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
+            target.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
         }
         else Debug.Log("Player has no health manager");
     }
@@ -28,8 +28,7 @@ public class FollowType : EnemyBaseClass
     {
         if (collision.gameObject.CompareTag("Player") && alive)
         {
-            Debug.Log("touching");
-            StartCoroutine(AttackScript(collision));
+            StartCoroutine(AttackScript());
             cooldown = 3;
         }
     }
