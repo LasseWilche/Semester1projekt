@@ -124,10 +124,9 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Rigidbody2D myrb;
     public Animator animator;
     public bool alive;
-    public bool vulnurable;
     public AudioClip shootSound1;
     public AudioClip shootSound2;
-    bool vulnurable;
+    public bool vulnurable;
 
     public EnemyBaseClass()
     {
