@@ -1,178 +1,159 @@
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-
-[System.Serializable]
-public class EnemyType
-{
-    [Header("Enemy Settings")]
-    public GameObject prefab;
-
-    [Tooltip("How much of the level weight this enemy consumes.")]
-    public int weight = 1;
-
-    [Tooltip("Higher = more likely to spawn. Example: Follow = 3, Sniper = 1.")]
-    public float chanceWeight = 1f;
-}
+using UnityEngine;
 
 public class LevelSpawner : MonoBehaviour
 {
-    [Header("Spawner Settings")]
-    public enemySpawner[] spawners;     // Your corner spawners
-    public int maxEnemies = 20;         // Max enemies alive at once
-    public float spawnInterval = 10f;   // Time between waves
-    public int enemiesPerWave = 3;      // How many spawn per wave
+    [Header("Spawners")]
+    public enemySpawner[] spawners;
+
+    private enemySpawner lastSpawner = null;
+
+    [Header("Enemy Types & Weights")]
+    public GameObject[] enemyPrefabs;
+    public int[] enemyWeights;
+
+    [Header("Chance Weights (lower = rarer, higher = more common)")]
+    public float[] enemyChanceModifiers;
 
     [Header("Level Settings")]
-    public int levelWeight = 20;        // Total "budget" for this level
-    public EnemyType[] enemyTypes;      // Enemy prefabs with weight + chanceWeight
+    public int levelWeight = 20; // enemy cost budget for this level
+    public int maxEnemies = 10; // maximum enemies alive at one time
 
     private int currentWeight = 0;
-    private int lastSpawnerIndex = -1;
-    private int sameSpawnerCount = 0;
+    private float spawnTimer = 0f;
 
-    private EnemyShieldManager shieldManager; // Reference to shield system
+    [Header("Spawn Timing")]
+    public float spawnInterval = 10f; // spawns 3 enemies at once every 10 sec
+    public int batchSpawnCount = 3;   // spawn 3 per wave
 
-    private void Awake()
-    {
-        shieldManager = GetComponent<EnemyShieldManager>();
-    }
+    [Header("Shield Settings")]
+    public int shieldHP = 3;
+    public float shieldOpacity = 0.5f;
+    public float shieldAnimSpeed = 1.0f;
+    public float shieldChancePercent = 20f; // 20% chance per enemy
 
     private void Start()
     {
-        if (spawners == null || spawners.Length == 0)
+        if (enemyPrefabs.Length != enemyWeights.Length ||
+            enemyPrefabs.Length != enemyChanceModifiers.Length)
         {
-            Debug.LogError("No spawners assigned to LevelSpawner!");
+            Debug.LogError("Enemy arrays must be the same length!");
+        }
+    }
+
+    private void Update()
+    {
+        spawnTimer += Time.deltaTime;
+
+        if (spawnTimer >= spawnInterval)
+        {
+            spawnTimer = 0f;
+            AttemptSpawnBatch();
+        }
+    }
+
+    private void AttemptSpawnBatch()
+    {
+        for (int i = 0; i < batchSpawnCount; i++)
+        {
+            if (currentWeight >= levelWeight)
+                return;
+
+            if (enemySpawner.activeEnemies >= maxEnemies)
+                return;
+
+            SpawnWeightedEnemy();
+        }
+    }
+
+    private void SpawnWeightedEnemy()
+    {
+        GameObject chosenEnemy = PickWeightedEnemy(out int weightCost);
+
+        if (chosenEnemy == null)
             return;
-        }
 
-        if (enemyTypes == null || enemyTypes.Length == 0)
-        {
-            Debug.LogError("No enemy types assigned to LevelSpawner!");
+        // Prevent exceeding level weight
+        if (currentWeight + weightCost > levelWeight)
             return;
-        }
 
-        StartCoroutine(SpawnLoop());
+        // Pick spawner (cannot repeat same one twice)
+        enemySpawner chosenSpawner = PickSpawner();
+
+        if (chosenSpawner == null)
+            return;
+
+        GameObject enemyInstance = chosenSpawner.SpawnEnemy(chosenEnemy);
+
+        currentWeight += weightCost;
+
+        // Apply shield based on random chance
+        TryAssignShield(enemyInstance);
     }
 
-    private IEnumerator SpawnLoop()
+    private GameObject PickWeightedEnemy(out int weightCost)
     {
-        while (true)
+        weightCost = 0;
+
+        // Build the weighted list dynamically
+        List<GameObject> weightedList = new List<GameObject>();
+        List<int> weightList = new List<int>();
+
+        for (int i = 0; i < enemyPrefabs.Length; i++)
         {
-            int totalActive = GetTotalActiveEnemies();
+            weightList.Add(enemyWeights[i]);
 
-            if (totalActive < maxEnemies && currentWeight < levelWeight)
-            {
-                SpawnWave();
-            }
+            int weightCount = Mathf.RoundToInt(enemyChanceModifiers[i] * 10);
 
-            yield return new WaitForSeconds(spawnInterval);
-        }
-    }
-
-    private void SpawnWave()
-    {
-        int spawnedThisWave = 0;
-        List<int> usedSpawners = new List<int>();
-
-        while (spawnedThisWave < enemiesPerWave && currentWeight < levelWeight)
-        {
-            // Valid spawners (not reused this wave)
-            List<int> validSpawners = new List<int>();
-            for (int i = 0; i < spawners.Length; i++)
-            {
-                if (!usedSpawners.Contains(i))
-                    validSpawners.Add(i);
-            }
-
-            if (validSpawners.Count == 0)
-                break;
-
-            int spawnerIndex = ChooseSpawner(validSpawners);
-            enemySpawner chosenSpawner = spawners[spawnerIndex];
-            usedSpawners.Add(spawnerIndex);
-
-            int remainingWeight = levelWeight - currentWeight;
-            EnemyType chosenEnemy = ChooseWeightedEnemy(remainingWeight);
-
-            if (chosenEnemy == null)
-                break;
-
-            // --- Spawn and get instance ---
-            GameObject enemyInstance = chosenSpawner.SpawnEnemy(chosenEnemy.prefab);
-            if (enemyInstance != null && shieldManager != null)
-            {
-                shieldManager.TryApplyShield(enemyInstance, remainingWeight);
-            }
-
-            currentWeight += chosenEnemy.weight;
-            spawnedThisWave++;
+            for (int k = 0; k < weightCount; k++)
+                weightedList.Add(enemyPrefabs[i]);
         }
 
-        Debug.Log($"Wave spawned {spawnedThisWave} enemies (Weight: {currentWeight}/{levelWeight})");
-    }
-
-    private EnemyType ChooseWeightedEnemy(int remainingWeight)
-    {
-        // Filter enemies that fit within remaining weight
-        List<EnemyType> validEnemies = new List<EnemyType>();
-        foreach (var e in enemyTypes)
-        {
-            if (e.weight <= remainingWeight)
-                validEnemies.Add(e);
-        }
-
-        if (validEnemies.Count == 0)
+        if (weightedList.Count == 0)
             return null;
 
-        // Total chance weight
-        float totalChance = 0f;
-        foreach (var e in validEnemies)
-        {
-            totalChance += Mathf.Max(0.01f, e.chanceWeight);
-        }
+        // Choose randomly
+        GameObject chosen = weightedList[Random.Range(0, weightedList.Count)];
 
-        float randomPoint = Random.value * totalChance;
-        float cumulative = 0f;
+        // Assign cost
+        int index = System.Array.IndexOf(enemyPrefabs, chosen);
+        weightCost = enemyWeights[index];
 
-        foreach (var e in validEnemies)
-        {
-            cumulative += Mathf.Max(0.01f, e.chanceWeight);
-            if (randomPoint <= cumulative)
-                return e;
-        }
-
-        return validEnemies[validEnemies.Count - 1];
+        return chosen;
     }
 
-    private int ChooseSpawner(List<int> validSpawners)
+    private enemySpawner PickSpawner()
     {
-        int spawnerIndex;
-        int attempts = 0;
+        if (spawners.Length == 0)
+            return null;
 
-        do
-        {
-            spawnerIndex = validSpawners[Random.Range(0, validSpawners.Count)];
-            attempts++;
+        List<enemySpawner> validSpawners = new List<enemySpawner>();
 
-            if (spawnerIndex == lastSpawnerIndex)
-                sameSpawnerCount++;
-            else
-                sameSpawnerCount = 1;
-
-        } while (sameSpawnerCount > 1 && attempts < 20);
-
-        lastSpawnerIndex = spawnerIndex;
-        return spawnerIndex;
-    }
-
-    private int GetTotalActiveEnemies()
-    {
-        int total = 0;
         foreach (var spawner in spawners)
         {
-            total += spawner.activeEnemies;
+            if (spawner != lastSpawner)
+                validSpawners.Add(spawner);
         }
-        return total;
+
+        enemySpawner chosen = validSpawners[Random.Range(0, validSpawners.Count)];
+        lastSpawner = chosen;
+
+        return chosen;
+    }
+
+    private void TryAssignShield(GameObject enemy)
+    {
+        if (enemy == null) return;
+
+        // Random chance
+        if (Random.Range(0f, 100f) > shieldChancePercent)
+            return;
+
+        EnemyShieldManager shield = enemy.GetComponent<EnemyShieldManager>();
+
+        if (shield == null)
+            return;
+
+        shield.ApplyShield(shieldHP, shieldOpacity, shieldAnimSpeed);
     }
 }

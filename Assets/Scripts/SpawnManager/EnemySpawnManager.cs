@@ -86,7 +86,7 @@ public class EnemySpawnManager : MonoBehaviour
         int total = 0;
         foreach (var spawner in spawners)
         {
-            total += spawner.activeEnemies;
+            total += enemySpawner.activeEnemies;
         }
         return total;
     }
