@@ -10,6 +10,8 @@ TagManager:
   - PlayerMelee
   - PlayerBullet
   - Boss
+  - WallSpawnerR
+  - WallSpawnerL
   layers:
   - Default
   - TransparentFX
