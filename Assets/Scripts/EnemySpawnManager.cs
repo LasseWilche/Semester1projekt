@@ -4,6 +4,10 @@ using System.Collections.Generic;
  
 public class EnemySpawnManager : MonoBehaviour
 {
+    [Header("Tutorial")]
+    public bool tutorialMode;
+    public bool tutorialRunning = false;
+
     [Header("Spawner Settings")] //cool header to segment variables in unity
     public enemySpawner[] spawners; // array to setup spawners
     public float spawnInterval = 5f; //seconds inbetween each enemy spawner activating
@@ -11,9 +15,6 @@ public class EnemySpawnManager : MonoBehaviour
  
     [Header("Enemy Types")]
     public GameObject[] enemyPrefabs; // add all enemy prefabs here in the inspector
-
-    [Header("Tutorial")]
-    public bool tutorialMode;
  
     private int lastSpawnerIndex = -1;
     private int sameSpawnerCount = 0;
@@ -59,6 +60,7 @@ public class EnemySpawnManager : MonoBehaviour
     public IEnumerator TutorialLoop() //while loop to spawn enemies at a random spawner every spawn interval
     {
         int iterations = 3;
+        tutorialRunning = true;
         while (iterations>0)
         {
             int totalActive = GetTotalActiveEnemies();
@@ -75,6 +77,7 @@ public class EnemySpawnManager : MonoBehaviour
             iterations--;
             yield return new WaitForSeconds(spawnInterval);
         }
+        tutorialRunning = false;
     }
 
     private enemySpawner ChooseSpawner() //loop to keep track of which active spawner we use and that it cant spawn enemies more than twice in a row. 
