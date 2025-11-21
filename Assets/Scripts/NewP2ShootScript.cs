@@ -87,6 +87,6 @@ public class NewP2ShootScript : MonoBehaviour
 
     void Start()
     {
-
+        audioSource = FindFirstObjectByType<AudioSource>();
     }
 }
