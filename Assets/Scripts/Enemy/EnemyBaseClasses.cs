@@ -147,10 +147,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
         animator.Play("Death");
         yield return new WaitForSeconds(2);
         CrystalCharger charger = GameObject.FindFirstObjectByType<CrystalCharger>();
-        if (charger != null)
-        {
-            charger.currentSoulCharge += 1;
-        }
+        charger.AddCharge();
         Destroy(gameObject);
     }
 
