@@ -11,7 +11,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     static double rangeOffset = 0.25;
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
-    
+    bool bouncing = false;
 
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
@@ -33,7 +33,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         //Instantiates bullet at this position, with the rotation of the shooting angle
         Instantiate(bulletType, this.transform.position, shootingAngle.transform.rotation);
     }
-    public override IEnumerator AttackScript(Collision collision)
+    public override IEnumerator AttackScript()
     {
 
 
@@ -70,17 +70,48 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         base.MovementScript();
         angle = target.position - myrb.transform.position;  //finds the difference between our position, and the target position
         angle.Normalize();      //normalizes the angle (makes it into a 1vector)
-        if ((Vector2.Distance(target.position, myrb.transform.position) < rangeOffset + range) &&   //If enemy is within range+offset
-            Vector2.Distance(target.position, myrb.transform.position) > range)                     //And is further than range from target
-            if (cooldown <= 0) StartCoroutine(AttackScript(null));                                         //Then enemy attacks
-        if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
+        if (!bouncing) //if enemy is NOT bouncing it can move
         {
-            myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
+            if ((Vector2.Distance(target.position, myrb.transform.position) < rangeOffset + range) &&   //If enemy is within range+offset
+                Vector2.Distance(target.position, myrb.transform.position) > range)                     //And is further than range from target
+            {
+                if (cooldown <= 0) StartCoroutine(AttackScript());                                         //Then enemy attacks
+            }
+            else if (Vector2.Distance(target.position, myrb.transform.position) >= range + rangeOffset) //moves towards range + offset of .25 if too far from player
+            {
+                myrb.linearVelocity = movementSpeed * angle;
+                //myrb.transform.position += (movementSpeed * Time.deltaTime * angle); 
+            }
+            else if (Vector2.Distance(target.position, myrb.transform.position) <= range) //moves towards range if too close to player
+            {
+                myrb.linearVelocity = movementSpeed * (-angle);
+            }
         }
-        else if (Vector2.Distance(target.position, myrb.transform.position) <= range) //moves towards range if too close to player
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            myrb.transform.position -= (movementSpeed * Time.deltaTime * angle);
+
+            StartCoroutine(Bouncing(0.3f,1f,collision));
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(Bouncing(0.2f, 1.5f,collision));
+        }
+    }
+    IEnumerator Bouncing(float bounceTime, float force, Collision2D collider)
+    {
+        bouncing = true;
+        Vector3 ColliderVector3 = collider.GetContact(0).point;
+        angle = myrb.transform.position - ColliderVector3;
+        angle.Normalize();
+        Debug.Log("we are bouncing");
+        myrb.AddForce(angle * force, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(bounceTime);
+        if (cooldown <= 0) StartCoroutine(AttackScript());
+        bouncing = false;
     }
 }
 public abstract class EnemyBaseClass : MonoBehaviour
@@ -95,6 +126,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public bool alive;
     public AudioClip shootSound1;
     public AudioClip shootSound2;
+    public bool vulnurable;
 
     public EnemyBaseClass()
     {
@@ -104,9 +136,10 @@ public abstract class EnemyBaseClass : MonoBehaviour
         movementSpeed = 5;
         target = null;
         angle = new Vector3(0, 0, 0);
-        cooldown = 2;
+        cooldown = 2;       //how long it takes to spawn
         myrb = null;
         alive = true;
+        vulnurable = false; //enemy should not be able to take damage while spawning
 }
     void Start()
     {
@@ -133,16 +166,22 @@ public abstract class EnemyBaseClass : MonoBehaviour
             }
             MovementScript();
         }
-        else cooldown -= Time.deltaTime;
+        else
+        {
+            cooldown -= Time.deltaTime;
+            myrb.linearVelocity = Vector2.zero;
+        }
     }
     public virtual void MovementScript()
     {
+        vulnurable = true;      //if enemies move they can also take damage
         animator.Play("Moving");
     }
-    public abstract IEnumerator AttackScript(Collision collision);
+    public abstract IEnumerator AttackScript();
 
     public IEnumerator Death()
     {
+        vulnurable = false;
         alive = false;
         animator.Play("Death");
         yield return new WaitForSeconds(2);
