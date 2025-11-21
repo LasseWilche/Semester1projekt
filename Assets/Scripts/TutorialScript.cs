@@ -5,6 +5,8 @@ public class TutorialScript : MonoBehaviour
 {
     [SerializeField] TutorialScript otherTutorial;
     [SerializeField] EnemySpawnManager Spawner;
+    [SerializeField] GameObject text1;
+    [SerializeField] GameObject text2;
     public bool ready;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -14,7 +16,12 @@ public class TutorialScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
-            if (otherTutorial.ready == true && Spawner.tutorialRunning == false) StartCoroutine(Spawner.TutorialLoop());
+            if (otherTutorial.ready == true && Spawner.tutorialRunning == false)
+            {
+                text1.SetActive(false);
+                text2.SetActive(false);
+                StartCoroutine(Spawner.TutorialLoop());
+            }
             else ready = true;
         }
     }
