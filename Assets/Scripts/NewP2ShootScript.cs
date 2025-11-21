@@ -12,7 +12,7 @@ public class NewP2ShootScript : MonoBehaviour
     public GameObject bulletPrefab; // Public class through which you can assign a gameObject to be the bullet
     public float bulletSpeed = 10; // Public value for the speed of the bullets
     private int direction;
-    //
+    
     public AudioClip ShotSound1;
     public AudioClip ShotSound2;
     public AudioSource audioSource;
