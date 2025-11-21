@@ -116,14 +116,12 @@ MonoBehaviour:
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
+  alive: 1
   bullets: 5
   range: 5
   spread: 15
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 8113627332956629649}
-  shootSound1: {fileID: 8300000, guid: 8e9d5fd88df894e48b5f1e927ea464bc, type: 3}
-  shootSound2: {fileID: 8300000, guid: 0b31a20654773a840acf7152da4bac38, type: 3}
-  audioSource3: {fileID: 0}
 --- !u!95 &5732960575038993476
 Animator:
   serializedVersion: 7
@@ -158,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5a5a5ffe6905944a1f06f2291d97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 2
+  currentHealth: 2
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
@@ -225,7 +223,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0017869435, y: 0.0017868653}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -235,7 +233,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.875}
+  m_Size: {x: 0.15302315, y: 0.12808834}
   m_EdgeRadius: 0
 --- !u!1 &8113627332956629649
 GameObject:

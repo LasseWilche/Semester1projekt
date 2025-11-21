@@ -4,7 +4,7 @@ using System.Collections;
 using System.Transactions;
 using UnityEngine;
 using UnityEngine.Audio;
-using Random = UnityEngine.Random;
+
 public abstract class EnemyBaseRanged : EnemyBaseClass
 {
     public int bullets;
@@ -13,10 +13,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     static double rangeOffset = 0.25;
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
-    public AudioClip shootSound1;
-    public AudioClip shootSound2;
-    public AudioSource audioSource;
-
+    
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
         this.bullets = bullets;
@@ -39,12 +36,8 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override void AttackScript(Collision collision)
     {
-        animator.Play("Shooting");
-        AudioClip RandomClip = (Random.Range(0, 2) == 0) ? shootSound1 : shootSound2;
-        if (audioSource != null && RandomClip != null)
-        {
-            audioSource.PlayOneShot(RandomClip);
-        }
+        
+        SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.5f);
         cooldown = 2;
         if (bullets % 2 == 0) //if even number of bullets, every bullet has a spread
         {

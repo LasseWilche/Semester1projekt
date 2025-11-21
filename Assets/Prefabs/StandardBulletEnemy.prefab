@@ -147,14 +147,12 @@ MonoBehaviour:
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
+  alive: 1
   bullets: 1
   range: 8
   spread: 5
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 3026685662827662399}
-  shootSound1: {fileID: 8300000, guid: 0b31a20654773a840acf7152da4bac38, type: 3}
-  shootSound2: {fileID: 8300000, guid: 8e9d5fd88df894e48b5f1e927ea464bc, type: 3}
-  audioSource3: {fileID: 0}
 --- !u!95 &7605991021561486396
 Animator:
   serializedVersion: 7
@@ -189,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5a5a5ffe6905944a1f06f2291d97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 2
+  currentHealth: 2
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
