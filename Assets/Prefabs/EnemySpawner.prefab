@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937324217856687239}
   - component: {fileID: 6179758218988502789}
-  - component: {fileID: 2543069785676365653}
+  - component: {fileID: -2576754765592606369}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2543069785676365653
+--- !u!114 &-2576754765592606369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 407660779000598369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0af19f932229540996b40533249d65, type: 3}
+  m_Script: {fileID: 11500000, guid: 92116cde6a7075a43af6eb17743f7ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawner
   activeEnemies: 0
+  wallSpawnerTeal: {fileID: 0}
+  wallSpawnerGreen: {fileID: 0}

@@ -12,6 +12,7 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
     bool bouncing = false;
+    public bool shieldActive = false;
 
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {

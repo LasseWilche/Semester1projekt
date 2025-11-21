@@ -41,6 +41,19 @@ public class LevelSpawner : MonoBehaviour
         }
     }
 
+    private int GetTotalActiveEnemies()
+    {
+        int total = 0;
+
+        foreach (var spawner in spawners)
+        {
+            total += spawner.activeEnemies;
+        }
+
+        return total;
+    }
+
+
     private void Update()
     {
         spawnTimer += Time.deltaTime;
@@ -59,7 +72,7 @@ public class LevelSpawner : MonoBehaviour
             if (currentWeight >= levelWeight)
                 return;
 
-            if (enemySpawner.activeEnemies >= maxEnemies)
+            if (GetTotalActiveEnemies() >= maxEnemies)
                 return;
 
             SpawnWeightedEnemy();

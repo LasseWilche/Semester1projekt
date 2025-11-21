@@ -4,10 +4,17 @@ using UnityEngine.InputSystem;
 
 public class EnemyHealthManager : HealthManager
 {
+    public bool shieldActive = false; //alex's cool shield kode
     // KALDES fra Meleescript.OnTriggerEnter2D: enemy.TakeDamage(1);
     // Kalder fra bullet script
     public override void TakeDamage(int amount)
     {
+        //shield active -> no damage
+        if (shieldActive)
+        {
+            return;
+        }
+
         if (amount <= 0 || currentHealth <= 0) return;
 
 

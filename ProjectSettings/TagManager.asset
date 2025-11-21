@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - WallSpawnerR
   - WallSpawnerL
+  - Shield
   layers:
   - Default
   - TransparentFX

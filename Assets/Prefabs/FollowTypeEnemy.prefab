@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9049083317871320793}
   - component: {fileID: 4709160633909002961}
   - component: {fileID: 1622879513003969595}
+  - component: {fileID: 7727285310431576276}
   m_Layer: 0
   m_Name: FollowTypeEnemy
   m_TagString: Enemy
@@ -116,7 +117,6 @@ MonoBehaviour:
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
-  vulnurable: 0
 --- !u!95 &197575851584315130
 Animator:
   serializedVersion: 7
@@ -236,3 +236,19 @@ PolygonCollider2D:
       - {x: 0.07, y: -0.07}
       - {x: 0.07, y: 0.01}
   m_UseDelaunayMesh: 0
+--- !u!114 &7727285310431576276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125355921842499511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16905ba2ec587344abdeec9a229e4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShieldManager
+  shieldPrefab: {fileID: 0}
+  shieldHP: 0
+  shieldOpacity: 0.5
+  animationSpeed: 1

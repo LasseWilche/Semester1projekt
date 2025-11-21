@@ -2,65 +2,38 @@ using UnityEngine;
 
 public class EnemyShieldManager : MonoBehaviour
 {
-    [Header("Shield Settings")]
-    public GameObject shieldPrefab;        // Prefab with animator + sprite renderer
-    public int shieldHP = 0;               // Set dynamically by LevelSpawner
-    public float shieldOpacity = 0.5f;     // Set dynamically by LevelSpawner
-    public float animationSpeed = 1f;      // Set dynamically by LevelSpawner
+    [Header("Shield Setup")]
+    public GameObject shieldPrefab;      // The shield object prefab
+    public Transform shieldParent;       // Where the shield should be attached
 
-    private ShieldController shieldInstance;
+    private GameObject activeShield;     // The instantiated shield
+    private ShieldBehaviour shieldBehaviour;
 
-    /// <summary>
-    /// Returns true if the enemy currently has a shield instance.
-    /// </summary>
-    public bool HasShield => shieldInstance != null;
-
-    /// <summary>
-    /// Called directly by LevelSpawner to apply a shield to this enemy.
-    /// </summary>
     public void ApplyShield(int hp, float opacity, float animSpeed)
     {
-        // Already shielded
-        if (shieldInstance != null) return;
-
-        // Prefab missing
-        if (shieldPrefab == null)
+        if (shieldPrefab == null || shieldParent == null)
         {
-            Debug.LogWarning("Shield Prefab missing on EnemyShieldManager!");
+            Debug.LogError("ShieldManager missing prefab or parent!");
             return;
         }
 
-        // Spawn shield as child of enemy
-        GameObject shieldObj = Instantiate(shieldPrefab, transform);
-        shieldObj.transform.localPosition = Vector3.zero;
+        // Spawn the shield
+        activeShield = Instantiate(shieldPrefab, shieldParent.position, Quaternion.identity, shieldParent);
 
-        // Setup sorting
-        SpriteRenderer enemySR = GetComponent<SpriteRenderer>();
-        SpriteRenderer shieldSR = shieldObj.GetComponent<SpriteRenderer>();
-
-        if (enemySR != null && shieldSR != null)
-        {
-            shieldSR.sortingLayerID = enemySR.sortingLayerID;
-            shieldSR.sortingOrder = enemySR.sortingOrder + 10;  // Always on top
-        }
-
-        // Grab component
-        shieldInstance = shieldObj.GetComponent<ShieldController>();
-
-        // Apply values
-        shieldInstance.shieldHP = hp;
-        shieldInstance.opacity = opacity;
-        shieldInstance.animationSpeed = animSpeed;
+        // Set behaviour
+        shieldBehaviour = activeShield.GetComponent<ShieldBehaviour>();
+        shieldBehaviour.Initialize(hp, opacity, animSpeed, this.gameObject);
     }
 
-    /// <summary>
-    /// External damage interface (called by projectiles).
-    /// </summary>
-    public void DamageShield()
+    // Called by the ShieldBehaviour when the shield breaks
+    public void ShieldDestroyed()
     {
-        if (shieldInstance != null)
-        {
-            shieldInstance.DamageShield();
-        }
+        // Re-enable taking damage on this enemy
+        EnemyHealthManager enemyHealth = GetComponent<EnemyHealthManager>(); // <-- Replace with your real health script name
+
+        if (enemyHealth != null)
+            enemyHealth.shieldActive = false;  // Your enemies must have a "public bool shieldActive"
+
+        activeShield = null;
     }
 }
