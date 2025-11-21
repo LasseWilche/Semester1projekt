@@ -11,7 +11,7 @@ public class HeatScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        shootScript = FindAnyObjectByType<NewP2ShootScript>();
+        shootScript = FindFirstObjectByType<NewP2ShootScript>();
         slider = GetComponent<Slider>();
         canvas.transform.position = shootScript.gameObject.transform.position+new Vector3(0,1.2f,0);
     }

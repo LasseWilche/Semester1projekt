@@ -23,7 +23,9 @@ public class NewP2ShootScript : MonoBehaviour
     public AudioClip VeryOverheatShotSound2;
     public AudioClip OverheatingSound;
     public AudioSource audioSource;
-    
+    public ParticleSystem smokeEffect;
+    public ParticleSystem overheatingEffect;
+
 
     void Update()
     {
@@ -48,6 +50,7 @@ public class NewP2ShootScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))        //we fire the frame we press r, if we arent overheated
             {
                 heat += 20;
+                smokeEffect.Play();
                 var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletSpawnPoint.up * bulletSpeed;
                 AudioClip randomClip = (Random.Range(0, 2) == 0) ? ShotSound1 : ShotSound2;
@@ -78,9 +81,11 @@ public class NewP2ShootScript : MonoBehaviour
     IEnumerator Overheating()
     {
         overheating = true;
+        overheatingEffect.Play();
         AudioClip overheatingSound = OverheatingSound;
         audioSource.PlayOneShot(overheatingSound);
         yield return new WaitForSeconds(2f);
+        overheatingEffect.Stop();
         heat = 0;
         overheating = false;
     }
