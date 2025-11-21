@@ -11,6 +11,9 @@ public class EnemySpawnManager : MonoBehaviour
  
     [Header("Enemy Types")]
     public GameObject[] enemyPrefabs; // add all enemy prefabs here in the inspector
+
+    [Header("Tutorial")]
+    public bool tutorialMode;
  
     private int lastSpawnerIndex = -1;
     private int sameSpawnerCount = 0;
@@ -29,7 +32,8 @@ public class EnemySpawnManager : MonoBehaviour
             return;
         }
  
-        StartCoroutine(SpawnLoop());
+        if (!tutorialMode) StartCoroutine(SpawnLoop());
+
     }
  
     private IEnumerator SpawnLoop() //while loop to spawn enemies at a random spawner every spawn interval
@@ -51,7 +55,28 @@ public class EnemySpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
- 
+
+    public IEnumerator TutorialLoop() //while loop to spawn enemies at a random spawner every spawn interval
+    {
+        int iterations = 3;
+        while (iterations>0)
+        {
+            int totalActive = GetTotalActiveEnemies();
+            if (totalActive < maxEnemies)
+            {
+                enemySpawner chosenSpawner = ChooseSpawner();
+                GameObject enemyPrefab = ChooseEnemyType();
+
+                if (chosenSpawner != null && enemyPrefab != null)
+                {
+                    chosenSpawner.SpawnEnemy(enemyPrefab);
+                }
+            }
+            iterations--;
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
     private enemySpawner ChooseSpawner() //loop to keep track of which active spawner we use and that it cant spawn enemies more than twice in a row. 
     {
         int spawnerIndex;
