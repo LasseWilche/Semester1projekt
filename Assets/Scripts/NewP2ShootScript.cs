@@ -52,7 +52,12 @@ public class NewP2ShootScript : MonoBehaviour
                 bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletSpawnPoint.up * bulletSpeed;
                 AudioClip randomClip = (Random.Range(0, 2) == 0) ? ShotSound1 : ShotSound2;
                 audioSource.PlayOneShot(randomClip);
-                if(heat >= 100) StartCoroutine(Overheating());  //if overheat is 100 or above our weapon overheats
+
+                if (heat >= 100)
+                {
+                    Mathf.Max(100, heat);
+                    StartCoroutine(Overheating());  //if overheat is 100 or above our weapon overheats
+                }
                 else if (heat >= 80)                            //if overheat is above 79 we fire lots of steam
                 {
                     AudioClip steamSound = (Random.Range(0, 2) == 0) ? VeryOverheatShotSound1 : VeryOverheatShotSound2;
@@ -65,10 +70,13 @@ public class NewP2ShootScript : MonoBehaviour
                 }
             }
         }
+        else     //if we are overheating, we reduce heat by 50/s (makes the heat-bar go to 0 while overheated)
+        {                   
+            heat -= Time.deltaTime * 50;
+        }
     }
     IEnumerator Overheating()
     {
-        Debug.Log("Overheating");
         overheating = true;
         AudioClip overheatingSound = OverheatingSound;
         audioSource.PlayOneShot(overheatingSound);
