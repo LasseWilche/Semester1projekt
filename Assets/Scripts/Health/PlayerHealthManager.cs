@@ -9,7 +9,7 @@ public class PlayerHealthManager : HealthManager
     public override void Start()
     {
         base.Start();
-        healthBar.SetMaxHealth(maxHealth);    //Sets UI healthbar to max on start
+        //healthBar.SetMaxHealth(maxHealth);    //Sets UI healthbar to max on start
     }
     public override void TakeDamage(int damage)
     {
@@ -21,7 +21,7 @@ public class PlayerHealthManager : HealthManager
         if (currentHealth <= 0) return;
 
         base.TakeDamage(damage);
-        healthBar.SetHealth(currentHealth);  //Modifies health bar UI
+        //healthBar.SetHealth(currentHealth);  //Modifies health bar UI
     }
     public override void DieAnimation()
     {
