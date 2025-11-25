@@ -14,6 +14,9 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
 
+    bool bouncing = false;
+
+
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
         this.bullets = bullets;
@@ -36,7 +39,13 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override IEnumerator AttackScript()
     {
+
+
+
         animator.Play("Shooting");
+
+        SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.5f);
+
         cooldown = 2;
         yield return new WaitForSeconds(0.5f);
         
@@ -123,6 +132,10 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Rigidbody2D myrb;
     public Animator animator;
     public bool alive;
+
+    public AudioClip shootSound1;
+    public AudioClip shootSound2;
+    public bool vulnurable;
 
     public EnemyBaseClass()
     {
