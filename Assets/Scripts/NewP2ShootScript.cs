@@ -25,6 +25,8 @@ public class NewP2ShootScript : MonoBehaviour
     public AudioSource audioSource;
     public ParticleSystem smokeEffect;
     public ParticleSystem overheatingEffect;
+    [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject weaponOverheated;
 
 
     void Update()
@@ -82,9 +84,13 @@ public class NewP2ShootScript : MonoBehaviour
     {
         overheating = true;
         overheatingEffect.Play();
+        weapon.SetActive(false);
+        weaponOverheated.SetActive(true);
         AudioClip overheatingSound = OverheatingSound;
         audioSource.PlayOneShot(overheatingSound);
         yield return new WaitForSeconds(2f);
+        weapon.SetActive(true);
+        weaponOverheated.SetActive(false);
         overheatingEffect.Stop();
         heat = 0;
         overheating = false;
