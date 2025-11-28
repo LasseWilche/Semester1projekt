@@ -110,17 +110,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotgun
   p1: {fileID: 0}
   p2: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 3
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
+  shootSound1: {fileID: 0}
+  shootSound2: {fileID: 0}
   vulnurable: 0
-  bullets: 5
+  bullets: 3
   range: 5
-  spread: 15
+  spread: 30
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 8113627332956629649}
 --- !u!95 &5732960575038993476
