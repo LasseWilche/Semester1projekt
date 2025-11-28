@@ -121,7 +121,7 @@ MonoBehaviour:
   shootSound2: {fileID: 0}
   vulnurable: 0
   bullets: 3
-  range: 5
+  range: 4
   spread: 30
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 8113627332956629649}
