@@ -1,41 +1,97 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class CrystalCharger : MonoBehaviour, IInteractable
+public class CrystalCharger : MonoBehaviour
 {
-    //Crystal Charge Variables
+    [Header("Charge")]
+    [Tooltip("Amount of souls required to activate the crystal")]
     public int maxSoulCharge;
     public int currentSoulCharge;
 
-    //Crystal interaction
-    public bool isCharged { get; private set; }
-    public string crystalID { get; private set; }
+    [Header("UI")]
+    public Slider soulCharge;
+    public GameObject interactPrompt;        // small UI hint like "Press E to enter"
+    
 
+    [Tooltip("Key the player presses to interact")]
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+
+    private Scene currentScene;
+    private bool playerInRange;
+    private bool IsCharged => currentSoulCharge >= maxSoulCharge;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Creates private ID for SoulCrystalCharger
-        crystalID ??= GlobalCrystalHelper.GenerateUniqueID(gameObject);
+        currentScene = SceneManager.GetActiveScene();
         currentSoulCharge = 0;
+
+        if(interactPrompt) interactPrompt.SetActive(false);
+
+        if (soulCharge)
+        {
+            soulCharge.maxValue = Mathf.Max(1, maxSoulCharge);
+            soulCharge.value = currentSoulCharge;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Checks if current soul charge is equal or higher to max and sets isCharged bool to true.
-        if (currentSoulCharge >= maxSoulCharge)
+        if (!playerInRange) return;
+        if (!IsCharged) return;
+        
+        if (Input.GetKeyDown(interactKey))
         {
-            isCharged = true;
+            int nextIndex = currentScene.buildIndex + 1;
+            if (nextIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(nextIndex);
+            }
+            else
+            {
+                Debug.LogWarning($"CrystalCharger: No next scene in build settings (current index {currentScene.buildIndex})");
+            }
         }
     }
 
-    public bool CanInteract()
+    public void AddCharge(int amount = 1)
     {
-        return !isCharged;
+        currentSoulCharge = Mathf.Clamp(currentSoulCharge + amount, 0, maxSoulCharge);
+
+        if (soulCharge) soulCharge.value = currentSoulCharge;
+        if (IsCharged) OnCrystalActivated();
     }
 
-    public void Interact()
+    public void CrystalCharged()
     {
-        if (!CanInteract()) return;
+        if (IsCharged) OnCrystalActivated();
+    }
+
+    private void OnCrystalActivated()
+    {
+        if (playerInRange && interactPrompt) interactPrompt.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Require the player to have the "Player" tag
+        if (!collision.CompareTag("Player")) return;
+
+        playerInRange = true;
+
+        if (IsCharged && interactPrompt != null)
+            interactPrompt.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+
+        playerInRange = false;
+
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
     }
 }
