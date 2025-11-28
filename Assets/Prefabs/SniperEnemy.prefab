@@ -110,22 +110,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySniper
   p1: {fileID: 0}
   p2: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 3
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
+  shootSound1: {fileID: 8300000, guid: 0b31a20654773a840acf7152da4bac38, type: 3}
+  shootSound2: {fileID: 8300000, guid: 8e9d5fd88df894e48b5f1e927ea464bc, type: 3}
   vulnurable: 0
   bullets: 1
-  range: 10
+  range: 7
   spread: 0
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 3431434135508095652}
-  shootSound1: {fileID: 8300000, guid: 0b31a20654773a840acf7152da4bac38, type: 3}
-  shootSound2: {fileID: 8300000, guid: 8e9d5fd88df894e48b5f1e927ea464bc, type: 3}
-  audioSource: {fileID: 0}
 --- !u!95 &2867974935713260621
 Animator:
   serializedVersion: 7
