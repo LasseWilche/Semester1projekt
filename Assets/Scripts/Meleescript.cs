@@ -75,26 +75,26 @@ public class Meleescript : MonoBehaviour
                 anim.SetFloat(HashAttackY, lastMoveDir.y);
                 anim.SetTrigger(HashAttack);
 
-            int randomSound = Random.Range(0, 3);
+                int randomSound = Random.Range(0, 3);
 
-            switch (randomSound)
-            {
-                case 0:
-                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND1, 0.5f);
-                    break;
+                switch (randomSound)
+                {
+                    case 0:
+                        SoundManager.PlaySound(SoundType.SWORDSWINGSOUND1, 0.5f);
+                        break;
 
-                case 1:
-                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND2, 0.5f);
-                    break;
+                    case 1:
+                        SoundManager.PlaySound(SoundType.SWORDSWINGSOUND2, 0.5f);
+                        break;
 
-                case 2:
-                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND3, 0.5f);
-                    break;
+                    case 2:
+                        SoundManager.PlaySound(SoundType.SWORDSWINGSOUND3, 0.5f);
+                        break;
+                }
+
+
+                timeUntilMelee = meleeSpeed;
             }
-
-
-            timeUntilMelee = meleeSpeed;
-
             
         }
     }
