@@ -212,6 +212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 0}
   meleeSpeed: 0.35
+  MeleeSound1: {fileID: 0}
+  MeleeSound2: {fileID: 0}
+  MeleeSound3: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &4332406106714168611
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +263,7 @@ GameObject:
   - component: {fileID: 4994493364440364610}
   - component: {fileID: 3995375088573316728}
   - component: {fileID: 5135288172693580462}
+  - component: {fileID: -1706579835631569830}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -391,6 +396,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 5316315378418921703}
   meleeSpeed: 1
+  MeleeSound1: {fileID: 0}
+  MeleeSound2: {fileID: 0}
+  MeleeSound3: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!212 &3995375088573316728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -463,6 +472,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::P1Controller
   rb2d: {fileID: 402384879297103237}
   moveSpeed: 120
+--- !u!114 &-1706579835631569830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416542422691990366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d7c0afc406aeb4291b9a3093538144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
+  maxHealth: 0
+  currentHealth: 0
+  spriteRenderer: {fileID: 0}
+  ogcolor: {r: 0, g: 0, b: 0, a: 0}
+  gameManager: {fileID: 0}
+  animator: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1001 &5656655153132052820
 PrefabInstance:
   m_ObjectHideFlags: 0
