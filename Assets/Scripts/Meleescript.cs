@@ -9,6 +9,7 @@ public class Meleescript : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float meleeSpeed = 0.35f;
+    bool alive = true;
 
     private float timeUntilMelee;
     private Vector2 lastMoveDir = Vector2.down;
@@ -16,18 +17,18 @@ public class Meleescript : MonoBehaviour
 
 
 
-    // Brug hashes for at undgå stavefejl
+    // Brug hashes for at undgÃ¥ stavefejl
     private static readonly int HashAttack = Animator.StringToHash("Attack");
     private static readonly int HashAttackX = Animator.StringToHash("AttackX");
     private static readonly int HashAttackY = Animator.StringToHash("AttackY");
 
     void Awake()
     {
-        // Auto-wire hvis feltet er tomt eller animatoren sidder på et child
+        // Auto-wire hvis feltet er tomt eller animatoren sidder pÃ¥ et child
         if (!anim) anim = GetComponentInChildren<Animator>();
         if (!anim)
         {
-            Debug.LogError("[Meleescript] Ingen Animator fundet på objekt eller children.");
+            Debug.LogError("[Meleescript] Ingen Animator fundet pÃ¥ objekt eller children.");
             return;
         }
         Debug.Log($"[Meleescript] Bruger Animator-controller: {anim.runtimeAnimatorController?.name ?? "<none>"}");
@@ -51,26 +52,28 @@ public class Meleescript : MonoBehaviour
 
     void Update()
     {
-        // Opdater facing (låst til cardinal retning)
-        if (Keyboard.current != null)
+        if (alive)
         {
-            int x = (Input.GetKey(KeyCode.LeftArrow) ? -1 : 0) + (Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
-            int y = (Input.GetKey(KeyCode.DownArrow) ? -1 : 0) + (Input.GetKey(KeyCode.UpArrow) ? 1 : 0);
-            Vector2 raw = new Vector2(x, y);
-            if (raw != Vector2.zero) lastMoveDir = (Mathf.Abs(raw.x) >= Mathf.Abs(raw.y))
-                                                ? new Vector2(Mathf.Sign(raw.x), 0f)
-                                                : new Vector2(0f, Mathf.Sign(raw.y));
-        }
+            // Opdater facing (lÃ¥st til cardinal retning)
+            if (Keyboard.current != null)
+            {
+                int x = (Input.GetKey(KeyCode.LeftArrow) ? -1 : 0) + (Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
+                int y = (Input.GetKey(KeyCode.DownArrow) ? -1 : 0) + (Input.GetKey(KeyCode.UpArrow) ? 1 : 0);
+                Vector2 raw = new Vector2(x, y);
+                if (raw != Vector2.zero) lastMoveDir = (Mathf.Abs(raw.x) >= Mathf.Abs(raw.y))
+                                                    ? new Vector2(Mathf.Sign(raw.x), 0f)
+                                                    : new Vector2(0f, Mathf.Sign(raw.y));
+            }
 
-        if (timeUntilMelee > 0f) { timeUntilMelee -= Time.deltaTime; return; }
+            if (timeUntilMelee > 0f) { timeUntilMelee -= Time.deltaTime; return; }
 
-        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
-        {
-            if (!anim) return;
+            if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+            {
+                if (!anim) return;
 
-            anim.SetFloat(HashAttackX, lastMoveDir.x);
-            anim.SetFloat(HashAttackY, lastMoveDir.y);
-            anim.SetTrigger(HashAttack);
+                anim.SetFloat(HashAttackX, lastMoveDir.x);
+                anim.SetFloat(HashAttackY, lastMoveDir.y);
+                anim.SetTrigger(HashAttack);
 
             int randomSound = Random.Range(0, 3);
 
@@ -107,6 +110,10 @@ public class Meleescript : MonoBehaviour
                 enemy.TakeDamage(1);
             }
         }
+    }
+    public void Die()
+    {
+        alive = false;
     }
 }
 

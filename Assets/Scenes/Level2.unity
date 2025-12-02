@@ -4451,8 +4451,8 @@ Camera:
   m_GameObject: {fileID: 727698481}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4621,6 +4621,10 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+  player2: {fileID: 0}
+  shootScript: {fileID: 0}
+  melee: {fileID: 0}
+  player1: {fileID: 0}
 --- !u!114 &841389792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
