@@ -13,11 +13,7 @@ public class Meleescript : MonoBehaviour
     private float timeUntilMelee;
     private Vector2 lastMoveDir = Vector2.down;
 
-    //Sounds
-    public AudioClip MeleeSound1;
-    public AudioClip MeleeSound2;
-    public AudioClip MeleeSound3;
-    public AudioSource audioSource;
+
 
 
     // Brug hashes for at undgå stavefejl
@@ -76,12 +72,27 @@ public class Meleescript : MonoBehaviour
             anim.SetFloat(HashAttackY, lastMoveDir.y);
             anim.SetTrigger(HashAttack);
 
-            Debug.Log($"[Meleescript] Attack -> dir=({lastMoveDir.x},{lastMoveDir.y}), controller={anim.runtimeAnimatorController?.name}");
+            int randomSound = Random.Range(0, 3);
+
+            switch (randomSound)
+            {
+                case 0:
+                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND1, 0.5f);
+                    break;
+
+                case 1:
+                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND2, 0.5f);
+                    break;
+
+                case 2:
+                    SoundManager.PlaySound(SoundType.SWORDSWINGSOUND3, 0.5f);
+                    break;
+            }
+
+
             timeUntilMelee = meleeSpeed;
 
-            int i = Random.Range(0, 3);
-            AudioClip randomClip = (i == 0) ? MeleeSound1 : (i == 1) ? MeleeSound2 : MeleeSound3;
-            audioSource.PlayOneShot(randomClip);
+            
         }
     }
 
