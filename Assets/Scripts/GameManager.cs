@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool bothAlive = true;
-    public ScenePlayer scenePlayer;
+    ScenePlayer scenePlayer;
     private void Start()
     {
         scenePlayer = GetComponent<ScenePlayer>();

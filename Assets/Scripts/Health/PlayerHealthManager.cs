@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerHealthManager : HealthManager
 {
     public HealthBar healthBar;         //Need to have access to HelathBar UI object
+    [SerializeField] NewP2ShootScript player2;
+    [SerializeField] P2ControllerWithRotationThatDidntWorkLol shootScript;
+    [SerializeField] Meleescript melee;
+    [SerializeField] P1Controller player1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -14,10 +18,6 @@ public class PlayerHealthManager : HealthManager
     public override void TakeDamage(int damage)
     {
         if (damage <= 0) return;
-        {
-
-
-        }
         if (currentHealth <= 0) return;
 
         base.TakeDamage(damage);
@@ -25,7 +25,17 @@ public class PlayerHealthManager : HealthManager
     }
     public override void DieAnimation()
     {
-        animator.Play("Dying");
+        if (player1 != null)
+        {
+            melee.Die();
+            player1.Die();
+        }
+        else if (player2 != null)
+        {
+            player2.Die();
+            shootScript.Die();
+        }
+        //animator.Play("Dying");
         Invoke("Dying", 3f); //insert length of dying animation
     }
     public override void Dying()
