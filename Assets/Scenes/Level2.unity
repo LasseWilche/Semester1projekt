@@ -4514,8 +4514,8 @@ Camera:
   m_GameObject: {fileID: 727698481}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4710,6 +4710,10 @@ MonoBehaviour:
   gameManager: {fileID: 727698486}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+  player2: {fileID: 0}
+  shootScript: {fileID: 0}
+  melee: {fileID: 0}
+  player1: {fileID: 0}
 --- !u!114 &841389792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
@@ -6166,7 +6170,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 41abbd7d0af35a341af0fe13ae7f16bb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5ba64f803e19bb149ae1eff1c0d4d3db, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -6265,7 +6269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainThemeSoundtrack
   soundlist:
-  - {fileID: 8300000, guid: 45d0e0b1e4bde734a9f25d2e04fcfc5d, type: 3}
+  - {fileID: 8300000, guid: 9cdf1d37cf626ab4d93640f68d84b78d, type: 3}
 --- !u!4 &1752746626
 Transform:
   m_ObjectHideFlags: 0
