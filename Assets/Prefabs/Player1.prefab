@@ -212,10 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 0}
   meleeSpeed: 0.35
-  MeleeSound1: {fileID: 0}
-  MeleeSound2: {fileID: 0}
-  MeleeSound3: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &4332406106714168611
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,10 +392,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 5316315378418921703}
   meleeSpeed: 1
-  MeleeSound1: {fileID: 0}
-  MeleeSound2: {fileID: 0}
-  MeleeSound3: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!212 &3995375088573316728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -491,6 +483,10 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+  player2: {fileID: 0}
+  shootScript: {fileID: 0}
+  melee: {fileID: 4994493364440364610}
+  player1: {fileID: 5135288172693580462}
 --- !u!1001 &5656655153132052820
 PrefabInstance:
   m_ObjectHideFlags: 0
