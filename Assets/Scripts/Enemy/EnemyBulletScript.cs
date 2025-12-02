@@ -1,15 +1,14 @@
 using UnityEngine;
 public class EnemyBulletScript : BasicBulletScript
 {
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("hit");
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
+            PlayerHealthManager playerHealthManager = collision.GetComponent<PlayerHealthManager>();
+            playerHealthManager.TakeDamage(1);
             Destroy(this.gameObject);
-
         }
+        if (collision.gameObject.CompareTag("Wall")) Destroy(this.gameObject);
     }
 }

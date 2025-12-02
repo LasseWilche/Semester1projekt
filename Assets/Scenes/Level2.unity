@@ -4286,6 +4286,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &434814822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_Name
+      value: EnemyBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176410343289565175, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25006813
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.1559596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499366830735200493, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
 --- !u!114 &473202773 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543069785676365653, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
@@ -4427,6 +4488,8 @@ GameObject:
   - component: {fileID: 727698483}
   - component: {fileID: 727698482}
   - component: {fileID: 727698485}
+  - component: {fileID: 727698486}
+  - component: {fileID: 727698487}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4552,6 +4615,32 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &727698486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727698481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c59d221b854e434aa6281375a0c0861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  bothAlive: 1
+  scenePlayer: {fileID: 0}
+--- !u!114 &727698487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727698481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3485c5f33464141a13ef68b6dcf7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScenePlayer
 --- !u!1 &783039872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7224323927297663697, guid: c5fe9774cc4c45445a6683de7c7d8e0e, type: 3}
@@ -4618,7 +4707,7 @@ MonoBehaviour:
   currentHealth: 2
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0.6754716, g: 0.48302594, b: 0.48302594, a: 0}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 727698486}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!114 &841389792 stripped
@@ -7080,6 +7169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2 with overheat
       objectReference: {fileID: 0}
+    - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 727698486}
     - target: {fileID: 8742308619857995189, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.54147
@@ -7505,3 +7598,4 @@ SceneRoots:
   - {fileID: 1752746626}
   - {fileID: 2145373000}
   - {fileID: 2025133098}
+  - {fileID: 434814822}
