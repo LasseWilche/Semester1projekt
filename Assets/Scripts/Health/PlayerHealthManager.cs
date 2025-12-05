@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class PlayerHealthManager : HealthManager
 {
-    public HealthBar healthBar;         //Need to have access to HelathBar UI object
     [SerializeField] NewP2ShootScript player2;
     [SerializeField] P2ControllerWithRotationThatDidntWorkLol shootScript;
     [SerializeField] Meleescript melee;
