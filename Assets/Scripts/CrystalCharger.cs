@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -47,7 +48,10 @@ public class CrystalCharger : MonoBehaviour
             int nextIndex = currentScene.buildIndex + 1;
             if (nextIndex < SceneManager.sceneCountInBuildSettings)
             {
-                SceneManager.LoadScene(nextIndex);
+                if (ScreenFader.Instance != null) FadeTransition(nextIndex);
+                else SceneManager.LoadScene(nextIndex);
+                
+                
             }
             else
             {
@@ -93,5 +97,10 @@ public class CrystalCharger : MonoBehaviour
 
         if (interactPrompt != null)
             interactPrompt.SetActive(false);
+    }
+    async void FadeTransition(int nextIndex) //only fades out, fade in is done when canvas is created
+    {
+        await ScreenFader.Instance.FadeOut();
+        SceneManager.LoadScene(nextIndex);
     }
 }

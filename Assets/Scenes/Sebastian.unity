@@ -4411,29 +4411,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2197389099912995062, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197389099912995062, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_PresetInfoIsWorld
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2197389099912995062, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197389099912995062, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275399054704772400, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 36000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275399054704772400, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 12000
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 962348453635885932, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3502903117026195926, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
       propertyPath: m_Name
@@ -4469,18 +4473,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
@@ -4529,50 +4521,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756402740124252355, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756402740124252355, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 12000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756402740124252355, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -12925
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427172655687253791, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427172655687253791, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 12000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427172655687253791, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 12925
-      objectReference: {fileID: 0}
-    - target: {fileID: 5650741244399316444, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 36000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5650741244399316444, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 12000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418790793269391053, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418790793269391053, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 12000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6789689549846231668, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
-      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5132,7 +5080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900327501103861805, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: maxSoulCharge
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3900327501103861805, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: interactPrompt
