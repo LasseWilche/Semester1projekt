@@ -91,9 +91,6 @@ public class Meleescript : MonoBehaviour
                         SoundManager.PlaySound(SoundType.SWORDSWINGSOUND3, 0.5f);
                         break;
                 }
-
-
-                timeUntilMelee = meleeSpeed;
             }
             
         }

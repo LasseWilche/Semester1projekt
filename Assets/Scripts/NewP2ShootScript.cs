@@ -107,6 +107,7 @@ public class NewP2ShootScript : MonoBehaviour
 
     void Start()
     {
+        weaponOverheated.SetActive(false);
         audioSource = FindFirstObjectByType<AudioSource>();
     }
 }
