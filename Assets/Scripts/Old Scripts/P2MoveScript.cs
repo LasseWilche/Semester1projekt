@@ -32,27 +32,3 @@ public class P2MoveScript : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-/*
-        Vector3 move = Vector3.zero;
-
-        if (Keyboard.current.iKey.isPressed)
-            move += Vector3.up;
-        if (Keyboard.current.jKey.isPressed)
-            move += Vector3.left;
-        if (Keyboard.current.kKey.isPressed)
-            move += Vector3.down;
-        if (Keyboard.current.lKey.isPressed)
-            move += Vector3.right;
-
-        if (move != Vector3.zero)
-        {
-            move.Normalize();
-            transform.position += move * moveSpeed * Time.deltaTime;
-        }
-        */
