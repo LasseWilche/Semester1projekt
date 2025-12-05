@@ -476,17 +476,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d7c0afc406aeb4291b9a3093538144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
   animator: {fileID: 0}
-  healthBar: {fileID: 0}
   player2: {fileID: 0}
   shootScript: {fileID: 0}
   melee: {fileID: 4994493364440364610}
   player1: {fileID: 5135288172693580462}
+  Health: []
 --- !u!1001 &5656655153132052820
 PrefabInstance:
   m_ObjectHideFlags: 0

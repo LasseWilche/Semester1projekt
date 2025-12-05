@@ -5,10 +5,9 @@ public class EnemyBulletScript : BasicBulletScript
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealthManager playerHealthManager = collision.GetComponent<PlayerHealthManager>();
-            playerHealthManager.TakeDamage(1);
+            collision.GetComponent<PlayerHealthManager>().TakeDamage(1);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Wall")) Destroy(this.gameObject);
+        else if (collision.gameObject.CompareTag("Wall")) Destroy(this.gameObject);
     }
 }
