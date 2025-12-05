@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerHealthManager : HealthManager
 {
-    public HealthBar healthBar;         //Need to have access to HelathBar UI object
+    [SerializeField] Image[] Health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -22,6 +23,7 @@ public class PlayerHealthManager : HealthManager
 
         base.TakeDamage(damage);
         //healthBar.SetHealth(currentHealth);  //Modifies health bar UI
+        Health[currentHealth].gameObject.SetActive(false);
     }
     public override void DieAnimation()
     {
