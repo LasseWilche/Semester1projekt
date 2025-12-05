@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerHealthManager : HealthManager
 {
@@ -8,6 +9,7 @@ public class PlayerHealthManager : HealthManager
     [SerializeField] P2ControllerWithRotationThatDidntWorkLol shootScript;
     [SerializeField] Meleescript melee;
     [SerializeField] P1Controller player1;
+    [SerializeField] Image[] Health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -22,6 +24,7 @@ public class PlayerHealthManager : HealthManager
 
         base.TakeDamage(damage);
         //healthBar.SetHealth(currentHealth);  //Modifies health bar UI
+        Health[currentHealth].gameObject.SetActive(false);
     }
     public override void DieAnimation()
     {

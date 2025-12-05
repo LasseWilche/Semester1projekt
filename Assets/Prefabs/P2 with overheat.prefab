@@ -510,6 +510,10 @@ MonoBehaviour:
   shootScript: {fileID: 7952730725836127767}
   melee: {fileID: 0}
   player1: {fileID: 0}
+  Health:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3023922344395830050
 GameObject:
   m_ObjectHideFlags: 0
