@@ -505,6 +505,11 @@ MonoBehaviour:
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
   animator: {fileID: 0}
+  healthBar: {fileID: 0}
+  player2: {fileID: 807973748569156421}
+  shootScript: {fileID: 7952730725836127767}
+  melee: {fileID: 0}
+  player1: {fileID: 0}
   Health:
   - {fileID: 0}
   - {fileID: 0}
