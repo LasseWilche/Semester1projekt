@@ -7,6 +7,7 @@ public class P1Controller : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public float moveSpeed;
+    bool alive = true;
 
     void Start()
     {
@@ -15,8 +16,7 @@ public class P1Controller : MonoBehaviour
 
     void Update()
     {
-        p1Movement();
-    
+        if (alive) p1Movement();
     }
 
     private void p1Movement()
@@ -41,5 +41,9 @@ public class P1Controller : MonoBehaviour
         }
         move.Normalize();
         rb2d.linearVelocity = move * moveSpeed;
+    }
+    public void Die()
+    {
+        alive = false;
     }
 }

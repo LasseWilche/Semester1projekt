@@ -148,7 +148,7 @@ MonoBehaviour:
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
-  shootSound1: {fileID: 0}
+  shootSound1: {fileID: 8300000, guid: 9cdf1d37cf626ab4d93640f68d84b78d, type: 3}
   shootSound2: {fileID: 0}
   vulnurable: 0
   bullets: 1

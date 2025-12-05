@@ -14,6 +14,7 @@ public class NewP2ShootScript : MonoBehaviour
     private int direction;
     public float heat = 0;
     private bool overheating = false;
+    bool alive = true;
 
     public AudioClip ShotSound1;
     public AudioClip ShotSound2;
@@ -31,7 +32,7 @@ public class NewP2ShootScript : MonoBehaviour
 
     void Update()
     {
-        if (overheating == false) //if we overheating is true, we dont need any of this code, since our coroutine solves it
+        if (!overheating && alive) //if we are not overheating and are alive we can do stuff
         {
             if (heat > 80)
             {
@@ -95,9 +96,18 @@ public class NewP2ShootScript : MonoBehaviour
         heat = 0;
         overheating = false;
     }
+    public void Die()
+    {
+        alive = false;
+    }
+    public bool IsAlive()
+    {
+        return alive;
+    }
 
     void Start()
     {
+        weaponOverheated.SetActive(false);
         audioSource = FindFirstObjectByType<AudioSource>();
     }
 }
