@@ -98,7 +98,7 @@ public class CrystalCharger : MonoBehaviour
         if (interactPrompt != null)
             interactPrompt.SetActive(false);
     }
-    async void FadeTransition(int nextIndex) //only fades out, fade in is done when canvas is created
+    async void FadeTransition(int nextIndex) //only fades out, fade in is done when canvas is created in ScreenFader
     {
         await ScreenFader.Instance.FadeOut();
         SceneManager.LoadScene(nextIndex);
