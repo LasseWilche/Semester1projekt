@@ -5,7 +5,7 @@ public class PlayerHealthManager : HealthManager
 {
     public HealthBar healthBar;         //Need to have access to HelathBar UI object
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created'
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
         base.Start();
