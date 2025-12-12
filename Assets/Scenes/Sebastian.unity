@@ -4415,6 +4415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3502903117026195926, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4276041709584741945, guid: 7bb3709bf80154e4487e71cc93312386, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7137,17 +7141,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5437752138535558760, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 7956380250708815793, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_Name
       value: P2 with overheat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: maxHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: currentHealth
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: 'Health.Array.data[0]'
