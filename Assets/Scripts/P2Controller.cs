@@ -8,6 +8,7 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
+    bool alive = true;
 
     /*  STUFF FOR DASHING  */
     private float activeMoveSpeed;
@@ -31,12 +32,12 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
 
     void Update()
     {
-        MovementMethod();
+        if (alive) MovementMethod();
     }
 
     private void FixedUpdate()
     {
-        RotationMethod();
+        if (alive) RotationMethod();
     }
 
     private void MovementMethod()
@@ -86,4 +87,9 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        alive = false;
+        rb2d.linearVelocity = Vector2.zero;
+    }
 }
