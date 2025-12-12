@@ -7,7 +7,7 @@ public class ScreenFader : MonoBehaviour
     public static ScreenFader Instance;
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] float fadeDuration = 0.5f;
-    public void Awake()
+    public void Start()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
