@@ -12,69 +12,54 @@ public class BossCircleAttack : MonoBehaviour
     public float radius = 5f;
     public float bulletSpeed = 10;
     public float spawnInterval = 5f;
+    public bool isAttacking;
 
     private float angleStep;
-    private List<GameObject> bulletPool = new List<GameObject>();
 
     [SerializeField] private Animator bossAnimator;
-    public float animWaitTime = 4f;
+    [Tooltip("Optional parent for instantiated bullets (keeps hierarchy clean)")]
+    public Transform bulletParent;
+    [Tooltip("Destroy instantiated bullets after this many seconds as a safety fallback (0 = disabled)")]
+    public float bulletLifetime = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Sets anglestep between bullet spawn points
         angleStep = 360f / bulletCount;
-        InitializeBulletPool();
-        TriggerAttack();
-    }
-
-    void InitializeBulletPool()
-    {
-        for (int i = 0; i < bulletCount; i++)
-        {
-            GameObject bullet = Instantiate(bossBulletPrefab);
-            bullet.SetActive(false);
-            bulletPool.Add(bullet);
-        }
+        InvokeRepeating(nameof(FireCircleAttack), 5, spawnInterval);
     }
 
     public void FireCircleAttack()
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            GameObject bullet = GetPooledBullet();
-            if (bullet != null)
+            float angle = angleStep * i;
+            float x = transform.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
+            float y = transform.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
+            Vector3 spawnPos = new Vector3(x, y, 0f);
+
+            GameObject bullet = Instantiate(bossBulletPrefab, spawnPos, Quaternion.identity, bulletParent);
+
+            Vector2 dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+            if (bullet.transform.up.sqrMagnitude > 0f)
+                bullet.transform.up = new Vector3(dir.x, dir.y, 0f);
+
+            var bulletComp = bullet.GetComponent<BossBullet>();
+            if (bulletComp != null)
             {
-                //Makes spawn point for bullets with equal spacing placed on a circle by multiplying angleStep by i
-                float angle = i * angleStep;
-                float x = transform.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
-                float y = transform.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
-
-                //Applies force to bullet in direction "forward" based on bullet position on circle
-                bullet.transform.position = new Vector3(x, y, 0);
-                float directionX = Mathf.Cos(Mathf.Deg2Rad * angle);
-                float directionY = Mathf.Sin(Mathf.Deg2Rad * angle);
-
-                bullet.GetComponent<BossBullet>().Initialize(bulletSpeed, new Vector2(directionX, directionY));
-                bullet.SetActive(true);
+                bulletComp.Initialize(bulletSpeed, dir);
+            }else
+            {
+                Debug.LogWarning($"BossCircleAttack: bullet prefab is missing component 'BossBullet' on {bullet.name}");
             }
+            if (bulletLifetime > 0f)
+                Destroy(bullet, bulletLifetime);
         }
     }
 
-    GameObject GetPooledBullet()
+    public void StopAttacking()
     {
-       foreach (GameObject bullet in bulletPool)
-        {
-            if (!bullet.activeInHierarchy)
-            {
-                return bullet;
-            }
-        }
-        return null;
-    }
-
-    public void TriggerAttack()
-    {
-        InvokeRepeating("FireCircleAttack", 5f, spawnInterval);
+        CancelInvoke(nameof(FireCircleAttack));
     }
 }

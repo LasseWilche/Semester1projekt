@@ -24,11 +24,11 @@ public class Meleescript : MonoBehaviour
 
     void Awake()
     {
-        // Auto-wire hvis feltet er tomt eller animatoren sidder på et child
+        // Auto-wire hvis feltet er tomt eller animatoren sidder p� et child
         if (!anim) anim = GetComponentInChildren<Animator>();
         if (!anim)
         {
-            Debug.LogError("[Meleescript] Ingen Animator fundet på objekt eller children.");
+            Debug.LogError("[Meleescript] Ingen Animator fundet p� objekt eller children.");
             return;
         }
         Debug.Log($"[Meleescript] Bruger Animator-controller: {anim.runtimeAnimatorController?.name ?? "<none>"}");
