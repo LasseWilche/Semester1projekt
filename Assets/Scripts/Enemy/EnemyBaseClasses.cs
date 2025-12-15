@@ -1,8 +1,10 @@
 using JetBrains.Annotations;
-using System.Transactions;
-using UnityEngine;
 using System;
 using System.Collections;
+using System.Transactions;
+using UnityEngine;
+using UnityEngine.Audio;
+
 public abstract class EnemyBaseRanged : EnemyBaseClass
 {
     public int bullets;
@@ -11,7 +13,9 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     static double rangeOffset = 0.25;
     public GameObject bulletType = null;
     public GameObject shootingAngle = null;
+
     bool bouncing = false;
+
 
     public EnemyBaseRanged(int bullets = 1, double range = 10.0, double spread = 5.0)
     {
@@ -37,7 +41,11 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     {
 
 
+
         animator.Play("Shooting");
+
+        SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.5f);
+
         cooldown = 2;
         yield return new WaitForSeconds(0.5f);
         
@@ -124,6 +132,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
     public Rigidbody2D myrb;
     public Animator animator;
     public bool alive;
+
     public AudioClip shootSound1;
     public AudioClip shootSound2;
     public bool vulnurable;
@@ -155,15 +164,6 @@ public abstract class EnemyBaseClass : MonoBehaviour
     {
         if (cooldown <= 0 && alive)
         {
-            if (Vector2.Distance(p1.transform.position, myrb.transform.position) <
-                Vector2.Distance(p2.transform.position, myrb.transform.position)) //finds the closest player
-            {
-                target = p1.transform;     //if p1 is closest, our target is p1
-            }
-            else
-            {
-                target = p2.transform;     //if p2 is closest, our target is p2
-            }
             MovementScript();
         }
         else
@@ -174,6 +174,31 @@ public abstract class EnemyBaseClass : MonoBehaviour
     }
     public virtual void MovementScript()
     {
+        if (p1 == null && p2 == null)
+        {
+            cooldown -= Time.deltaTime;
+            myrb.linearVelocity = Vector2.zero;
+        }
+        else if (p1 == null)
+        {
+            target = p2.transform;
+        }
+        else if (p2 == null)
+        {
+            target = p1.transform;
+        }
+        else
+        {
+            if (Vector2.Distance(p1.transform.position, myrb.transform.position) <
+            Vector2.Distance(p2.transform.position, myrb.transform.position)) //finds the closest player
+            {
+                target = p1.transform;     //if p1 is closest, our target is p1
+            }
+            else
+            {
+                target = p2.transform;     //if p2 is closest, our target is p2
+            }
+        }
         vulnurable = true;      //if enemies move they can also take damage
         animator.Play("Moving");
     }

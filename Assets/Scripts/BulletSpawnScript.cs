@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class BulletSpawnScript : MonoBehaviour
 {
-    public float life = 3;  
+    public float destroyTimer = 3;  
 
     void Awake()
     {
-        Destroy(gameObject, life);
+        Destroy(gameObject, destroyTimer);
     }
 
     void Start()
@@ -22,7 +22,7 @@ public class BulletSpawnScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
             Destroy(gameObject);
-        else if (collision.gameObject.tag == "OOBwalls")
+        else if (collision.gameObject.tag == "Wall")
             Destroy(gameObject);
 
         if (collision.gameObject.CompareTag("Enemy"))

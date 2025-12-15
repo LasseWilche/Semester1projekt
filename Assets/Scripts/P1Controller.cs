@@ -11,6 +11,7 @@ public class P1Controller : MonoBehaviour
     public float moveSpeed;
     public Animator moveAnim;
     private Vector3 move = Vector3.zero;
+    bool alive = true;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class P1Controller : MonoBehaviour
 
     void Update()
     {
-        p1Movement();
+        if (alive) p1Movement();
     }
 
     private void p1Movement()
@@ -103,5 +104,9 @@ public class P1Controller : MonoBehaviour
         
         move.Normalize();
         rb2d.linearVelocity = move * moveSpeed;
+    }
+    public void Die()
+    {
+        alive = false;
     }
 }

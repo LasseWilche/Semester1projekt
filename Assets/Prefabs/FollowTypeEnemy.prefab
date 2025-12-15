@@ -109,13 +109,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowType
   p1: {fileID: 0}
   p2: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 4
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
   alive: 1
+  shootSound1: {fileID: 0}
+  shootSound2: {fileID: 0}
   vulnurable: 0
 --- !u!95 &197575851584315130
 Animator:
