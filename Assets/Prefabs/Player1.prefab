@@ -104,17 +104,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0032613575, y: -0.003261365}
+  m_Offset: {x: 0.0001975596, y: -0.0032613426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.16, y: 0.24}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.32815778, y: 0.34120345}
+  m_Size: {x: 0.15045929, y: 0.2370354}
   m_EdgeRadius: 0
 --- !u!50 &3265388773543741007
 Rigidbody2D:
@@ -179,6 +179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 5612550825895471234}
   meleeSpeed: 1
+  MeleeSound1: {fileID: 0}
+  MeleeSound2: {fileID: 0}
+  MeleeSound3: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!212 &2001342950513905165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -226,7 +230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -8127518668019787841, guid: 490c4ae3ddc550e40b5f3704dbbdeb62, type: 3}
+  m_Sprite: {fileID: 9213340071539326154, guid: 33a15eb0b0d5a46cb865b1a6e400fc24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::P1Controller
   rb2d: {fileID: 3265388773543741007}
   moveSpeed: 10
+  moveAnim: {fileID: 5612550825895471234}
 --- !u!1 &7224323927297663697
 GameObject:
   m_ObjectHideFlags: 0

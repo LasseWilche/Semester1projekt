@@ -20,18 +20,18 @@ public class Meleescript : MonoBehaviour
     public AudioSource audioSource;
 
 
-    // Brug hashes for at undgå stavefejl
+    // Brug hashes for at undgï¿½ stavefejl
     private static readonly int HashAttack = Animator.StringToHash("Attack");
     private static readonly int HashAttackX = Animator.StringToHash("AttackX");
     private static readonly int HashAttackY = Animator.StringToHash("AttackY");
 
     void Awake()
     {
-        // Auto-wire hvis feltet er tomt eller animatoren sidder på et child
+        // Auto-wire hvis feltet er tomt eller animatoren sidder pï¿½ et child
         if (!anim) anim = GetComponentInChildren<Animator>();
         if (!anim)
         {
-            Debug.LogError("[Meleescript] Ingen Animator fundet på objekt eller children.");
+            Debug.LogError("[Meleescript] Ingen Animator fundet pï¿½ objekt eller children.");
             return;
         }
         Debug.Log($"[Meleescript] Bruger Animator-controller: {anim.runtimeAnimatorController?.name ?? "<none>"}");
@@ -55,7 +55,7 @@ public class Meleescript : MonoBehaviour
 
     void Update()
     {
-        // Opdater facing (låst til cardinal retning)
+        // Opdater facing (lï¿½st til cardinal retning)
         if (Keyboard.current != null)
         {
             int x = (Input.GetKey(KeyCode.LeftArrow) ? -1 : 0) + (Input.GetKey(KeyCode.RightArrow) ? 1 : 0);

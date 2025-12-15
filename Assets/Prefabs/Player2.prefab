@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7261198629908267853}
   - component: {fileID: 5117839468810098139}
   - component: {fileID: 6975140742678953203}
+  - component: {fileID: 5799326920787718352}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -211,6 +212,8 @@ MonoBehaviour:
   VeryOverheatShotSound2: {fileID: 8300000, guid: 3b322dbcc54d9ff4bbf6cb40062e744e, type: 3}
   OverheatingSound: {fileID: 8300000, guid: 3f5e85469757eb541a5ef04401a7a0cb, type: 3}
   audioSource: {fileID: 0}
+  smokeEffect: {fileID: 0}
+  overheatingEffect: {fileID: 0}
 --- !u!114 &6975140742678953203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +233,28 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+--- !u!95 &5799326920787718352
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956091104259114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e36b16850bbc441258c2275d485110f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5184817564784386482
 GameObject:
   m_ObjectHideFlags: 0
