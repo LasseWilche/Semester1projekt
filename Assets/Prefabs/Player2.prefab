@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2152865614480838175}
-  - component: {fileID: 5968625047808788676}
-  - component: {fileID: 415411906074347580}
-  - component: {fileID: 982310075735328471}
-  - component: {fileID: 2923411116536181165}
-  - component: {fileID: 7952730725836127767}
-  - component: {fileID: 807973748569156421}
-  - component: {fileID: 8043489096296252946}
+  - component: {fileID: 6985425156901826852}
+  - component: {fileID: 5005510929860656573}
+  - component: {fileID: 5544424904748720012}
+  - component: {fileID: 5765387076058965734}
+  - component: {fileID: 7261198629908267853}
+  - component: {fileID: 5117839468810098139}
+  - component: {fileID: 6975140742678953203}
+  - component: {fileID: 5799326920787718352}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -219,7 +219,9 @@ MonoBehaviour:
   ShotSound1: {fileID: 8300000, guid: a566e9dd1ec0fc942b558bee34655686, type: 3}
   ShotSound2: {fileID: 8300000, guid: bc89231f470a05f47b2592153ae0df20, type: 3}
   audioSource: {fileID: 0}
---- !u!114 &8043489096296252946
+  smokeEffect: {fileID: 0}
+  overheatingEffect: {fileID: 0}
+--- !u!114 &6975140742678953203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +240,29 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
---- !u!1 &4289495491106658650
+--- !u!95 &5799326920787718352
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956091104259114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e36b16850bbc441258c2275d485110f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5184817564784386482
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
