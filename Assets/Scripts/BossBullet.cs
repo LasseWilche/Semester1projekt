@@ -4,6 +4,12 @@ public class BossBullet : MonoBehaviour
 {
     private float speed;
     private Vector2 direction;
+    private Collider2D myCollider;
+
+    void Start()
+    {
+        myCollider = GetComponent<Collider2D>();
+    }
 
     public void Initialize(float bulletSpeed, Vector2 bulletDirection)
     {
@@ -19,14 +25,23 @@ public class BossBullet : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            var otherCol = collision.collider;
+            if (myCollider != null && otherCol != null)
+            {
+                Physics2D.IgnoreCollision(myCollider, otherCol);
+            } 
         }
     }
 }
