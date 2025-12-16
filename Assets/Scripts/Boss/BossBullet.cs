@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BossBullet : MonoBehaviour
@@ -5,6 +6,7 @@ public class BossBullet : MonoBehaviour
     private float speed;
     private Vector2 direction;
     private Collider2D myCollider;
+    [SerializeField] PlayerHealthManager pHM;
 
     void Start()
     {
@@ -30,9 +32,15 @@ public class BossBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            pHM.TakeDamage(1);
         }
 
         if (collision.gameObject.CompareTag("PlayerBullet"))

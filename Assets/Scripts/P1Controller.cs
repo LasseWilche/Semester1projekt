@@ -72,7 +72,6 @@ public class P1Controller : MonoBehaviour
             moveAnim.SetFloat("InputY", 0);
         } else if (Keyboard.current.rightArrowKey.wasReleasedThisFrame)
             { 
-                Debug.Log("Right key released");
                 moveAnim.SetBool("isWalking", false);
                 moveAnim.SetFloat("LastInputX", 1);
                 moveAnim.SetFloat("LastInputY", 0);
