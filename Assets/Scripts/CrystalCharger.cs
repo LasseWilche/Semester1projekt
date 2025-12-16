@@ -21,6 +21,8 @@ public class CrystalCharger : MonoBehaviour
     private Scene currentScene;
     private bool playerInRange;
     private bool IsCharged => currentSoulCharge >= maxSoulCharge;
+    //Used to start crystal movement when IsCharged
+    [SerializeField] CrystalMovement crystalMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,7 +67,11 @@ public class CrystalCharger : MonoBehaviour
         currentSoulCharge = Mathf.Clamp(currentSoulCharge + amount, 0, maxSoulCharge);
 
         if (soulCharge) soulCharge.value = currentSoulCharge;
-        if (IsCharged) OnCrystalActivated();
+        if (IsCharged)
+        {
+            OnCrystalActivated();
+            crystalMovement.StartCrystal();
+        }
     }
 
     public void CrystalCharged()
