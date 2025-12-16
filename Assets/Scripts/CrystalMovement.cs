@@ -14,6 +14,7 @@ public class CrystalMovement : MonoBehaviour
         if (rb.linearVelocityY == 0)
         {
             rb.linearVelocityY = 0.3f;
+
             StartCoroutine(ChangeVelocity());
         }
     }
