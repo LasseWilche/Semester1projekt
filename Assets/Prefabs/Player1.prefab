@@ -64,7 +64,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.02, y: -0.03956, z: 0}
-  m_LocalScale: {x: 2.7655814, y: 2.7655814, z: 2.7655814}
+  m_LocalScale: {x: 5, y: 5, z: 2.7655814}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1994586412057111000}
@@ -179,10 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meleescript
   anim: {fileID: 5612550825895471234}
   meleeSpeed: 1
-  MeleeSound1: {fileID: 0}
-  MeleeSound2: {fileID: 0}
-  MeleeSound3: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!212 &2001342950513905165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,8 +280,8 @@ Transform:
   m_GameObject: {fileID: 7224323927297663697}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 0.83, z: -0.001}
-  m_LocalScale: {x: 8.219354, y: 8.219354, z: 8.219354}
+  m_LocalPosition: {x: 0.43, y: 0.09, z: -0.001}
+  m_LocalScale: {x: 3, y: 3, z: 8.219354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1994586412057111000}
@@ -336,7 +332,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 3781665898625333168, guid: aab92c13feebbed43877a092760af234, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

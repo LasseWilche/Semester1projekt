@@ -18,12 +18,15 @@ public class Meleescript : MonoBehaviour
 
 
     // Brug hashes for at undgå stavefejl
+    
     private static readonly int HashAttack = Animator.StringToHash("Attack");
     private static readonly int HashAttackX = Animator.StringToHash("AttackX");
     private static readonly int HashAttackY = Animator.StringToHash("AttackY");
+    
 
     void Awake()
     {
+        
         // Auto-wire hvis feltet er tomt eller animatoren sidder p� et child
         if (!anim) anim = GetComponentInChildren<Animator>();
         if (!anim)
@@ -63,7 +66,7 @@ public class Meleescript : MonoBehaviour
                 if (raw != Vector2.zero) lastMoveDir = (Mathf.Abs(raw.x) >= Mathf.Abs(raw.y))
                                                     ? new Vector2(Mathf.Sign(raw.x), 0f)
                                                     : new Vector2(0f, Mathf.Sign(raw.y));
-            }
+            } 
 
             if (timeUntilMelee > 0f) { timeUntilMelee -= Time.deltaTime; return; }
 
@@ -96,7 +99,6 @@ public class Meleescript : MonoBehaviour
 
             timeUntilMelee = meleeSpeed;
 
-            
         }
     }
 
