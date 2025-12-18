@@ -72,7 +72,7 @@ public class NewP2ShootScript : MonoBehaviour
                 else if (heat >= 50)                            //if overheat is above 49 we fire steam
                 {
                     AudioClip steamSound = (Random.Range(0, 2) == 0) ? OverheatShotSound1 : OverheatShotSound2;
-                    audioSource.PlayOneShot(steamSound,1f);
+                    audioSource.PlayOneShot(steamSound,0.5f);
                 }
             }
         }

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class Meleescript : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-    [SerializeField] private float meleeSpeed = 0.35f;
+    [SerializeField] private float meleeSpeed = 1f;
     bool alive = true;
 
     private float timeUntilMelee;
@@ -69,11 +69,14 @@ public class Meleescript : MonoBehaviour
 
             if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
             {
+                
+
                 if (!anim) return;
 
                 anim.SetFloat(HashAttackX, lastMoveDir.x);
                 anim.SetFloat(HashAttackY, lastMoveDir.y);
                 anim.SetTrigger(HashAttack);
+                timeUntilMelee = 1f / meleeSpeed;
 
                 int randomSound = Random.Range(0, 3);
 

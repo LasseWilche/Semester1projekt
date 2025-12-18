@@ -34,6 +34,7 @@ public class BossCircleAttack : MonoBehaviour
     {
         for (int i = 0; i < bulletCount; i++)
         {
+            SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.05f);
             float angle = angleStep * i;
             float x = transform.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
             float y = transform.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
