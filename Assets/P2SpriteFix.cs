@@ -5,7 +5,7 @@ public class P2SpriteFix : MonoBehaviour
 {
     [SerializeField] GameObject gameObjectShoot;
     private Vector2 moveInput;
-    private Animator animator;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

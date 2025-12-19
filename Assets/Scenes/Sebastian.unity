@@ -3011,47 +3011,6 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
---- !u!1 &251872653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 132397929474549397, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
-  m_PrefabInstance: {fileID: 1025937058}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &251872658
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251872653}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.7}
-  m_Radius: 1.09375
 --- !u!1 &292813356
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,6 +4992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3985148918430652570, guid: 3a11d4335c4c3c745b5313c37ed04ec0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6416542422691990366, guid: 3a11d4335c4c3c745b5313c37ed04ec0, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -5063,13 +5026,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2145372998}
     - target: {fileID: 3900327501103861805, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
-      propertyPath: teleportCircle1
+      propertyPath: crystalMovement
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900327501103861805, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
-      propertyPath: teleportCircle2
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1314918003}
     - target: {fileID: 4371887778808227669, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5132,11 +5091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371887778808227669, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.53
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4371887778808227669, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.28
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4371887778808227669, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5153,10 +5112,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 132397929474549397, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 251872658}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
 --- !u!213 &1170808506
 Sprite:
@@ -5829,6 +5785,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1314918003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1261250853824243182, guid: ce4f3e2b38ad18b44bbcd912ea162e59, type: 3}
+  m_PrefabInstance: {fileID: 1025937058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9664f5c9cb8ee34a87c3e6d84ac8542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!4 &1402823948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4937324217856687239, guid: 72e2cb10f1f395742ba013ca4fdb4a8a, type: 3}
