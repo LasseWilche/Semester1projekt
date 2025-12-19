@@ -6,6 +6,7 @@ public class P2SpriteFix : MonoBehaviour
     [SerializeField] GameObject gameObjectShoot;
     private Vector2 moveInput;
     public Animator animator;
+    public bool alive = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,10 +17,13 @@ public class P2SpriteFix : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = gameObjectShoot.transform.position;
-        SpriteMovementMethod(new InputAction.CallbackContext());
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        if (alive)
+        {
+            gameObject.transform.position = gameObjectShoot.transform.position;
+            SpriteMovementMethod(new InputAction.CallbackContext());
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
+        }
     }
 
     private void SpriteMovementMethod(InputAction.CallbackContext Context)
