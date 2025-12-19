@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6098145261303869636}
   - component: {fileID: 2001342950513905165}
   - component: {fileID: 5163172021051661495}
+  - component: {fileID: 7076423334946000154}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -252,6 +253,26 @@ MonoBehaviour:
   rb2d: {fileID: 3265388773543741007}
   moveSpeed: 10
   moveAnim: {fileID: 5612550825895471234}
+--- !u!114 &7076423334946000154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985148918430652570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d7c0afc406aeb4291b9a3093538144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
+  maxHealth: 3
+  currentHealth: 3
+  gameManager: {fileID: 0}
+  animator: {fileID: 0}
+  player2: {fileID: 0}
+  shootScript: {fileID: 0}
+  melee: {fileID: 6098145261303869636}
+  player1: {fileID: 5163172021051661495}
 --- !u!1 &7224323927297663697
 GameObject:
   m_ObjectHideFlags: 0

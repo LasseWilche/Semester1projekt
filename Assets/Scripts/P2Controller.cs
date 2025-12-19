@@ -20,8 +20,8 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     private float dashCoolCounter;
 
     /*  STUFF FOR ROTATION  */
-    [SerializeField]
-    private float rotationSpeed;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] P2SpriteFix SpaghetteFix;
 
 
 
@@ -92,5 +92,6 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     {
         alive = false;
         rb2d.linearVelocity = Vector2.zero;
+        SpaghetteFix.alive = false;
     }
 }
