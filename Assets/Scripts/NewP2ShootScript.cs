@@ -99,6 +99,8 @@ public class NewP2ShootScript : MonoBehaviour
     public void Die()
     {
         alive = false;
+        Destroy(weapon);
+        Destroy(weaponOverheated);
     }
     public bool IsAlive()
     {
