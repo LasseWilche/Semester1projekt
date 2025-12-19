@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Timeline.Actions;
 
 public class BossCircleAttack : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BossCircleAttack : MonoBehaviour
     public float radius = 5f;
     public float bulletSpeed = 10;
     public float spawnInterval = 5f;
-    public bool isAttacking;
+    public BossHealthManager bossHM;
 
     private float angleStep;
 
@@ -27,34 +28,46 @@ public class BossCircleAttack : MonoBehaviour
     {
         //Sets anglestep between bullet spawn points
         angleStep = 360f / bulletCount;
-        InvokeRepeating(nameof(FireCircleAttack), 5, spawnInterval);
+        StartCoroutine(FireCircleAttack());
+    }
+    
+    void Update()
+    {
+        
     }
 
-    public void FireCircleAttack()
+    public IEnumerator FireCircleAttack()
     {
-        for (int i = 0; i < bulletCount; i++)
+        while (bossHM.bossIsAlive == true)
         {
-            float angle = angleStep * i;
-            float x = transform.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
-            float y = transform.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
-            Vector3 spawnPos = new Vector3(x, y, 0f);
-
-            GameObject bullet = Instantiate(bossBulletPrefab, spawnPos, Quaternion.identity, bulletParent);
-
-            Vector2 dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
-            if (bullet.transform.up.sqrMagnitude > 0f)
-                bullet.transform.up = new Vector3(dir.x, dir.y, 0f);
-
-            var bulletComp = bullet.GetComponent<BossBullet>();
-            if (bulletComp != null)
+            bossAnimator.SetBool("IsCircleAttacking", true);
+            yield return new WaitForSeconds(0.5f);
+            bossAnimator.SetBool("IsCircleAttacking", false);
+            for (int i = 0; i < bulletCount; i++)
             {
-                bulletComp.Initialize(bulletSpeed, dir);
-            }else
-            {
-                Debug.LogWarning($"BossCircleAttack: bullet prefab is missing component 'BossBullet' on {bullet.name}");
+                float angle = angleStep * i;
+                float x = transform.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
+                float y = transform.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
+                Vector3 spawnPos = new Vector3(x, y, 0f);
+
+                GameObject bullet = Instantiate(bossBulletPrefab, spawnPos, Quaternion.identity, bulletParent);
+
+                Vector2 dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+                if (bullet.transform.up.sqrMagnitude > 0f)
+                    bullet.transform.up = new Vector3(dir.x, dir.y, 0f);
+
+                var bulletComp = bullet.GetComponent<BossBullet>();
+                if (bulletComp != null)
+                {
+                    bulletComp.Initialize(bulletSpeed, dir);
+                }else
+                {
+                    Debug.LogWarning($"BossCircleAttack: bullet prefab is missing component 'BossBullet' on {bullet.name}");
+                }
+                if (bulletLifetime > 0f)
+                    Destroy(bullet, bulletLifetime);
             }
-            if (bulletLifetime > 0f)
-                Destroy(bullet, bulletLifetime);
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 
