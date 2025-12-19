@@ -134,7 +134,7 @@ MonoBehaviour:
   radius: 1
   bulletSpeed: 10
   spawnInterval: 5
-  isAttacking: 0
+  bossHM: {fileID: 886462154481209301}
   bossAnimator: {fileID: 137909075672555232}
   bulletParent: {fileID: 0}
   bulletLifetime: 10
@@ -236,3 +236,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869bf1f92aab0ae4dad5da7f04c1db7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealthManager
+  hpSlider: {fileID: 0}
+  boss: {fileID: 0}

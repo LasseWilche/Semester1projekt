@@ -40,6 +40,7 @@ public class PlayerHealthManager : HealthManager
     }
     public override void TakeDamage(int damage)
     {
+        SoundManager.PlaySound(SoundType.HURTINGSOUND1, 0.5f);
         if (damage <= 0) return;
         if (currentHealth <= 0) return;
 

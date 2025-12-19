@@ -5,20 +5,26 @@ using UnityEngine.UI;
 public class BossHealthManager : MonoBehaviour
 {
     public int maxHealth { get; private set; } = 50;
-    private int currentHealth;
+    public int currentHealth { get; private set; }
     public Slider hpSlider;
-    public GameObject gameObject;
+    public GameObject boss;
+    public bool bossIsAlive { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
+        bossIsAlive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         hpSlider.value = currentHealth;
+        if (currentHealth <= 0)
+        {
+           Death();
+        }
     }
 
     public void TakeDamage()
@@ -28,10 +34,8 @@ public class BossHealthManager : MonoBehaviour
 
     public void Death()
     {
-        if (currentHealth <= 0)
-        {
-           Destroy(gameObject);
-        }
+        bossIsAlive = false;
+        Destroy(boss);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,6 +43,10 @@ public class BossHealthManager : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("PlayerMelee"))
         {
             TakeDamage();
+            if (collision.gameObject.CompareTag("PlayerBullet"))
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
