@@ -9,7 +9,7 @@ public enum SoundType
     SWORDSWINGSOUND2,
     SWORDSWINGSOUND3,
     HURTINGSOUND1,
-    HURTINGSOUND2,
+
 
 
 
