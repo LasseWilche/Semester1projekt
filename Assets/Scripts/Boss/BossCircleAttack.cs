@@ -40,6 +40,7 @@ public class BossCircleAttack : MonoBehaviour
     {
         while (bossHM.bossIsAlive == true)
         {
+            SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.05f);
             bossAnimator.SetBool("IsCircleAttacking", true);
             yield return new WaitForSeconds(0.5f);
             bossAnimator.SetBool("IsCircleAttacking", false);
