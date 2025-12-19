@@ -39,9 +39,6 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
     }
     public override IEnumerator AttackScript()
     {
-
-
-
         animator.Play("Shooting");
 
         SoundManager.PlaySound(SoundType.GLOORPSHOTSHOUND, 0.5f);
