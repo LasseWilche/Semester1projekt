@@ -13,7 +13,13 @@ public class PlayerHealthManager : HealthManager
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
-        base.Start();
+        currentHealth = maxHealth;
+        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+        if (player2 != null)
+        {
+            animator = GameObject.Find("P2 with overheat/Sprite").GetComponent<Animator>();
+        }
+        else animator = GetComponent<Animator>();
         //healthBar.SetMaxHealth(maxHealth);    //Sets UI healthbar to max on start
         if (ScreenFader.Instance != null)
         {
@@ -22,7 +28,7 @@ public class PlayerHealthManager : HealthManager
             {
                 Health[0] = GameObject.Find("P1_HealthBar/1 Health").GetComponent<Image>();
                 Health[1] = GameObject.Find("P1_HealthBar/2 Health").GetComponent<Image>();
-                Health[2] = GameObject. Find("P1_HealthBar/3 Health").GetComponent<Image>();
+                Health[2] = GameObject.Find("P1_HealthBar/3 Health").GetComponent<Image>();
             }
             else
             {
@@ -54,13 +60,18 @@ public class PlayerHealthManager : HealthManager
             player2.Die();
             shootScript.Die();
         }
-        //animator.Play("Dying");
-        Invoke("Dying", 3f); //insert length of dying animation
+        animator.Play("Dying");
+        Invoke("Dying", 2.5f); //insert length of dying animation
     }
     public override void Dying()
     {
         if (gameManager.bothAlive == true) gameManager.bothAlive = false; //End the game;
         else gameManager.GameOver();
-        Destroy(gameObject);
+        Debug.Log("destroying");
+        if (player2 != null)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+        else Destroy(gameObject);
     }
 }

@@ -115,7 +115,6 @@ public abstract class EnemyBaseRanged : EnemyBaseClass
         Vector3 ColliderVector3 = collider.GetContact(0).point;
         angle = myrb.transform.position - ColliderVector3;
         angle.Normalize();
-        Debug.Log("we are bouncing");
         myrb.AddForce(angle * force, ForceMode2D.Impulse);
         yield return new WaitForSeconds(bounceTime);
         if (cooldown <= 0) StartCoroutine(AttackScript());
