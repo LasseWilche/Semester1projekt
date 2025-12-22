@@ -8825,6 +8825,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7056642278849336323, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 2056281418}
+    - target: {fileID: 7056642278849336323, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
       propertyPath: spawnInterval
       value: 3
       objectReference: {fileID: 0}
