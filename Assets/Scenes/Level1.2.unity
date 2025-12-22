@@ -2680,11 +2680,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2475250954180323659, guid: a248d6042b34ae346949ec01fa17b681, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.73
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2475250954180323659, guid: a248d6042b34ae346949ec01fa17b681, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.27
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2475250954180323659, guid: a248d6042b34ae346949ec01fa17b681, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3033,71 +3033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0af19f932229540996b40533249d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawner
---- !u!1001 &174858292
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 934043536933208654, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_Name
-      value: ShotgunEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.6340113
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.4787982
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173319833310440435, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484173513888295144, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_Size.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484173513888295144, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
-      propertyPath: m_Size.y
-      value: 0.18
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
 --- !u!114 &230864081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,11 +6414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4743731705344105622, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4743731705344105622, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4957629525818246466, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: overheatingEffect
@@ -6511,11 +6446,11 @@ PrefabInstance:
       objectReference: {fileID: 1693666629}
     - target: {fileID: 8742308619857995189, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.24
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8742308619857995189, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8742308619857995189, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7636,7 +7571,6 @@ SceneRoots:
   - {fileID: 5458289050629140117}
   - {fileID: 1752746626}
   - {fileID: 1272017760}
-  - {fileID: 174858292}
   - {fileID: 1756560995}
   - {fileID: 581258235}
   - {fileID: 1025937058}

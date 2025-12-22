@@ -5,22 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/MVP.unity
+    guid: facccad3d5e92a1459f97949154ef837
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 31d49da412aacd74e8c242f2914de6f7
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: ea3be047b4bd5224ebceaa1f7293aac6
+  - enabled: 1
+    path: Assets/Scenes/Level1.2.unity
+    guid: 4ed0e772f8884454887ffa6f2e442c8a
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 7c5cc20a221d1a743b5d348b1b90c849
+  - enabled: 1
+    path: Assets/Scenes/BossLevel.unity
+    guid: 4b454b963e44f7747a90fc2e4ae1a5e4
   - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 88f482cb793a62e4ba024119e993b408
   - enabled: 0
-    path: Assets/Scenes/MVP.unity
-    guid: facccad3d5e92a1459f97949154ef837
-  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sebastian.unity
     guid: 17a85579b1a288a4fae7cff723534ee4
   m_configObjects:
