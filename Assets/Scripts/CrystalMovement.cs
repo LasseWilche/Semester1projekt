@@ -22,7 +22,6 @@ public class CrystalMovement : MonoBehaviour
     {
         while (true)
         {
-        Debug.Log("Gege");
         rb.linearVelocityY *= -1;
         yield return new WaitForSeconds(1f);
         }
