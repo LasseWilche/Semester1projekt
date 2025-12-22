@@ -40,7 +40,8 @@ public class BossBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            pHM.TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
+            //collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
         }
 
         if (collision.gameObject.CompareTag("PlayerBullet"))
