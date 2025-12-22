@@ -307,79 +307,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
-  m_Name: Blend Tree
-  m_Childs:
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d34fa8b45e8f2d44da7159298006db1d, type: 2}
-    m_Threshold: 0
-    m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 344eddd42d2684d45be27afd3688eca4, type: 2}
-    m_Threshold: 0.14285715
-    m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a383bc029c8e8e742aa71d904dfa831b, type: 2}
-    m_Threshold: 0.2857143
-    m_Position: {x: 0, y: -1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b1506622f604a7543a92e9bc42219967, type: 2}
-    m_Threshold: 0.42857143
-    m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 0.5714286
-    m_Position: {x: -1, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 0.71428573
-    m_Position: {x: 1, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 0.85714287
-    m_Position: {x: 1, y: -1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 1
-    m_Position: {x: -1, y: -1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: AttackX
-    m_Mirror: 0
-  m_BlendParameter: AttackX
-  m_BlendParameterY: AttackX
-  m_MinThreshold: 0
-  m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
-  m_NormalizedBlendValues: 0
-  m_BlendType: 1
 --- !u!206 &-1791828246875846716
 BlendTree:
   m_ObjectHideFlags: 1
@@ -491,13 +418,12 @@ AnimatorStateMachine:
     m_Position: {x: -240, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -555255107758482413}
-    m_Position: {x: -10, y: 270, z: 0}
+    m_Position: {x: 300, y: 330, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 1970063493756109729}
   - {fileID: 2002745215170730723}
   - {fileID: 770538872071411952}
-  - {fileID: -130687311182845192}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

@@ -6,7 +6,7 @@ public class BossBullet : MonoBehaviour
     private float speed;
     private Vector2 direction;
     private Collider2D myCollider;
-    [SerializeField] PlayerHealthManager pHM;
+    private PlayerHealthManager pHM;
 
     void Start()
     {
@@ -39,9 +39,9 @@ public class BossBullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            pHM = collision.gameObject.GetComponent<PlayerHealthManager>();
+            pHM.TakeDamage(1);
             Destroy(gameObject);
-            collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
-            //collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(1);
         }
 
         if (collision.gameObject.CompareTag("PlayerBullet"))
