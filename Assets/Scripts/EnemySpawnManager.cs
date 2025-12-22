@@ -4,6 +4,10 @@ using System.Collections.Generic;
  
 public class EnemySpawnManager : MonoBehaviour
 {
+    [Header("Tutorial")]
+    public bool tutorialMode;
+    public bool tutorialRunning = false;
+
     [Header("Spawner Settings")] //cool header to segment variables in unity
     public enemySpawner[] spawners; // array to setup spawners
     public float spawnInterval = 5f; //seconds inbetween each enemy spawner activating
@@ -29,7 +33,8 @@ public class EnemySpawnManager : MonoBehaviour
             return;
         }
  
-        StartCoroutine(SpawnLoop());
+        if (!tutorialMode) StartCoroutine(SpawnLoop());
+
     }
  
     private IEnumerator SpawnLoop() //while loop to spawn enemies at a random spawner every spawn interval
@@ -51,7 +56,30 @@ public class EnemySpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
- 
+
+    public IEnumerator TutorialLoop() //while loop to spawn enemies at a random spawner every spawn interval
+    {
+        int iterations = 3;
+        tutorialRunning = true;
+        while (iterations>0)
+        {
+            int totalActive = GetTotalActiveEnemies();
+            if (totalActive < maxEnemies)
+            {
+                enemySpawner chosenSpawner = ChooseSpawner();
+                GameObject enemyPrefab = ChooseEnemyType();
+
+                if (chosenSpawner != null && enemyPrefab != null)
+                {
+                    chosenSpawner.SpawnEnemy(enemyPrefab);
+                }
+            }
+            iterations--;
+            yield return new WaitForSeconds(spawnInterval);
+        }
+        tutorialRunning = false;
+    }
+
     private enemySpawner ChooseSpawner() //loop to keep track of which active spawner we use and that it cant spawn enemies more than twice in a row. 
     {
         int spawnerIndex;

@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1de38898bd29bf40902c415a9272acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBulletScript
-  bulletSpeed: 10
+  bulletSpeed: 3
 --- !u!95 &2613072091877737865
 Animator:
   serializedVersion: 7

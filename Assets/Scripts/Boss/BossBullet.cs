@@ -1,0 +1,56 @@
+using System.Runtime.CompilerServices;
+using UnityEngine;
+
+public class BossBullet : MonoBehaviour
+{
+    private float speed;
+    private Vector2 direction;
+    private Collider2D myCollider;
+    private PlayerHealthManager pHM;
+
+    void Start()
+    {
+        myCollider = GetComponent<Collider2D>();
+    }
+
+    public void Initialize(float bulletSpeed, Vector2 bulletDirection)
+    {
+        speed = bulletSpeed;
+        direction = bulletDirection;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            pHM = collision.gameObject.GetComponent<PlayerHealthManager>();
+            pHM.TakeDamage(1);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            var otherCol = collision.collider;
+            if (myCollider != null && otherCol != null)
+            {
+                Physics2D.IgnoreCollision(myCollider, otherCol);
+            } 
+        }
+    }
+}

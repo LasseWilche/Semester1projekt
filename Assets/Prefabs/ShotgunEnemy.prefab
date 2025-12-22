@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5732960575038993476}
   - component: {fileID: 6609887582916127949}
   - component: {fileID: 6969770132444654211}
-  - component: {fileID: 5484173513888295144}
+  - component: {fileID: 2886223514755865560}
   m_Layer: 0
   m_Name: ShotgunEnemy
   m_TagString: Enemy
@@ -110,15 +110,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotgun
   p1: {fileID: 0}
   p2: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 3
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 2
   myrb: {fileID: 0}
   animator: {fileID: 0}
-  bullets: 5
-  range: 5
-  spread: 15
+  alive: 1
+  shootSound1: {fileID: 0}
+  shootSound2: {fileID: 0}
+  vulnurable: 0
+  bullets: 3
+  range: 4
+  spread: 30
   bulletType: {fileID: 2378248120768623796, guid: b4a4aaeae91987b4a901e2e8e1b96788, type: 3}
   shootingAngle: {fileID: 8113627332956629649}
 --- !u!95 &5732960575038993476
@@ -155,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5a5a5ffe6905944a1f06f2291d97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 0
+  maxHealth: 1
   currentHealth: 0
   spriteRenderer: {fileID: 0}
   ogcolor: {r: 0, g: 0, b: 0, a: 0}
@@ -188,8 +192,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &5484173513888295144
-BoxCollider2D:
+--- !u!60 &2886223514755865560
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -222,7 +226,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0017869435, y: 0.0017868653}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -232,8 +236,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.875}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.07}
+      - {x: -0.07, y: 0.01}
+      - {x: -0.07, y: -0.07}
+      - {x: 0.07, y: -0.07}
+      - {x: 0.07, y: 0.01}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8113627332956629649
 GameObject:
   m_ObjectHideFlags: 0
