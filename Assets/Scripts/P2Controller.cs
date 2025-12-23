@@ -92,6 +92,7 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     {
         alive = false;
         rb2d.linearVelocity = Vector2.zero;
-        SpaghetteFix.alive = false;
+        if (SpaghetteFix != null) SpaghetteFix.alive = false;
+
     }
 }

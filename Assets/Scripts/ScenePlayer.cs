@@ -17,7 +17,7 @@ public class ScenePlayer : MonoBehaviour
 
     public void FirstLevel()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level1.2");
     }
     public void MainMenu()
     {

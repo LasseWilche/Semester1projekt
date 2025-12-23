@@ -67,7 +67,6 @@ public class PlayerHealthManager : HealthManager
     {
         if (gameManager.bothAlive == true) gameManager.bothAlive = false; //End the game;
         else gameManager.GameOver();
-        Debug.Log("destroying");
         if (player2 != null)
         {
             Destroy(gameObject.transform.parent.gameObject);

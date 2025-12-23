@@ -40,9 +40,11 @@ public class BossCircleAttack : MonoBehaviour
     {
         while (bossHM.bossIsAlive == true)
         {
+            /*
             bossAnimator.SetBool("IsCircleAttacking", true);
             yield return new WaitForSeconds(0.5f);
             bossAnimator.SetBool("IsCircleAttacking", false);
+            */
             for (int i = 0; i < bulletCount; i++)
             {
                 float angle = angleStep * i;

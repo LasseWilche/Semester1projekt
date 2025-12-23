@@ -113,6 +113,14 @@ public class Meleescript : MonoBehaviour
                 enemy.TakeDamage(1);
             }
         }
+        if (other.CompareTag("Boss"))
+        {
+            var boss = other.GetComponent<BossHealthManager>();
+            if (boss != null)
+            {
+                boss.TakeDamage();
+            }
+        }
     }
     public void Die()
     {

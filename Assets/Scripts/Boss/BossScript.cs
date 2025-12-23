@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Net;
 using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,6 +11,7 @@ public class BossScript : MonoBehaviour
     public Transform[] patrolPoints;
     public float waitTime;
     int currentPointIndex;
+    int previousPointIndex;
     bool once;
     private Rigidbody2D rb;
 
@@ -21,7 +23,8 @@ public class BossScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   //For knockback
+        rb = GetComponent<Rigidbody2D>();
+        bossAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class BossScript : MonoBehaviour
                 StartCoroutine(Wait());
             }
         }
+        BossMovement();
     }
 
     IEnumerator Wait()
@@ -46,7 +50,8 @@ public class BossScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         if (currentPointIndex + 1 < patrolPoints.Length)
         {
-            currentPointIndex++;
+            previousPointIndex = currentPointIndex;
+            currentPointIndex = Random.Range(1, patrolPoints.Length);
         }
         else
         {
@@ -68,5 +73,112 @@ public class BossScript : MonoBehaviour
     {
         Vector2 direction = (transform.position - playerTransform.position).normalized;
         rb.linearVelocity= direction * knockbackForce;
+    }
+
+    private void BossMovement()
+    {
+        switch (previousPointIndex, currentPointIndex)
+        {
+            case (0, 1):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", 0);
+                break;
+            case (0, 2):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (0, 3):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 0);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (0, 4):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (1, 0):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", 0);
+                break;
+            case (1, 2):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 0);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (1, 3):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (1, 4):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (2, 0):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (2, 1):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 0);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (2, 3):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", 0);
+                break;
+            case (2, 4):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (3, 0):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 0);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (3, 1):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (3, 2):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", 0);
+                break;
+            case (3, 4):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (4, 0):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (4, 1):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", 1);
+                break;
+            case (4, 2):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", -1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+            case (4, 3):
+                bossAnimator.SetBool("bossIsWalking", true);
+                bossAnimator.SetFloat("BossX", 1);
+                bossAnimator.SetFloat("BossY", -1);
+                break;
+        }
     }
 }
