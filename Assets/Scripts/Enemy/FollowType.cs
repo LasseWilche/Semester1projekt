@@ -10,6 +10,7 @@ public class FollowType : EnemyBaseClass
 
     public override IEnumerator AttackScript()
     {
+
         animator.Play("Melee");
         yield return new WaitForSeconds(0.5f);
         if (target != null)
