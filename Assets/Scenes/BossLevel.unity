@@ -427,13 +427,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: cfc66d6a46924dc42b6d95cc4880c490, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.503
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 170
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -8696,7 +8696,7 @@ PrefabInstance:
     - target: {fileID: 7056642278849336323, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
       propertyPath: soundManager
       value: 
-      objectReference: {fileID: 2056281418}
+      objectReference: {fileID: 0}
     - target: {fileID: 7056642278849336323, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
       propertyPath: spawnInterval
       value: 3
