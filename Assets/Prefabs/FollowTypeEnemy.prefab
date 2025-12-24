@@ -39,6 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6407161925651851054
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -84,6 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: -524072053
   m_SortingLayer: 2
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1938722107774378961, guid: afc2383aebcd1304fbf5e16a66d6089e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,7 +95,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2502899697496668773
 MonoBehaviour:
@@ -109,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowType
   p1: {fileID: 0}
   p2: {fileID: 0}
-  movementSpeed: 4
+  movementSpeed: 3
   target: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
   cooldown: 2
@@ -155,8 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
   maxHealth: 2
   currentHealth: 2
-  spriteRenderer: {fileID: 0}
-  ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
   animator: {fileID: 0}
 --- !u!50 &4709160633909002961

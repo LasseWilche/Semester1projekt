@@ -8,11 +8,13 @@ public class PlayerHealthManager : HealthManager
     [SerializeField] P2ControllerWithRotationThatDidntWorkLol shootScript;
     [SerializeField] Meleescript melee;
     [SerializeField] P1Controller player1;
+    public float invincibility;
     private Image[] Health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
+        invincibility = 0;
         currentHealth = maxHealth;
         gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
         if (player2 != null)
@@ -38,8 +40,18 @@ public class PlayerHealthManager : HealthManager
             }
         }
     }
+    private void Update()
+    {
+        if (invincibility != 0) //if player is invincible we tick down depending on how much time has passed since last update
+        {
+            invincibility -= Time.deltaTime;
+            if (invincibility < 0) invincibility = 0;
+        }
+    }
     public override void TakeDamage(int damage)
     {
+        if (invincibility != 0) return; //if player is invincible we dont want to take damage
+        invincibility = 1;
         SoundManager.PlaySound(SoundType.HURTINGSOUND1, 0.5f);
         if (damage <= 0) return;
         if (currentHealth <= 0) return;
