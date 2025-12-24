@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class BossScript : MonoBehaviour
 {
     //Boss Patrol variables
+    private float waitStart;
     public float moveSpeed;
     public Transform[] patrolPoints;
     public float waitTime;
@@ -23,6 +24,7 @@ public class BossScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
+        waitStart = 5;
         rb = GetComponent<Rigidbody2D>();
         bossAnimator = GetComponent<Animator>();
     }
@@ -30,6 +32,12 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (waitStart != 0)
+        {
+            waitStart -= Time.deltaTime;
+            if (waitStart < 0) waitStart = 0;
+            return;
+        }
         if (transform.position != patrolPoints[currentPointIndex].position)
         {
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, moveSpeed * Time.deltaTime);
