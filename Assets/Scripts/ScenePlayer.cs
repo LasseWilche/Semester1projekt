@@ -27,4 +27,8 @@ public class ScenePlayer : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
 }

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        scenePlayer.MainMenu();
+        scenePlayer.GameOver();
     }
     public void Victory()
     {
