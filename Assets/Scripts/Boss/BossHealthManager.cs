@@ -9,6 +9,7 @@ public class BossHealthManager : MonoBehaviour
     public Slider hpSlider;
     public GameObject boss;
     public bool bossIsAlive { get; private set; }
+    public bool invincible = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +30,7 @@ public class BossHealthManager : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (!invincible)
         currentHealth -= 1;
     }
 
