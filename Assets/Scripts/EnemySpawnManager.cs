@@ -10,7 +10,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     [Header("Spawner Settings")] //cool header to segment variables in unity
     public enemySpawner[] spawners; // array to setup spawners
-    public float spawnInterval = 5f; //seconds inbetween each enemy spawner activating
+    public float spawnInterval = 3; //seconds inbetween each enemy spawner activating
     public int maxEnemies = 10; // max enemies at a time)
  
     [Header("Enemy Types")]

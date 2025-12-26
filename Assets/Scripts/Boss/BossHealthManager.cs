@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BossHealthManager : MonoBehaviour
 {
-    public int maxHealth { get; private set; } = 50;
+    public int maxHealth { get; private set; } = 30;
     public int currentHealth { get; private set; }
     public Slider hpSlider;
     public GameObject boss;
