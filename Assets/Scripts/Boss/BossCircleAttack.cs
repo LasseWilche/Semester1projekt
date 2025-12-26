@@ -35,6 +35,7 @@ public class BossCircleAttack : MonoBehaviour
     public IEnumerator FireCircleAttack()
     {
         yield return new WaitForSeconds(waitStart);
+        bossHM.invincible = false;
         waitStart = 0;
         while (bossHM.bossIsAlive == true)
         {
