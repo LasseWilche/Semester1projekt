@@ -107,5 +107,7 @@ public class P1Controller : MonoBehaviour
     public void Die()
     {
         alive = false;
+        moveSpeed = 0;
+        rb2d.linearVelocity = move * moveSpeed;
     }
 }
