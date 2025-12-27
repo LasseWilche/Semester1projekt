@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 605747795150296995}
   - component: {fileID: 4919600476685221231}
   - component: {fileID: 5289867500680606006}
+  - component: {fileID: 1145555503898308702}
   m_Layer: 0
   m_Name: Player1 1
   m_TagString: Player
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::P1Controller
   rb2d: {fileID: 1589936965849002887}
   moveSpeed: 100
+  originalSpeed: 0
   moveAnim: {fileID: 6098417176222182284}
 --- !u!114 &5289867500680606006
 MonoBehaviour:
@@ -449,14 +451,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
   maxHealth: 3
   currentHealth: 3
-  spriteRenderer: {fileID: 0}
-  ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 6098417176222182284}
   player2: {fileID: 0}
   shootScript: {fileID: 0}
   melee: {fileID: 8856012863972759831}
   player1: {fileID: 4919600476685221231}
+  invincibility: 0
+--- !u!114 &1145555503898308702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921014540739868629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6c2911515956429ebffb13e860d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DashScript
+  dashKey: 32
+  dashSpeed: 2
+  dashDuration: 0.25
+  dashCooldown: 1
 --- !u!1 &4809486292550940330
 GameObject:
   m_ObjectHideFlags: 0
