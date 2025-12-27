@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Background" style="flex-grow: 1; position: absolute; right: 0; left: 0; top: 0; bottom: 0; color: rgb(255, 255, 255); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:Label text="Victory Achieved" name="Victory" style="position: absolute; right: 0; top: 30%; left: 0; bottom: 30%; align-items: stretch; background-color: rgba(0, 0, 0, 0.78); -unity-text-auto-size: none; -unity-text-align: middle-center; font-size: 160px; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=2a13f1b7f7c9e8c4b877ead77736837d&amp;type=3#NotInter-Regular&quot;); margin-top: 2px; background-size: 100% 100%; background-position-y: center; aspect-ratio: 2; background-position-x: left 0; opacity: 1;"/>
+    </ui:VisualElement>
+</ui:UXML>
