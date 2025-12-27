@@ -58,7 +58,7 @@ public class PlayerHealthManager : HealthManager
 
         base.TakeDamage(damage);
         //healthBar.SetHealth(currentHealth);  //Modifies health bar UI
-        if (ScreenFader.Instance != null) Health[currentHealth].gameObject.SetActive(false);
+        if (ScreenFader.Instance != null && Health[currentHealth] != null) Health[currentHealth].gameObject.SetActive(false);
     }
     public override void DieAnimation()
     {

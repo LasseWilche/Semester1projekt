@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &14635638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,6 +1804,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1875998625}
+    - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8043489096296252946, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: gameManager
       value: 
@@ -8746,6 +8750,10 @@ PrefabInstance:
       propertyPath: gameObject
       value: 
       objectReference: {fileID: 1735493384}
+    - target: {fileID: 886462154481209301, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 14635637}
     - target: {fileID: 1327297785736150838, guid: 820c030d9b90747fca170ccd5d919927, type: 3}
       propertyPath: m_BodyType
       value: 1

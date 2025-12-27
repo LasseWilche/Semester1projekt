@@ -10,6 +10,7 @@ public class BossHealthManager : MonoBehaviour
     public GameObject boss;
     public bool bossIsAlive { get; private set; }
     public bool invincible = true;
+    [SerializeField] GameObject victoryScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +38,7 @@ public class BossHealthManager : MonoBehaviour
     public void Death()
     {
         bossIsAlive = false;
+        victoryScreen.SetActive(true);
         Destroy(boss);
     }
 
