@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   uiDoc: {fileID: 14635638}
-  victoryMusic: {fileID: 0}
+  scenePlayer: {fileID: 446632720}
 --- !u!1 &368339959
 GameObject:
   m_ObjectHideFlags: 0
