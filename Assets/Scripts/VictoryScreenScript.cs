@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.Port;
 
 public class VictoryScreenScript : MonoBehaviour
 {
     [SerializeField] UIDocument uiDoc;
-    [SerializeField] AudioClip victoryMusic;
+    [SerializeField] ScenePlayer scenePlayer;
     Label victoryLabel;
     float opacityFloat = 0f;
     float opacityIncrement = 2f;
@@ -24,7 +25,7 @@ public class VictoryScreenScript : MonoBehaviour
         {
             opacityIncrement *= -1;
         }
-        else if (opacityFloat < 0) Destroy(gameObject);
+        else if (opacityFloat < 0) scenePlayer.MainMenu();
             opacityFloat += opacityIncrement;
         StyleFloat opacity = opacityFloat/100;
         victoryLabel.style.opacity = opacity;
