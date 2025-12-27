@@ -18,7 +18,7 @@ public class VictoryScreenScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (opacityFloat >= 130f)
+        if (opacityFloat >= 160f)
         {
             opacityIncrement *= -1;
         }
