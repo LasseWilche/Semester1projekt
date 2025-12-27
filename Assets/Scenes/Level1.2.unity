@@ -6413,26 +6413,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.00028172135
       objectReference: {fileID: 0}
-    - target: {fileID: 4743731705344105622, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4743731705344105622, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957629525818246466, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: overheatingEffect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037632576936195711, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390176472140250940, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7956380250708815793, guid: 820391ef107df81478776d5cdbeb6b6a, type: 3}
       propertyPath: m_Name
       value: P2 with overheat
@@ -7490,7 +7470,7 @@ PrefabInstance:
       objectReference: {fileID: 862733500}
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: enemyPrefabs.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'
@@ -7499,7 +7479,7 @@ PrefabInstance:
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[1]'
       value: 
-      objectReference: {fileID: 934043536933208654, guid: f9d0342eeda5f9e4aaca25983499c3e1, type: 3}
+      objectReference: {fileID: 4686045922777418728, guid: be32da6c9f8fcd44193c2666a878b95f, type: 3}
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[2]'
       value: 

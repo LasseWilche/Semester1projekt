@@ -9,12 +9,14 @@ public class P1Controller : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public float moveSpeed;
+    public float originalSpeed;
     public Animator moveAnim;
     private Vector3 move = Vector3.zero;
     bool alive = true;
 
     void Start()
     {
+        originalSpeed = moveSpeed;
         moveAnim = GetComponent<Animator>();
     }
 

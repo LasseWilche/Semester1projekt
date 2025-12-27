@@ -111,6 +111,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5910293233061456201
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,6 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1285361883123797602, guid: cd135de9859cf4568803a6f1a80be7a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -165,7 +167,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8226897558420033573
 MonoBehaviour:
@@ -181,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::P2SpriteFix
   gameObjectShoot: {fileID: 2812972896205006057}
   animator: {fileID: 9143574628012486190}
+  alive: 1
 --- !u!95 &9143574628012486190
 Animator:
   serializedVersion: 7
@@ -313,6 +315,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &4847196913298065
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -358,6 +361,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -7737172547398691701, guid: 3ca49d6af6133c545ac00ca71516776b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -367,7 +371,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2371661461659154693
 MonoBehaviour:
@@ -397,6 +400,7 @@ GameObject:
   - component: {fileID: 7952730725836127767}
   - component: {fileID: 807973748569156421}
   - component: {fileID: 8043489096296252946}
+  - component: {fileID: 3564200293051709188}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -471,7 +475,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.000069618225, y: 0.0017267428}
+  m_Offset: {x: -0.0006762855, y: 0.00028172135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -481,7 +485,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1484336, y: 0.23465368}
+  m_Size: {x: 0.14472955, y: 0.23611644}
   m_EdgeRadius: 0
 --- !u!50 &982310075735328471
 Rigidbody2D:
@@ -524,10 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::P2ControllerWithRotationThatDidntWorkLol
   moveSpeed: 5
   rb2d: {fileID: 982310075735328471}
-  dashSpeed: 20
-  dashDuration: 0.25
-  dashCooldown: 1
+  activeMoveSpeed: 0
   rotationSpeed: 500
+  SpaghetteFix: {fileID: 0}
 --- !u!114 &807973748569156421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,14 +573,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
   maxHealth: 3
   currentHealth: 3
-  spriteRenderer: {fileID: 5910293233061456201}
-  ogcolor: {r: 0, g: 0, b: 0, a: 0}
   gameManager: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 9143574628012486190}
   player2: {fileID: 807973748569156421}
   shootScript: {fileID: 7952730725836127767}
   melee: {fileID: 0}
   player1: {fileID: 0}
+  invincibility: 0
+--- !u!114 &3564200293051709188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812972896205006057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6c2911515956429ebffb13e860d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dashKey: 116
+  dashSpeed: 2
+  dashDuration: 0.25
+  dashCooldown: 1
 --- !u!1 &3023922344395830050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,7 +5136,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &6387536027076814434
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5164,6 +5182,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 1
@@ -5195,7 +5214,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!1 &3203887888221073650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5231,6 +5249,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &758437434305078038
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5276,6 +5295,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -5184115295402476536, guid: 57c306926978ba6459f0bdfec6d17004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5285,7 +5305,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4190779251736805716
 MonoBehaviour:
@@ -10009,7 +10028,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &6649909595210273182
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10055,6 +10074,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 1
@@ -10086,7 +10106,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!1 &7639010264023526707
 GameObject:
   m_ObjectHideFlags: 0
