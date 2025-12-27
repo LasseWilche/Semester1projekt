@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   uiDoc: {fileID: 14635638}
+  victoryMusic: {fileID: 0}
 --- !u!1 &368339959
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +598,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e30e0e4d7abefc141b13d5790494ef2b, type: 3}
   - {fileID: 8300000, guid: 5540c3e837126054fa42c66cdb6a4344, type: 3}
   - {fileID: 8300000, guid: 83bda29b93822f446982cd2e2e3a4778, type: 3}
+  - {fileID: 8300000, guid: 9a8deb01a9639ee439549b598374aa64, type: 3}
   - {fileID: 8300000, guid: 0bb169964cbeadd48aef3280195789ae, type: 3}
   - {fileID: 8300000, guid: 0bb169964cbeadd48aef3280195789ae, type: 3}
 --- !u!4 &507460274

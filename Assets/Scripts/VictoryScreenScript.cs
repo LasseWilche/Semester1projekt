@@ -5,6 +5,7 @@ using static UnityEditor.Experimental.GraphView.Port;
 public class VictoryScreenScript : MonoBehaviour
 {
     [SerializeField] UIDocument uiDoc;
+    [SerializeField] AudioClip victoryMusic;
     Label victoryLabel;
     float opacityFloat = 0f;
     float opacityIncrement = 2f;
@@ -13,6 +14,7 @@ public class VictoryScreenScript : MonoBehaviour
     {
         victoryLabel = uiDoc.rootVisualElement.Q<Label>("Victory");
         victoryLabel.style.opacity = 0;
+        SoundManager.PlaySound(SoundType.VICTORYSOUND, 0.5f);
     }
 
     // Update is called once per frame
