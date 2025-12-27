@@ -12,7 +12,7 @@ public class BossCircleAttack : MonoBehaviour
     public GameObject bossBulletPrefab;
     public int bulletCount = 12;
     public float radius = 5f;
-    public float bulletSpeed = 10;
+    public float bulletSpeed = 5;
     public float spawnInterval = 5f;
     public BossHealthManager bossHM;
 

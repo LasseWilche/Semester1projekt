@@ -205,6 +205,7 @@ public abstract class EnemyBaseClass : MonoBehaviour
         vulnurable = false;
         alive = false;
         animator.Play("Death");
+        GetComponent<PolygonCollider2D>().isTrigger = true;
         yield return new WaitForSeconds(2);
         CrystalCharger charger = GameObject.FindFirstObjectByType<CrystalCharger>();
         charger.AddCharge();
