@@ -4,11 +4,13 @@ using UnityEngine.UI;
 
 public class BossHealthManager : MonoBehaviour
 {
-    public int maxHealth { get; private set; } = 50;
+    public int maxHealth { get; private set; } = 30;
     public int currentHealth { get; private set; }
     public Slider hpSlider;
     public GameObject boss;
     public bool bossIsAlive { get; private set; }
+    public bool invincible = true;
+    [SerializeField] GameObject victoryScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,12 +31,14 @@ public class BossHealthManager : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (!invincible)
         currentHealth -= 1;
     }
 
     public void Death()
     {
         bossIsAlive = false;
+        victoryScreen.SetActive(true);
         Destroy(boss);
     }
 

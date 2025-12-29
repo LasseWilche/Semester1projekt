@@ -8,10 +8,11 @@ using UnityEditor.Timeline.Actions;
 public class BossCircleAttack : MonoBehaviour
 {
     //Variables for boss circle attack
+    private float waitStart;
     public GameObject bossBulletPrefab;
     public int bulletCount = 12;
     public float radius = 5f;
-    public float bulletSpeed = 10;
+    public float bulletSpeed = 5;
     public float spawnInterval = 5f;
     public BossHealthManager bossHM;
 
@@ -27,17 +28,15 @@ public class BossCircleAttack : MonoBehaviour
     void Start()
     {
         //Sets anglestep between bullet spawn points
+        waitStart = 5;
         angleStep = 360f / bulletCount;
         StartCoroutine(FireCircleAttack());
     }
-    
-    void Update()
-    {
-        
-    }
-
     public IEnumerator FireCircleAttack()
     {
+        yield return new WaitForSeconds(waitStart);
+        bossHM.invincible = false;
+        waitStart = 0;
         while (bossHM.bossIsAlive == true)
         {
             /*

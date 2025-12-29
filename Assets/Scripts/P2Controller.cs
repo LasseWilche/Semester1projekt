@@ -12,12 +12,15 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
     bool alive = true;
 
     /*  STUFF FOR DASHING  */
-    private float activeMoveSpeed;
+    public float activeMoveSpeed;
+    //dash moved to seperate script
+    /*
     public float dashSpeed;
     public float dashDuration = 0.15f;
     public float dashCooldown = 1f;
     private float dashCounter;
     private float dashCoolCounter;
+    */
 
     /*  STUFF FOR ROTATION  */
     [SerializeField] private float rotationSpeed;
@@ -49,7 +52,8 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
         moveInput.Normalize();
 
         rb2d.linearVelocity = moveInput * activeMoveSpeed;
-
+        //dash moved to seperate script
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
@@ -74,7 +78,7 @@ public class P2ControllerWithRotationThatDidntWorkLol : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
-
+        */
     }
 
     private void RotationMethod()

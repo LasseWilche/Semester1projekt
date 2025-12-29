@@ -7463,6 +7463,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+      propertyPath: spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: spawners.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -7484,7 +7488,7 @@ PrefabInstance:
       objectReference: {fileID: 862733500}
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: enemyPrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'
@@ -7498,6 +7502,10 @@ PrefabInstance:
       propertyPath: 'enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 4686045922777418728, guid: be32da6c9f8fcd44193c2666a878b95f, type: 3}
+    - target: {fileID: 10795114158790219, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3208052346228933100, guid: aa168503881a0ce4f8fb3ee80f99f4cc, type: 3}
     - target: {fileID: 3400520417166857208, guid: 87da9276d6dc6ad4db813cd004abb8f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.27245
