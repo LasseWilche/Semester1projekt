@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::P1Controller
   rb2d: {fileID: 1589936965849002887}
-  moveSpeed: 100
+  moveSpeed: 300
   originalSpeed: 0
   moveAnim: {fileID: 6098417176222182284}
 --- !u!114 &5289867500680606006
