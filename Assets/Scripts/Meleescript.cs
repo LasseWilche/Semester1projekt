@@ -110,7 +110,7 @@ public class Meleescript : MonoBehaviour
             var enemy = other.GetComponent<EnemyHealthManager>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(2);
             }
         }
         if (other.CompareTag("Boss"))
@@ -118,7 +118,7 @@ public class Meleescript : MonoBehaviour
             var boss = other.GetComponent<BossHealthManager>();
             if (boss != null)
             {
-                boss.TakeDamage();
+                boss.TakeDamage(3);
             }
         }
     }

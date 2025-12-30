@@ -29,10 +29,10 @@ public class BossHealthManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
         if (!invincible)
-        currentHealth -= 1;
+        currentHealth -= damage;
     }
 
     public void Death()
@@ -44,9 +44,9 @@ public class BossHealthManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("PlayerMelee"))
+        if (collision.gameObject.CompareTag("PlayerBullet"))
         {
-            TakeDamage();
+            TakeDamage(1);
             if (collision.gameObject.CompareTag("PlayerBullet"))
             {
                 Destroy(collision.gameObject);
