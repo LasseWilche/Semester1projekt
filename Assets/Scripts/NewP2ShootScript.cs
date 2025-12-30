@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
-using Mono.Cecil.Cil;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 
 public class NewP2ShootScript : MonoBehaviour
 {
